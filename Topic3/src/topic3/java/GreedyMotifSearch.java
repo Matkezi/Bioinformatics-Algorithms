@@ -80,8 +80,44 @@ public class GreedyMotifSearch {
     private int score(List<String> motifs){
         int score = 0;
 
+        String[][] motifMatrix = new String[motifs.size()][k];
 
+        //initiate matrix
+        for (int i = 0;i<motifs.size();i++){
+            String[] nucleotides = motifs.get(i).split("");
+            for (int j = 0;j<k;j++){
+                motifMatrix[i][j] = nucleotides[j];
+            }
+        }
 
+        for (int j = 0;j<k;j++){
+            int cntA = 0;
+            int cntC = 0;
+            int cntG = 0;
+            int cntT = 0;
+
+            for (int i = 0;i<motifs.size();i++){
+                switch (motifMatrix[i][j]){
+                    case "A": cntA++; break;
+                    case "C": cntC++; break;
+                    case "G": cntG++; break;
+                    case "T": cntT++; break;
+                    default: System.exit(1);
+                }
+            }
+
+            //find max
+            int max = cntA;
+            if (cntC > max) max = cntC;
+            if (cntG > max) max = cntG;
+            if (cntT > max) max = cntT;
+
+            if (max == cntA) score += motifs.size()-cntA;
+            else if (max == cntC) score += motifs.size()-cntC;
+            else if (max == cntG) score += motifs.size()-cntG;
+            else if (max == cntT) score += motifs.size()-cntT;
+
+            }
         return score;
     }
 
@@ -103,7 +139,7 @@ public class GreedyMotifSearch {
                 motifs.add(mostProbable);
             }
 
-            score(motifs);
+
             if (score(motifs) < score(bestMotifs)){
                 bestMotifs.clear();
                 bestMotifs.addAll(motifs);
