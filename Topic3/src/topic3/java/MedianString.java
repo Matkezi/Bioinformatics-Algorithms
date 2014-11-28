@@ -31,8 +31,11 @@ public class MedianString {
 
         for (int i = 0; i<Math.pow(4,k)-1;i++){
             String pattern = numberToPattern(i,k);
+            if (distance > distanceBetweenPatternsAndString(pattern,dnas)){
+                distance = distanceBetweenPatternsAndString(pattern,dnas);
+                median = pattern;
+            }
         }
-
     }
 
     private int distanceBetweenPatternsAndString(String pattern, List<String> dnas){
@@ -78,7 +81,7 @@ public class MedianString {
     public static void main(String[] args) throws IOException{
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "medianString.txt");
+        File file1 = new File(dir, "dataset_158_9.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
@@ -86,6 +89,8 @@ public class MedianString {
         List<String> dnas = lines.subList(1,lines.size());
 
         MedianString ms = new MedianString(dnas,Integer.parseInt(lines.get(0)));
+
+        System.out.println(ms.median);
 
     }
 }
