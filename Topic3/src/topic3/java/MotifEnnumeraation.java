@@ -35,28 +35,24 @@ public class MotifEnnumeraation {
 
         for (int i = 0; i < dnas.get(0).length()-k+1; i++) {
 
-            String startingKmer = dnas.get(0).substring(i, i + k);
-            List<String> kMers = neighbors(startingKmer, d);
+            String startingPattern = dnas.get(0).substring(i, i + k);
+            List<String> startingNeighbours = neighbors(startingPattern, d);
 
-            for (String kmer : kMers){
-                List<String> neigh = neighbors(kmer,d);
+            for (String startingNeighbour : startingNeighbours){
+                List<String> newNeighbours = neighbors(startingNeighbour,d);
                 int counter = 0;
                 for (String dna : dnas){
                     boolean contains = false;
-
-                    for (String kmer2 : neigh){
-                        if (dna.contains(kmer2)){
+                    for (String newNeighbour : newNeighbours){
+                        if (dna.contains(newNeighbour)){
                             contains = true;
                             break;
                         }
                     }
                     if (contains) counter++;;
                 }
-                if (counter == dnas.size()) patterns.add(kmer);
-
+                if (counter == dnas.size()) patterns.add(startingNeighbour);
             }
-
-
         }
 
 
