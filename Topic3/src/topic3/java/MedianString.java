@@ -38,5 +38,11 @@ public class MedianString {
         if (k == 1){
             return numberToSymbol(index);
         }
+        int r = index % 4;
+        int prefixIndex = index / 4;
+
+        String prefixPattern = numberToPattern(prefixIndex,k-1);
+        String symbol = numberToSymbol(r);
+        return prefixPattern+symbol;
     }
 }
