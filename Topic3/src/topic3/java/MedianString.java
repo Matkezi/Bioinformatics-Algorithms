@@ -81,7 +81,7 @@ public class MedianString {
     public static void main(String[] args) throws IOException{
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "dataset_158_9.txt");
+        File file1 = new File(dir, "medianString.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
