@@ -25,7 +25,7 @@ public class MotifEnnumeraation {
         fillPatterns();
     }
 
-    public void fillPatterns(){
+    private void fillPatterns(){
 
 
         for (String genome : dnas) {
@@ -51,4 +51,6 @@ public class MotifEnnumeraation {
         patterns.addAll(dedupedPatterns);
 
     }
+
+
 }
