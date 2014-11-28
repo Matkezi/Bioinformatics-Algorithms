@@ -31,6 +31,14 @@ public class GreedyMotifSearch {
         this.t = t;
         this.k = k;
         this.dnas = dnas;
+
+        this.profile = new double[4][k];
+        for (int i = 0;i<4;i++){
+            for (int j = 0;j<k;j++){
+                profile[i][j] = 0.0;
+            }
+        }
+
         greedyMotifSearch();
     }
 
