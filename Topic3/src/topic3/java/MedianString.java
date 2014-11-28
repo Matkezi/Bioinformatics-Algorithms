@@ -1,11 +1,14 @@
 package topic3.java;
 
+import topic1.java.HammingDistance;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.DeflaterOutputStream;
 
 /**
  * @author Matko
@@ -24,8 +27,30 @@ public class MedianString {
     }
 
     private void findMedianString(){
+        int distance = 32000; //must be a very large number -> infinity
 
+        for (int i = 0; i<Math.pow(4,k)-1;i++){
+            String pattern = numberToPattern(i,k);
+        }
 
+    }
+
+    private int distanceBetweenPatternsAndString(String pattern, List<String> dnas){
+        int k = pattern.length();
+        int distance = 0;
+
+        for (String dna : dnas){
+            int hammingDistance = 32000; //->infinity
+
+            for (int i = 0; i < dna.length()-k+1; i++) {
+                String possiblePattern = dna.substring(i, i + k);
+                if (hammingDistance > HammingDistance.findHammingDistance(pattern,possiblePattern) ){
+                    hammingDistance = HammingDistance.findHammingDistance(pattern,possiblePattern);
+                }
+            }
+            distance += hammingDistance;
+        }
+        return distance;
     }
 
     private String numberToSymbol(int index){
@@ -62,6 +87,13 @@ public class MedianString {
 
         MedianString ms = new MedianString(dnas,Integer.parseInt(lines.get(0)));
 
-        System.out.print(ms.numberToPattern(45,4));
+        List<String> test = new ArrayList<>();
+        test.add("TTACCTTAAC");
+        test.add("GATATCTGTC");
+        test.add("ACGGCGTTCG");
+        test.add("CCCTAAAGAG");
+        test.add("CGTCAGAGGT");
+
+        System.out.print(ms.distanceBetweenPatternsAndString("AAA",test));
     }
 }
