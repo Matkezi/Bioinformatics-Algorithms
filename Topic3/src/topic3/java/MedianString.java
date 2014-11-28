@@ -1,5 +1,6 @@
 package topic3.java;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,5 +45,9 @@ public class MedianString {
         String prefixPattern = numberToPattern(prefixIndex,k-1);
         String symbol = numberToSymbol(r);
         return prefixPattern+symbol;
+    }
+
+    public void main(String[] args) throws IOException{
+        System.out.print(numberToPattern(45,4));
     }
 }
