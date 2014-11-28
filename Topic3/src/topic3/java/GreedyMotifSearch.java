@@ -225,7 +225,9 @@ public class GreedyMotifSearch {
 
         GreedyMotifSearch gms = new GreedyMotifSearch(k,t,dnas);
 
-        System.out.print(gms.bestMotifs);
+        for (String motif : gms.bestMotifs){
+            System.out.println(motif+" ");
+        }
 
 
         //INPUT FOR Profile-most Probable k-mer Problem!!!
