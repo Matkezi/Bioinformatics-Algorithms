@@ -62,26 +62,33 @@ public class GreedyMotifSearch {
 
     public static void main (String[] args) throws IOException{
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "Profile-most Probable k-mer Problem.txt");
+        File file1 = new File(dir, "GREEDYMOTIFSEARCH.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
 
-        String text = lines.get(0);
-        int k = Integer.parseInt(lines.get(1));
+        int k = Integer.parseInt(lines.get(0));
+        int t = Integer.parseInt(lines.get(1));
 
-        GreedyMotifSearch gms = new GreedyMotifSearch(k);
+        List<String> dnas = lines.subList(2,lines.size());
 
-        //initialiaze a profile
-        for (int i = 0; i<4;i++){
-            String line = lines.get(i+2);
-            String[] splited = line.split("\\s+");
-            for (int j = 0;j<k;j++){
-                gms.profile[i][j] = Double.parseDouble(splited[j]);
-            }
-        }
 
-        gms.profileMostProbableKmer(text);
+        //INPUT FOR Profile-most Probable k-mer Problem!!!
+//        String text = lines.get(0);
+//        int k = Integer.parseInt(lines.get(1));
+//
+//        GreedyMotifSearch gms = new GreedyMotifSearch(k);
+//
+//        //initialiaze a profile
+//        for (int i = 0; i<4;i++){
+//            String line = lines.get(i+2);
+//            String[] splited = line.split("\\s+");
+//            for (int j = 0;j<k;j++){
+//                gms.profile[i][j] = Double.parseDouble(splited[j]);
+//            }
+//        }
+//
+//        gms.profileMostProbableKmer(text);
 
     }
 
