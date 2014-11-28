@@ -23,4 +23,20 @@ public class MedianString {
 
 
     }
+
+    private String numberToSymbol(int index){
+        switch (index){
+            case 0: return "A";
+            case 1: return "C";
+            case 2: return "G";
+            case 3: return "T";
+            default: return "ERROR";
+        }
+    }
+
+    private String numberToPattern(int index, int k){
+        if (k == 1){
+            return numberToSymbol(index);
+        }
+    }
 }
