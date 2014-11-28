@@ -61,14 +61,14 @@ public class MotifEnnumeraation {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
         File file1 = new File(dir, "motifEnnumerate.txt");
-
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
 
-        for (String line : lines){
-            System.out.println(line);
-        }
+        List<String> dnas = lines.subList(2,lines.size());
+
+        MotifEnnumeraation motifEnum = new MotifEnnumeraation(dnas,Integer.parseInt(lines.get(0)),Integer.parseInt(lines.get(1)));
+        System.out.println(motifEnum.patterns);
 
     }
 }
