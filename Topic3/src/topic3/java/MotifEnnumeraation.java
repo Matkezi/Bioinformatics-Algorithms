@@ -1,5 +1,10 @@
 package topic3.java;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -52,5 +57,18 @@ public class MotifEnnumeraation {
 
     }
 
+    public static void main(String[] args) throws IOException{
 
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
+        File file1 = new File(dir, "motifEnnumerate.txt");
+
+        Path filepath = file1.toPath();
+
+        List<String> lines = Files.readAllLines(filepath);
+
+        for (String line : lines){
+            System.out.println(line);
+        }
+
+    }
 }
