@@ -39,9 +39,19 @@ public class MotifEnnumeraation {
                 String startingKmer = genome.substring(i, i + k);
                 List<String> kMers = neighbors(startingKmer, d);
 
+                int counter = 0;
                 for (String dna : dnas){
+                    boolean contains = false;
 
+                    for (String kmer : kMers){
+                        if (dna.contains(kmer)){
+                            contains = true;
+                            break;
+                        }
+                    }
+                    if (contains) counter++;;
                 }
+                if (counter == dnas.size()) patterns.add(startingKmer);
             }
         }
 
