@@ -1,10 +1,10 @@
 package topic3.java;
 
-import topic1.java.FrequentWords;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
+import static topic1.java.FrequentWords.neighbors;
 
 /**
  * @author Matko
@@ -26,6 +26,24 @@ public class MotifEnnumeraation {
 
     public void fillPatterns(){
 
+
+        for (String genome : dnas) {
+            for (int i = 0; i < genome.length() - k; i++) {
+
+                String startingKmer = genome.substring(i, i + k);
+                List<String> kMers = neighbors(startingKmer, d);
+
+                for (String kmer : kMers){
+                    int counter = 0;
+                    for (String dna : dnas){
+                        if (dna.contains(kmer)) {
+                            counter++;
+                        }
+                    }
+                    if (counter == dnas.size()) patterns.add(kmer);
+                }
+            }
+        }
 
     }
 }
