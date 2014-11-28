@@ -77,6 +77,14 @@ public class GreedyMotifSearch {
 
     }
 
+    private int score(List<String> motifs){
+        int score = 0;
+
+
+
+        return score;
+    }
+
     private void greedyMotifSearch(){
 
         for (String dna : dnas){
@@ -95,7 +103,11 @@ public class GreedyMotifSearch {
                 motifs.add(mostProbable);
             }
 
-
+            score(motifs);
+            if (score(motifs) < score(bestMotifs)){
+                bestMotifs.clear();
+                bestMotifs.addAll(motifs);
+            }
         }
 
     }
