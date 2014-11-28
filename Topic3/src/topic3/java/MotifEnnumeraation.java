@@ -40,13 +40,13 @@ public class MotifEnnumeraation {
                 List<String> kMers = neighbors(startingKmer, d);
 
                 for (String kmer : kMers){
-                    int counter = 0;
+                    boolean constains = true;
                     for (String dna : dnas){
-                        if (dna.contains(kmer)) {
-                            counter++;
+                        if (!dna.contains(kmer)) {
+                            constains = false;
                         }
                     }
-                    if (counter == dnas.size()) patterns.add(kmer);
+                    if (constains) patterns.add(kmer);
                 }
             }
         }
