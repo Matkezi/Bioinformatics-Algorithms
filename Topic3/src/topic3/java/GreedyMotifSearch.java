@@ -75,8 +75,6 @@ public class GreedyMotifSearch {
             profile[3][j] = cntT / motifs.size();
         }
 
-        System.out.print(motifMatrix);
-
     }
 
     private void greedyMotifSearch(){
@@ -93,8 +91,11 @@ public class GreedyMotifSearch {
 
             for (int j = 1;j<t;j++){
                 formProfile(motifs);
-
+                String mostProbable = profileMostProbableKmer(dnas.get(j));
+                motifs.add(mostProbable);
             }
+
+
         }
 
     }
@@ -131,14 +132,18 @@ public class GreedyMotifSearch {
             probabilites.put(kMer,probability);
         }
 
+        int numberOfMaxValues = 0;
         String mostProbable = "";
         Double maxValueInMap = (Collections.max(probabilites.values()));  // This will return max value in the Hashmap
         for (Map.Entry<String, Double> entry : probabilites.entrySet()) {  // Itrate through hashmap
             if (entry.getValue() == maxValueInMap) {
+                numberOfMaxValues++;
                 //System.out.println(entry.getKey());
                 mostProbable = entry.getKey();
+                List<String> =
             }
         }
+
         return mostProbable;
     }
 
