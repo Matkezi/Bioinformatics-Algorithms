@@ -33,27 +33,27 @@ public class MotifEnnumeraation {
     private void fillPatterns(){
 
 
-        for (String genome : dnas) {
-            for (int i = 0; i < genome.length() - k; i++) {
+        for (int i = 0; i < dnas.get(0).length() - k; i++) {
 
-                String startingKmer = genome.substring(i, i + k);
-                List<String> kMers = neighbors(startingKmer, d);
+            String startingKmer = dnas.get(0).substring(i, i + k);
+            List<String> kMers = neighbors(startingKmer, d);
 
-                int counter = 0;
-                for (String dna : dnas){
-                    boolean contains = false;
+            int counter = 0;
+            for (String dna : dnas){
+                boolean contains = false;
 
-                    for (String kmer : kMers){
-                        if (dna.contains(kmer)){
-                            contains = true;
-                            break;
-                        }
+                for (String kmer : kMers){
+                    if (dna.contains(kmer)){
+                        contains = true;
+                        patterns.add(kmer);
+                        break;
                     }
-                    if (contains) counter++;;
                 }
-                if (counter == dnas.size()) patterns.add(startingKmer);
+                if (contains) counter++;;
             }
+            if (counter == dnas.size()) patterns.add(startingKmer);
         }
+
 
         Set<String> dedupedPatterns = new LinkedHashSet<>(patterns);
         patterns.clear();
