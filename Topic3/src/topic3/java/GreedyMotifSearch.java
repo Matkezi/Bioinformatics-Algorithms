@@ -1,12 +1,12 @@
 package topic3.java;
 
+import com.sun.xml.internal.ws.util.QNameMap;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.DoubleSummaryStatistics;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -30,10 +30,10 @@ public class GreedyMotifSearch {
         Double probabilty = 1.0;
         for (int j = 0;j<k;j++){
             switch (nucleotides[j]){
-                case "A": probabilty *= profile[0][j];
-                case "C": probabilty *= profile[1][j];
-                case "G": probabilty *= profile[2][j];
-                case "T": probabilty *= profile[3][j];
+                case "A": probabilty *= profile[0][j]; break;
+                case "C": probabilty *= profile[1][j]; break;
+                case "G": probabilty *= profile[2][j]; break;
+                case "T": probabilty *= profile[3][j]; break;
                 default: probabilty *= 1.0;
             }
         }
@@ -50,8 +50,13 @@ public class GreedyMotifSearch {
             probabilites.put(kMer,probability);
         }
 
-
-
+        Double maxValueInMap = (Collections.max(probabilites.values()));  // This will return max value in the Hashmap
+        for (Map.Entry<String, Double> entry : probabilites.entrySet()) {  // Itrate through hashmap
+            if (entry.getValue() == maxValueInMap) {
+                System.out.println(entry.getKey());
+            }
+        }
+        return "df";
     }
 
     public static void main (String[] args) throws IOException{
@@ -75,10 +80,8 @@ public class GreedyMotifSearch {
             }
         }
 
-        gms.profileMostProbableKmer("ACCTGTTTATTGCCTAAGTTCCGAACAAACCCAATATAGCCCGAGGGCCT");
+        gms.profileMostProbableKmer(text);
 
-
-        System.out.print(gms.profile);
     }
 
 
