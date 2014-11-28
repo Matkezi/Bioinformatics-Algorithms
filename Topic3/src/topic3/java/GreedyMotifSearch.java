@@ -43,6 +43,39 @@ public class GreedyMotifSearch {
     }
 
     private void formProfile(List<String> motifs){
+        String[][] motifMatrix = new String[motifs.size()][k];
+
+        //initiate matrix
+        for (int i = 0;i<motifs.size();i++){
+            String[] nucleotides = motifs.get(i).split("");
+            for (int j = 0;j<k;j++){
+                motifMatrix[i][j] = nucleotides[j];
+            }
+        }
+
+        //calculate probabilites
+        for (int j = 0;j<k;j++){
+
+            double cntA = 0.0;
+            double cntC = 0.0;
+            double cntG = 0.0;
+            double cntT = 0.0;
+            for (int i = 0;i<motifs.size();i++){
+                switch (motifMatrix[i][j]){
+                    case "A": cntA++; break;
+                    case "C": cntC++; break;
+                    case "G": cntG++; break;
+                    case "T": cntT++; break;
+                    default: System.exit(1);
+                }
+            }
+            profile[0][j] = cntA / motifs.size();
+            profile[1][j] = cntC / motifs.size();
+            profile[2][j] = cntG / motifs.size();
+            profile[3][j] = cntT / motifs.size();
+        }
+
+        System.out.print(motifMatrix);
 
     }
 
@@ -60,7 +93,6 @@ public class GreedyMotifSearch {
 
             for (int j = 1;j<t;j++){
                 formProfile(motifs);
-
 
             }
         }
