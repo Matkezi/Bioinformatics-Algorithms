@@ -33,7 +33,7 @@ public class MotifEnnumeraation {
     private void fillPatterns(){
 
 
-        for (int i = 0; i < dnas.get(0).length() - k; i++) {
+        for (int i = 0; i < dnas.get(0).length()-k+1; i++) {
 
             String startingKmer = dnas.get(0).substring(i, i + k);
             List<String> kMers = neighbors(startingKmer, d);
@@ -45,7 +45,6 @@ public class MotifEnnumeraation {
                 for (String kmer : kMers){
                     if (dna.contains(kmer)){
                         contains = true;
-                        patterns.add(kmer);
                         break;
                     }
                 }
