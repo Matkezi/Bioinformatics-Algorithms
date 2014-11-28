@@ -77,7 +77,10 @@ public class MotifEnnumeraation {
         List<String> dnas = lines.subList(2,lines.size());
 
         MotifEnnumeraation motifEnum = new MotifEnnumeraation(dnas,Integer.parseInt(lines.get(0)),Integer.parseInt(lines.get(1)));
-        System.out.println(motifEnum.patterns);
+
+        for (String pattern : motifEnum.patterns){
+            System.out.print(pattern+" ");
+        }
 
     }
 }
