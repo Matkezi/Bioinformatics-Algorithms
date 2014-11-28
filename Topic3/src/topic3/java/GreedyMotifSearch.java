@@ -50,13 +50,15 @@ public class GreedyMotifSearch {
             probabilites.put(kMer,probability);
         }
 
+        String mostProbable = "";
         Double maxValueInMap = (Collections.max(probabilites.values()));  // This will return max value in the Hashmap
         for (Map.Entry<String, Double> entry : probabilites.entrySet()) {  // Itrate through hashmap
             if (entry.getValue() == maxValueInMap) {
                 System.out.println(entry.getKey());
+                mostProbable = entry.getKey();
             }
         }
-        return "df";
+        return mostProbable;
     }
 
 
