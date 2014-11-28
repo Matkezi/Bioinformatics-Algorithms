@@ -25,28 +25,7 @@ public class MotifEnnumeraation {
     }
 
     public void fillPatterns(){
-        String dna = dnas.get(0);
-        List<String> frequentKmersWithMissmatch = FrequentWords.findMostFrequentKmersWithAMismatch(dna,k,d);
 
-        boolean containsPattern = false;
-        for (String dnaSample : dnas){
-            containsPattern = false;
-            for (String pattern : frequentKmersWithMissmatch){
-                if (dnaSample.contains(pattern)) {
-                    containsPattern = true;
-                    patterns.add(pattern);
-                    break;
-                }
-            }
-            if (!containsPattern) break;
-        }
-
-        if (!containsPattern) System.out.println("No patterns found!");
-        else {
-            Set<String> dedupePatterns = new LinkedHashSet<>(patterns);
-            patterns.clear();
-            patterns.addAll(dedupePatterns);
-        }
 
     }
 }
