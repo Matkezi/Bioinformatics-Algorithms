@@ -59,6 +59,7 @@ public class GreedyMotifSearch {
         return "df";
     }
 
+
     public static void main (String[] args) throws IOException{
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
         File file1 = new File(dir, "Profile-most Probable k-mer Problem.txt");
