@@ -39,7 +39,39 @@ public class GreedyMotifSearch {
             }
         }
 
-        greedyMotifSearch();
+        //greedyMotifSearch();
+        randomizedMotifSearch();
+    }
+
+    private void randomizedMotifSearch(){
+
+    }
+
+    private void greedyMotifSearch(){
+
+        for (String dna : dnas){
+            bestMotifs.add(dna.substring(0,k+1));
+        }
+
+        List<String> motifs = new ArrayList<>();
+        for (int i = 0; i < dnas.get(0).length()-k+1; i++) {
+            String motif = dnas.get(0).substring(i, i + k);
+            motifs.clear();
+            motifs.add(motif);
+
+            for (int j = 1;j<t;j++){
+                formProfile(motifs);
+                String mostProbable = profileMostProbableKmer(dnas.get(j));
+                motifs.add(mostProbable);
+            }
+
+
+            if (score(motifs) < score(bestMotifs)){
+                bestMotifs.clear();
+                bestMotifs.addAll(motifs);
+            }
+        }
+
     }
 
     private void formProfile(List<String> motifs){
@@ -119,33 +151,6 @@ public class GreedyMotifSearch {
 
             }
         return score;
-    }
-
-    private void greedyMotifSearch(){
-
-        for (String dna : dnas){
-            bestMotifs.add(dna.substring(0,k+1));
-        }
-
-        List<String> motifs = new ArrayList<>();
-        for (int i = 0; i < dnas.get(0).length()-k+1; i++) {
-            String motif = dnas.get(0).substring(i, i + k);
-            motifs.clear();
-            motifs.add(motif);
-
-            for (int j = 1;j<t;j++){
-                formProfile(motifs);
-                String mostProbable = profileMostProbableKmer(dnas.get(j));
-                motifs.add(mostProbable);
-            }
-
-
-            if (score(motifs) < score(bestMotifs)){
-                bestMotifs.clear();
-                bestMotifs.addAll(motifs);
-            }
-        }
-
     }
 
     private Double calculateProbability(String kMer){
