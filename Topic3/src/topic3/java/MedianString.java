@@ -1,6 +1,9 @@
 package topic3.java;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +50,18 @@ public class MedianString {
         return prefixPattern+symbol;
     }
 
-    public void main(String[] args) throws IOException{
-        System.out.print(numberToPattern(45,4));
+    public static void main(String[] args) throws IOException{
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
+        File file1 = new File(dir, "medianString.txt");
+        Path filepath = file1.toPath();
+
+        List<String> lines = Files.readAllLines(filepath);
+
+        List<String> dnas = lines.subList(1,lines.size());
+
+        MedianString ms = new MedianString(dnas,Integer.parseInt(lines.get(0)));
+
+        System.out.print(ms.numberToPattern(45,4));
     }
 }
