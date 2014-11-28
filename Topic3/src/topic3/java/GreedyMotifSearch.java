@@ -56,10 +56,10 @@ public class GreedyMotifSearch {
         //calculate probabilites
         for (int j = 0;j<k;j++){
 
-            double cntA = 0.0;
-            double cntC = 0.0;
-            double cntG = 0.0;
-            double cntT = 0.0;
+            double cntA = 1.0;
+            double cntC = 1.0;
+            double cntG = 1.0;
+            double cntT = 1.0;
             for (int i = 0;i<motifs.size();i++){
                 switch (motifMatrix[i][j]){
                     case "A": cntA++; break;
@@ -69,10 +69,10 @@ public class GreedyMotifSearch {
                     default: System.exit(1);
                 }
             }
-            profile[0][j] = cntA / motifs.size();
-            profile[1][j] = cntC / motifs.size();
-            profile[2][j] = cntG / motifs.size();
-            profile[3][j] = cntT / motifs.size();
+            profile[0][j] = cntA / (motifs.size()+1);
+            profile[1][j] = cntC / (motifs.size()+1);
+            profile[2][j] = cntG / (motifs.size()+1);
+            profile[3][j] = cntT / (motifs.size()+1);
         }
 
     }
