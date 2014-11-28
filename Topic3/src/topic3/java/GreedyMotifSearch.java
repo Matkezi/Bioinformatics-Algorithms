@@ -15,15 +15,28 @@ import java.util.*;
  */
 public class GreedyMotifSearch {
 
-    int k;
+    int k, t;
     double[][] profile;
+    List<String> dnas = new ArrayList<>();
+    List<String> bestMotifs = new ArrayList<>();
 
 
+    //used for PROFILE problem...
     public GreedyMotifSearch(int k) {
         this.profile = new double[4][k];
         this.k = k;
     }
 
+    public GreedyMotifSearch(int k, int t, List<String> dnas) {
+        this.t = t;
+        this.k = k;
+        this.dnas = dnas;
+        greedyMotifSearch();
+    }
+
+    private void greedyMotifSearch(){
+
+    }
 
     private Double calculateProbability(String kMer){
         String[] nucleotides = kMer.split("");
@@ -40,6 +53,13 @@ public class GreedyMotifSearch {
         return probabilty;
     }
 
+    /**
+     * Returns a most probable kmer,
+     * UNKNOWN result if more then 1 have the max value
+     * NEED TO RESOLVE to return first one from the text!
+     * @param text some string
+     * @return most probable kmer from the given text
+     */
     private String profileMostProbableKmer (String text){
 
         HashMap<String,Double> probabilites = new HashMap<>();
@@ -54,7 +74,7 @@ public class GreedyMotifSearch {
         Double maxValueInMap = (Collections.max(probabilites.values()));  // This will return max value in the Hashmap
         for (Map.Entry<String, Double> entry : probabilites.entrySet()) {  // Itrate through hashmap
             if (entry.getValue() == maxValueInMap) {
-                System.out.println(entry.getKey());
+                //System.out.println(entry.getKey());
                 mostProbable = entry.getKey();
             }
         }
@@ -73,6 +93,10 @@ public class GreedyMotifSearch {
         int t = Integer.parseInt(lines.get(1));
 
         List<String> dnas = lines.subList(2,lines.size());
+
+        GreedyMotifSearch gms = new GreedyMotifSearch(k,t,dnas);
+
+        System.out.print(gms.bestMotifs);
 
 
         //INPUT FOR Profile-most Probable k-mer Problem!!!
