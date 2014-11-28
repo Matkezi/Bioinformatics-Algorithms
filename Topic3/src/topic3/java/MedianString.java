@@ -87,7 +87,5 @@ public class MedianString {
 
         MedianString ms = new MedianString(dnas,Integer.parseInt(lines.get(0)));
 
-        List<String> test = new ArrayList<>();
-
     }
 }
