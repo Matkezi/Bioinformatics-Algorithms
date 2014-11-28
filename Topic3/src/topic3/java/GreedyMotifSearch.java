@@ -12,10 +12,13 @@ import java.util.List;
  */
 public class GreedyMotifSearch {
 
-    int k = 1;
-    double[][] profile = new double[4][k];
+    double[][] profile;
 
-//    private String profileMostProbableKmer (String text, int k){
+    public GreedyMotifSearch(int k) {
+        this.profile = new double[4][k];
+    }
+
+    //    private String profileMostProbableKmer (String text, int k){
 //
 //    }
 
@@ -30,14 +33,12 @@ public class GreedyMotifSearch {
         String text = lines.get(0);
         int k = Integer.parseInt(lines.get(1));
 
-        GreedyMotifSearch gms = new GreedyMotifSearch();
-
-        gms.k = k;
+        GreedyMotifSearch gms = new GreedyMotifSearch(k);
 
         for (int i = 0; i<4;i++){
             String line = lines.get(i+2);
             String[] splited = line.split("\\s+");
-            for (int j = 0;j<gms.k;j++){
+            for (int j = 0;j<k;j++){
                 gms.profile[i][j] = Double.parseDouble(splited[j]);
             }
         }
