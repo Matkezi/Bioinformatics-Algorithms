@@ -1,6 +1,7 @@
 package topic3.java;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -44,6 +45,10 @@ public class MotifEnnumeraation {
                 }
             }
         }
+
+        Set<String> dedupedPatterns = new LinkedHashSet<>(patterns);
+        patterns.clear();
+        patterns.addAll(dedupedPatterns);
 
     }
 }
