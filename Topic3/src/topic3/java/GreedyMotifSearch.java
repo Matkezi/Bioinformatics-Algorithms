@@ -132,19 +132,34 @@ public class GreedyMotifSearch {
             probabilites.put(kMer,probability);
         }
 
-        int numberOfMaxValues = 0;
         String mostProbable = "";
+        List<String> mostProbables = new ArrayList<>();
         Double maxValueInMap = (Collections.max(probabilites.values()));  // This will return max value in the Hashmap
         for (Map.Entry<String, Double> entry : probabilites.entrySet()) {  // Itrate through hashmap
-            if (entry.getValue() == maxValueInMap) {
-                numberOfMaxValues++;
+            if (entry.getValue() >= maxValueInMap) {
                 //System.out.println(entry.getKey());
-                mostProbable = entry.getKey();
-                List<String> =
+                mostProbables.add(entry.getKey());
             }
         }
 
+        if (mostProbables.size() > 1) {
+            HashMap<String, Integer> positions = new HashMap<>();
+            for (String probable : mostProbables) {
+                int position = text.indexOf(probable);
+                positions.put(probable, position);
+            }
+
+            Integer minValueInMap = (Collections.min(positions.values()));  // This will return max value in the Hashmap
+            for (Map.Entry<String, Integer> entry : positions.entrySet()) {  // Itrate through hashmap
+                if (entry.getValue() == minValueInMap) {
+                    //System.out.println(entry.getKey());
+                    mostProbable = entry.getKey();
+                }
+            }
+        } else mostProbable = mostProbables.get(0);
+
         return mostProbable;
+
     }
 
 
