@@ -349,7 +349,7 @@ public class MotifSearch {
 //        String text = lines.get(0);
 //        int k = Integer.parseInt(lines.get(1));
 //
-//        GreedyMotifSearch gms = new GreedyMotifSearch(k);
+//        MotifSearch gms = new MotifSearch(k);
 //
 //        //initialiaze a profile
 //        for (int i = 0; i<4;i++){
