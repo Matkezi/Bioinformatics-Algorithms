@@ -40,7 +40,8 @@ public class GreedyMotifSearch {
         }
 
         //greedyMotifSearch();
-        randomizedMotifSearch();
+        for (int i = 0;i<1000;i++) randomizedMotifSearch();
+
     }
 
     private void randomizedMotifSearch(){
@@ -56,8 +57,7 @@ public class GreedyMotifSearch {
         List<String> motifs = new ArrayList<>();
         motifs.addAll(bestMotifs);
 
-        //CAREFULL 100, 1000....
-        for (int i = 0;i<1000;i++){
+        while (true) {
             formProfile(motifs);
             motifs.clear();
             motifs = formMotifs();
@@ -65,7 +65,7 @@ public class GreedyMotifSearch {
             if (score(motifs) < score(bestMotifs)) {
                 bestMotifs.clear();
                 bestMotifs.addAll(motifs);
-            }
+            } else break;
         }
     }
 
@@ -249,7 +249,7 @@ public class GreedyMotifSearch {
 
     public static void main (String[] args) throws IOException{
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "GREEDYMOTIFSEARCH.txt");
+        File file1 = new File(dir, "RANDMOTIFSEARCH.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
