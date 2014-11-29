@@ -1,6 +1,8 @@
 package topic3.java;
 
 import com.sun.xml.internal.ws.util.QNameMap;
+import javafx.scene.paint.Stop;
+import topic1.java.Stopwatch;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +21,12 @@ public class GreedyMotifSearch {
     double[][] profile;
     boolean firstTime = true;
     List<String> dnas = new ArrayList<>();
+
     List<String> bestMotifs = new ArrayList<>();
+    int bestScore;
+
+    List<String> motifs = new ArrayList<>();
+    int score;
 
 
     //used for PROFILE problem...
@@ -42,9 +49,15 @@ public class GreedyMotifSearch {
 
         //greedyMotifSearch();
 
-        for (int i = 0;i<10000;i++) {
-
+        this.bestScore = k*t;
+        for (int i = 0;i<1000;i++) {
             randomizedMotifSearch();
+            if (this.score < bestScore){
+                bestScore = this.score;
+                bestMotifs.clear();
+                bestMotifs.addAll(this.motifs);
+
+            }
         }
     }
 
@@ -59,19 +72,19 @@ public class GreedyMotifSearch {
             motifs.add(dna.substring(startingPosition,startingPosition+k));
         }
 
-        if (firstTime) {
-            bestMotifs.addAll(motifs);
-            firstTime = false;
-        }
+        this.score = score(motifs);
+        this.motifs = motifs;
 
         while (true) {
             formProfile(motifs);
             motifs.clear();
             motifs = formMotifs();
 
-            if (score(motifs) < score(bestMotifs)) {
-                bestMotifs.clear();
-                bestMotifs.addAll(motifs);
+            if (score(motifs) < this.score) {
+                this.score = score(motifs);
+                this.motifs.clear();
+                this.motifs.addAll(motifs);
+
             } else break;
         }
     }
@@ -255,8 +268,10 @@ public class GreedyMotifSearch {
     }
 
     public static void main (String[] args) throws IOException{
+
+
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "GREEDYMOTIFSEARCH.txt");
+        File file1 = new File(dir, "dataset_161_5.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
@@ -266,12 +281,14 @@ public class GreedyMotifSearch {
 
         List<String> dnas = lines.subList(2,lines.size());
 
+        Stopwatch timer = new Stopwatch();
         GreedyMotifSearch gms = new GreedyMotifSearch(k,t,dnas);
 
         for (String motif : gms.bestMotifs){
             System.out.println(motif+" ");
         }
 
+        System.out.println(timer.elapsedTime());
 
         //INPUT FOR Profile-most Probable k-mer Problem!!!
 //        String text = lines.get(0);
