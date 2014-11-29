@@ -50,7 +50,7 @@ public class GreedyMotifSearch {
         //greedyMotifSearch();
 
         this.bestScore = k*t;
-        for (int i = 0;i<1000;i++) {
+        for (int i = 0;i<10000;i++) {
             randomizedMotifSearch();
             if (this.score < bestScore){
                 bestScore = this.score;
@@ -271,7 +271,7 @@ public class GreedyMotifSearch {
 
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "dataset_161_5.txt");
+        File file1 = new File(dir, "RANDMOTIFSEARCH.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
