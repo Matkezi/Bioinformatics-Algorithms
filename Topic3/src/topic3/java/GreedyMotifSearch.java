@@ -57,10 +57,15 @@ public class GreedyMotifSearch {
         motifs.addAll(bestMotifs);
 
         //CAREFULL 100, 1000....
-        for (int i = 0;i<100;i++){
+        for (int i = 0;i<1000;i++){
             formProfile(motifs);
             motifs.clear();
             motifs = formMotifs();
+
+            if (score(motifs) < score(bestMotifs)) {
+                bestMotifs.clear();
+                bestMotifs.addAll(motifs);
+            }
         }
     }
 
