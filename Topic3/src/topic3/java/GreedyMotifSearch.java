@@ -238,7 +238,7 @@ public class GreedyMotifSearch {
 
             Integer minValueInMap = (Collections.min(positions.values()));  // This will return max value in the Hashmap
             for (Map.Entry<String, Integer> entry : positions.entrySet()) {  // Itrate through hashmap
-                if (entry.getValue() == minValueInMap) {
+                if (entry.getValue() <= minValueInMap) {
                     //System.out.println(entry.getKey());
                     mostProbable = entry.getKey();
                 }
