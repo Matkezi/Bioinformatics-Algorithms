@@ -52,6 +52,15 @@ public class GreedyMotifSearch {
             int startingPosition = rand.nextInt((dnas.get(0).length() - k + 1));
             bestMotifs.add(dna.substring(startingPosition,startingPosition+k));
         }
+
+        List<String> motifs = new ArrayList<>();
+        motifs.addAll(bestMotifs);
+
+        for (int i = 0;i<1000;i++){
+            formProfile(motifs);
+            motifs.clear();
+            motifs = formMotif();
+        }
     }
 
     private void greedyMotifSearch(){
@@ -78,6 +87,10 @@ public class GreedyMotifSearch {
                 bestMotifs.addAll(motifs);
             }
         }
+
+    }
+
+    private List<String> formMotif(){
 
     }
 
