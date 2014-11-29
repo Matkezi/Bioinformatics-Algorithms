@@ -17,6 +17,7 @@ public class GreedyMotifSearch {
 
     int k, t;
     double[][] profile;
+    boolean firstTime = true;
     List<String> dnas = new ArrayList<>();
     List<String> bestMotifs = new ArrayList<>();
 
@@ -41,7 +42,8 @@ public class GreedyMotifSearch {
 
         //greedyMotifSearch();
 
-        for (int i = 0;i<10000;i++) {
+        for (int i = 0;i<1000;i++) {
+
             randomizedMotifSearch();
         }
     }
@@ -51,13 +53,16 @@ public class GreedyMotifSearch {
         Random rand = new Random();
         // int randomNum = rand.nextInt((max - min) + 1) + min;
 
+        List<String> motifs = new ArrayList<>();
         for(String dna : dnas) {
             int startingPosition = rand.nextInt((dnas.get(0).length() - k + 1));
-            bestMotifs.add(dna.substring(startingPosition,startingPosition+k));
+            motifs.add(dna.substring(startingPosition,startingPosition+k));
         }
 
-        List<String> motifs = new ArrayList<>();
-        motifs.addAll(bestMotifs);
+        if (firstTime) {
+            bestMotifs.addAll(motifs);
+            firstTime = false;
+        }
 
         while (true) {
             formProfile(motifs);
