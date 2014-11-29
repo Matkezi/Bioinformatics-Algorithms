@@ -111,7 +111,7 @@ public class MotifSearch {
                 this.motifs.clear();
                 this.motifs.addAll(motifs);
 
-            } else break;
+            }
         }
 
 
