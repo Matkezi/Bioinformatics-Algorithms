@@ -72,7 +72,7 @@ public class MotifSearch {
         }
 
         this.bestScore = k*t;
-        for (int i = 0;i<20;i++) {
+        for (int i = 0;i<40;i++) {
             gibbsSampler();
             if (this.score < bestScore){
                 bestScore = this.score;
@@ -94,7 +94,7 @@ public class MotifSearch {
         }
 
         this.score = score(motifs);
-        this.motifs = motifs;
+        this.motifs.addAll(motifs);
 
         for(int i = 0;i<n;i++) {
 
@@ -113,8 +113,6 @@ public class MotifSearch {
 
             }
         }
-
-
     }
 
     private void randomizedMotifSearch(){
