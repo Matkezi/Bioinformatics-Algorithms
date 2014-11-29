@@ -102,8 +102,9 @@ public class MotifSearch {
             motifs.remove(position);
 
             formProfile(motifs);
-            motifs.clear();
-            motifs = formMotifs();
+
+            String randomMotif = profileMostProbableKmer(dnas.get(position));
+            motifs.add(position,randomMotif);
 
             if (score(motifs) < this.score) {
                 this.score = score(motifs);
