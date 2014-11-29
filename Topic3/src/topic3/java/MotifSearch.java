@@ -15,9 +15,8 @@ import java.util.*;
  */
 public class MotifSearch {
 
-    int k, t;
+    int k, t, n;
     double[][] profile;
-    boolean firstTime = true;
     List<String> dnas = new ArrayList<>();
 
     List<String> bestMotifs = new ArrayList<>();
@@ -57,6 +56,26 @@ public class MotifSearch {
 
             }
         }
+    }
+
+    public MotifSearch(int k, int t, int n, List<String> dnas) {
+        this.k = k;
+        this.t = t;
+        this.n = n;
+        this.dnas = dnas;
+
+        this.profile = new double[4][k];
+        for (int i = 0;i<4;i++){
+            for (int j = 0;j<k;j++){
+                profile[i][j] = 0.0;
+            }
+        }
+
+        gibbsSampler();
+    }
+
+    private void gibbsSampler(){
+
     }
 
     private void randomizedMotifSearch(){
@@ -269,18 +288,19 @@ public class MotifSearch {
 
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "RANDMOTIFSEARCH.txt");
+        File file1 = new File(dir, "GIBBSSAMPLER.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
 
         int k = Integer.parseInt(lines.get(0));
         int t = Integer.parseInt(lines.get(1));
+        int n = Integer.parseInt(lines.get(2));
 
-        List<String> dnas = lines.subList(2,lines.size());
+        List<String> dnas = lines.subList(3,lines.size());
 
         Stopwatch timer = new Stopwatch();
-        MotifSearch gms = new MotifSearch(k,t,dnas);
+        MotifSearch gms = new MotifSearch(k,t,n,dnas);
 
         for (String motif : gms.bestMotifs){
             System.out.println(motif+" ");
