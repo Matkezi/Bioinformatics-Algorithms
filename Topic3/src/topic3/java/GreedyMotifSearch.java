@@ -56,10 +56,11 @@ public class GreedyMotifSearch {
         List<String> motifs = new ArrayList<>();
         motifs.addAll(bestMotifs);
 
+        //CAREFULL 100, 1000....
         for (int i = 0;i<100;i++){
             formProfile(motifs);
             motifs.clear();
-            motifs = formMotif();
+            motifs = formMotifs();
         }
     }
 
@@ -90,8 +91,14 @@ public class GreedyMotifSearch {
 
     }
 
-    private List<String> formMotif(){
+    private List<String> formMotifs(){
+        List<String> motifs = new ArrayList<>();
 
+        for (int i = 0;i<t;i++){
+            String mostProbable = profileMostProbableKmer(dnas.get(i));
+            motifs.add(mostProbable);
+        }
+        return motifs;
     }
 
     private void formProfile(List<String> motifs){
