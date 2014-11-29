@@ -45,6 +45,13 @@ public class GreedyMotifSearch {
 
     private void randomizedMotifSearch(){
 
+        Random rand = new Random();
+        // int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        for(String dna : dnas) {
+            int startingPosition = rand.nextInt((dnas.get(0).length() - k + 1));
+            bestMotifs.add(dna.substring(startingPosition,startingPosition+k));
+        }
     }
 
     private void greedyMotifSearch(){
