@@ -71,10 +71,48 @@ public class MotifSearch {
             }
         }
 
-        gibbsSampler();
+        this.bestScore = k*t;
+        for (int i = 0;i<20;i++) {
+            gibbsSampler();
+            if (this.score < bestScore){
+                bestScore = this.score;
+                bestMotifs.clear();
+                bestMotifs.addAll(this.motifs);
+
+            }
+        }
     }
 
     private void gibbsSampler(){
+        Random rand = new Random();
+        // int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        List<String> motifs = new ArrayList<>();
+        for(String dna : dnas) {
+            int startingPosition = rand.nextInt((dnas.get(0).length() - k + 1));
+            motifs.add(dna.substring(startingPosition,startingPosition+k));
+        }
+
+        this.score = score(motifs);
+        this.motifs = motifs;
+
+        for(int i = 0;i<n;i++) {
+
+            int position = rand.nextInt(t); //select a random nubmer between from 0 to t-1
+            motifs.remove(position);
+
+            formProfile(motifs);
+            motifs.clear();
+            motifs = formMotifs();
+
+            if (score(motifs) < this.score) {
+                this.score = score(motifs);
+                this.motifs.clear();
+                this.motifs.addAll(motifs);
+
+            } else break;
+        }
+
 
     }
 
