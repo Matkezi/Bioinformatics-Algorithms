@@ -1,4 +1,4 @@
-package main.java;
+package topic2.java;
 
 /**
  * @author Matko

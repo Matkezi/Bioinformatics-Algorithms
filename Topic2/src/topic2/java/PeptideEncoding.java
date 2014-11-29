@@ -1,12 +1,10 @@
-package main.java;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.nio.file.Paths;
-import java.util.Map;
 
 /**
  * @author Matko
@@ -51,7 +49,7 @@ public class PeptideEncoding {
 
         ProteinTranslation.initiateCodonMap();
 
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\B_brevis.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\B_brevis.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
         StringBuilder sb = new StringBuilder();

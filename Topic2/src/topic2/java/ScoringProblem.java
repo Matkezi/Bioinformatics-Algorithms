@@ -1,4 +1,4 @@
-package main.java;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -52,7 +52,7 @@ public class ScoringProblem {
         ProteinTranslation.initiateCodonMap();
         TheoreticalSpectrum.initiateIntegerMass();
 
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\dataset_4913_1.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\dataset_4913_1.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
         List<String> spectrum = new ArrayList<>();

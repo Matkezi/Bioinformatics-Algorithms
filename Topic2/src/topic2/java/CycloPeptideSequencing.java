@@ -1,6 +1,4 @@
-package main.java;
-
-import com.sun.org.apache.xml.internal.utils.ThreadControllerWrapper;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +15,7 @@ public class CycloPeptideSequencing {
     static Map<String, String> integerMass = new HashMap<>();
 
     public static void initiateIntegerrMass_keyInteger() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\integer_mass_table.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\integer_mass_table.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -27,7 +25,7 @@ public class CycloPeptideSequencing {
     }
 
     public static void initiateIntegerMass() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\integer_mass_table.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\integer_mass_table.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -117,7 +115,7 @@ public class CycloPeptideSequencing {
 
         //cycloseq_data
         //spectrum test
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\dataset_100_5.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\dataset_100_5.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
 

@@ -1,7 +1,5 @@
 package topic3.java;
 
-import com.sun.xml.internal.ws.util.QNameMap;
-import javafx.scene.paint.Stop;
 import topic1.java.Stopwatch;
 
 import java.io.File;
@@ -15,7 +13,7 @@ import java.util.*;
  * @author Matko
  * @version 1.0
  */
-public class GreedyMotifSearch {
+public class MotifSearch {
 
     int k, t;
     double[][] profile;
@@ -30,12 +28,12 @@ public class GreedyMotifSearch {
 
 
     //used for PROFILE problem...
-    public GreedyMotifSearch(int k) {
+    public MotifSearch(int k) {
         this.profile = new double[4][k];
         this.k = k;
     }
 
-    public GreedyMotifSearch(int k, int t, List<String> dnas) {
+    public MotifSearch(int k, int t, List<String> dnas) {
         this.t = t;
         this.k = k;
         this.dnas = dnas;
@@ -282,7 +280,7 @@ public class GreedyMotifSearch {
         List<String> dnas = lines.subList(2,lines.size());
 
         Stopwatch timer = new Stopwatch();
-        GreedyMotifSearch gms = new GreedyMotifSearch(k,t,dnas);
+        MotifSearch gms = new MotifSearch(k,t,dnas);
 
         for (String motif : gms.bestMotifs){
             System.out.println(motif+" ");

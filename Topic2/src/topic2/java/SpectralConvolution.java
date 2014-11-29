@@ -1,10 +1,9 @@
-package main.java;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class SpectralConvolution {
     public static void main (String[] args) throws IOException{
         ProteinTranslation.initiateCodonMap();
 
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\dataset_104_4.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\dataset_104_4.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
         List<Integer> spectrum = new ArrayList<>();

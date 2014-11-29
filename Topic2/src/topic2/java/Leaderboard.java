@@ -1,6 +1,4 @@
-package main.java;
-
-import com.sun.org.apache.xml.internal.utils.ThreadControllerWrapper;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +15,7 @@ public class Leaderboard {
     static Map<String, String> integerMass = new HashMap<>();
 
     public static void initiateIntegerrMass_keyInteger() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\integer_mass_table.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\integer_mass_table.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -27,7 +25,7 @@ public class Leaderboard {
     }
 
     public static void initiateIntegerMass() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\integer_mass_table.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\integer_mass_table.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -180,7 +178,7 @@ public class Leaderboard {
 
         //cycloseq_data
         //spectrum test
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\spectrum test.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\spectrum test.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
 

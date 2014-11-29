@@ -1,10 +1,6 @@
-package main.java;
-
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
+package topic2.java;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -18,7 +14,7 @@ public class TheoreticalSpectrum {
     static Map<String, String> integerMass = new HashMap<>();
 
     public static void initiateIntegerMass() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\integer_mass_table.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\integer_mass_table.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -53,7 +49,7 @@ public class TheoreticalSpectrum {
     }
 
     public static void initiateCodonMap() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\experimental_spectrum.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\experimental_spectrum.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
 
@@ -92,7 +88,7 @@ public class TheoreticalSpectrum {
         ProteinTranslation.initiateCodonMap();
         TheoreticalSpectrum.initiateIntegerMass();
 
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\dataset_102_3.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\dataset_102_3.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
 

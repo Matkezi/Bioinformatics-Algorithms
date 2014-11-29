@@ -1,4 +1,4 @@
-package main.java;
+package topic2.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +25,7 @@ public class ProteinTranslation {
         return sb.toString();
     }
     public static void initiateCodonMap() throws  IOException{
-        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\RNA_codon_table_1.txt";
+        String codonMapPath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\RNA_codon_table_1.txt";
         List<String> lines = Files.readAllLines(Paths.get(codonMapPath));
 
         for (String line : lines) {
@@ -42,7 +42,7 @@ public class ProteinTranslation {
 
         ProteinTranslation.initiateCodonMap();
 
-        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\main\\resources\\dataset_96_5.txt";
+        String filepath = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics Algorithms\\Topic2\\src\\topic2\\resources\\dataset_96_5.txt";
         List<String> lines = Files.readAllLines(Paths.get(filepath));
 
         System.out.println(rnaToAminoAcid("CCGAGGACCGAAAUCAAC"));
