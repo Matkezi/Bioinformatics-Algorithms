@@ -40,8 +40,10 @@ public class GreedyMotifSearch {
         }
 
         //greedyMotifSearch();
-        for (int i = 0;i<1000;i++) randomizedMotifSearch();
 
+        for (int i = 0;i<10000;i++) {
+            randomizedMotifSearch();
+        }
     }
 
     private void randomizedMotifSearch(){
@@ -249,7 +251,7 @@ public class GreedyMotifSearch {
 
     public static void main (String[] args) throws IOException{
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic3\\src\\topic3\\resources");
-        File file1 = new File(dir, "RANDMOTIFSEARCH.txt");
+        File file1 = new File(dir, "GREEDYMOTIFSEARCH.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
