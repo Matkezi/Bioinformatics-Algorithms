@@ -23,6 +23,11 @@ public class DeBruijnGraph {
         StringComposition sc = new StringComposition(Integer.parseInt(lines.get(0))-1,lines.get(1));
         sc.makeComposition();
 
+        OverlapGraphProblem ogp = new OverlapGraphProblem(sc.getComposition());
+
+        ogp.findOverlapGraph();
+        ogp.printOverLapGraph();
+
     }
 
 }
