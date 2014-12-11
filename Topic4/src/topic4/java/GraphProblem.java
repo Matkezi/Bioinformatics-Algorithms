@@ -63,6 +63,14 @@ public class GraphProblem {
 
     public void printOverLapGraph() throws IOException{
         PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\overlapGraphProblemOut.txt", "UTF-8");
+        for (int i = 0;i<overlapGraph.size();i++) {
+            writer.println(overlapGraph.get(i).get(0) + " -> " + overlapGraph.get(i).get(1));
+        }
+        writer.close();
+    }
+
+    public void printDeBruijnGraph() throws IOException{
+        PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\overlapGraphProblemOut.txt", "UTF-8");
         for (int i = 0;i<overlapGraph.size();i++){
             if (overlapGraph.get(i).size() == 2) writer.println(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
             else {

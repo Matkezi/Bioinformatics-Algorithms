@@ -26,7 +26,7 @@ public class DeBruijnGraph {
         GraphProblem ogp = new GraphProblem(sc.getComposition());
 
         ogp.findDebruijnGraph();
-        ogp.printOverLapGraph();
+        ogp.printDeBruijnGraph();
     }
 
 }
