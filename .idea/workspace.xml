@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="646">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,10 +81,11 @@
       <file leaf-file-name="GraphProblem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48897797" vertical-offset="1167" max-vertical-offset="1819">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7975952" vertical-offset="656" max-vertical-offset="1717">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -112,8 +113,8 @@
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
       </list>
     </option>
   </component>
@@ -688,7 +689,7 @@
       <workItem from="1417260798308" duration="6209000" />
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
-      <workItem from="1418319834969" duration="10339000" />
+      <workItem from="1418319834969" duration="10428000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -982,11 +983,15 @@
       <created>1418338641283</created>
       <updated>1418338641284</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="more refactoring">
+      <created>1418338766757</created>
+      <updated>1418338766757</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56694000" />
+    <option name="totallyTimeSpent" value="56783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1036,7 +1041,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="not working" />
     <MESSAGE value="changed loops..." />
     <MESSAGE value="moved min to &lt;= instead of ==, 1 mistake in solution" />
     <MESSAGE value="added firstTime variable" />
@@ -1061,17 +1065,12 @@
     <MESSAGE value="typo prefx -&gt; prefix" />
     <MESSAGE value="RETHINKING DONE!, now coding" />
     <MESSAGE value="refactor gprahproblem" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor gprahproblem" />
+    <MESSAGE value="more refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="more refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java</url>
-          <line>64</line>
-          <properties />
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java</url>
           <line>49</line>
@@ -1423,7 +1422,7 @@
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="646">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1432,10 +1431,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48897797" vertical-offset="1167" max-vertical-offset="1819">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7975952" vertical-offset="656" max-vertical-offset="1717">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
           </folding>
         </state>
       </provider>

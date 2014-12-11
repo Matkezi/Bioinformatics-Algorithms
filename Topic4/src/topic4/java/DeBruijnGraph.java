@@ -23,10 +23,10 @@ public class DeBruijnGraph {
         StringComposition sc = new StringComposition(Integer.parseInt(lines.get(0)),lines.get(1));
         sc.makeComposition();
 
-        GraphProblem ogp = new GraphProblem(sc.getComposition());
+        GraphProblem gp = new GraphProblem(sc.getComposition());
 
-        ogp.findDebruijnGraph();
-        ogp.printDeBruijnGraph();
+        gp.findDebruijnGraph();
+        gp.printDeBruijnGraph();
     }
 
 }
