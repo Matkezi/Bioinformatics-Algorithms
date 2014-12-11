@@ -11,35 +11,16 @@ import java.util.*;
  * @author Matko
  * @version 1.0
  */
-public class OverlapGraphProblem {
+public class GraphProblem {
 
     private List<String> dnas = new ArrayList<>();
     int k;
     private List<List<String>> overlapGraph = new ArrayList<>();
 
-    public OverlapGraphProblem(List<String> dnas) {
+    public GraphProblem(List<String> dnas) {
         this.dnas = dnas;
         k = dnas.get(0).length();
     }
-
-//    public void findOverlapGraph(){
-//        Collections.sort(dnas);
-//
-//        for (int i=0;i<dnas.size();i++){
-//            List<String> element = new ArrayList<>();
-//            String suffix = dnas.get(i).substring(1,k);
-//            for (int j=0;j<dnas.size();j++){
-//                String prefx = dnas.get(j).substring(0,k-1);
-//                if (prefx.equals(suffix)){
-//                    element.add(dnas.get(i));
-//                    element.add(dnas.get(j));
-//                    overlapGraph.add(element);
-//                    break;
-//                }
-//            }
-//
-//        }
-//    }
 
     public void findOverlapGraph(){
         Collections.sort(dnas);
@@ -48,12 +29,32 @@ public class OverlapGraphProblem {
             List<String> element = new ArrayList<>();
             String suffix = dnas.get(i).substring(1,k);
             for (int j=0;j<dnas.size();j++){
-                String prefix = dnas.get(j).substring(0,k-1);
+                String prefx = dnas.get(j).substring(0,k-1);
+                if (prefx.equals(suffix)){
+                    element.add(dnas.get(i));
+                    element.add(dnas.get(j));
+                    overlapGraph.add(element);
+                    break;
+                }
+            }
 
+        }
+    }
+
+    public void findDebruijnGraph(){
+
+        Collections.sort(dnas);
+
+        for (int i=0;i<dnas.size();i++){
+            List<String> element = new ArrayList<>();
+            String suffix = dnas.get(i).substring(1,k);
+            for (int j=0;j<dnas.size();j++){
+                String prefix = dnas.get(j).substring(0,k-1);
                 if (prefix.equals(suffix)){
                     element.add(dnas.get(i));
                     element.add(dnas.get(j));
                     overlapGraph.add(element);
+                    break;
                 }
             }
 
@@ -83,7 +84,7 @@ public class OverlapGraphProblem {
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
-        OverlapGraphProblem ogp = new OverlapGraphProblem(lines);
+        GraphProblem ogp = new GraphProblem(lines);
         ogp.findOverlapGraph();
         ogp.printOverLapGraph();
 
