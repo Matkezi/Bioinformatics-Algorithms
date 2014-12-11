@@ -43,9 +43,9 @@ public class GraphProblem {
     }
 
     /**
-     * Checks if a kMer is in the graph adn returns index.
+     * Checks if a kMer is in the "left" position in a graph and returns index.
      * @param kMer kMer to be checked if in the graph.
-     * @return -1 if not kMer not in a graph, else a position of kMer in a graph.
+     * @return -1 if kMer not in a graph, else a position of kMer in a graph.
      */
     private int graphContains(String kMer){
 
@@ -104,17 +104,5 @@ public class GraphProblem {
         writer.close();
     }
 
-    public static void execute () throws IOException {
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "overlapGraphProblem.txt");
-        Path filepath = file1.toPath();
-
-        List<String> lines = Files.readAllLines(filepath);
-        GraphProblem ogp = new GraphProblem(lines);
-        ogp.findOverlapGraph();
-        ogp.printOverLapGraph();
-
-
-    }
 }
