@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Matko
@@ -52,11 +49,11 @@ public class OverlapGraphProblem {
             String suffix = dnas.get(i).substring(1,k);
             for (int j=0;j<dnas.size();j++){
                 String prefix = dnas.get(j).substring(0,k-1);
+
                 if (prefix.equals(suffix)){
                     element.add(dnas.get(i));
                     element.add(dnas.get(j));
                     overlapGraph.add(element);
-                    break;
                 }
             }
 
@@ -66,7 +63,14 @@ public class OverlapGraphProblem {
     public void printOverLapGraph() throws IOException{
         PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\overlapGraphProblemOut.txt", "UTF-8");
         for (int i = 0;i<overlapGraph.size();i++){
-            writer.println(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
+            if (overlapGraph.get(i).size() == 2) writer.println(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
+            else {
+                writer.print(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
+                for (int j = 3;j<overlapGraph.get(i).size();j += 2){
+                    writer.print(","+overlapGraph.get(i).get(j));
+                }
+                writer.println();
+            }
         }
 
         writer.close();
