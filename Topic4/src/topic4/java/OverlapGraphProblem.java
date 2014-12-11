@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,48 +25,17 @@ public class OverlapGraphProblem {
         k = dnas.get(0).length();
     }
 
-    private String findFirst(){
-        String first = "";
-        for (int i = 0;i<dnas.size();i++){
-            String prefix = dnas.get(i).substring(0,k-1);
-            boolean found = false;
-            for (int j = 0;j<dnas.size();j++){
-                String suffix = dnas.get(j).substring(1,k);
-                if (prefix.equals(suffix)){
-                    found = true;
-                    break;
-                }
-            }
-            if (!found){
-                first = dnas.get(i);
-                //System.out.print(first);
-                break;
-            }
-        }
-        return first;
-    }
-
     public void findOverlapGraph(){
-        String left = findFirst();
+        Collections.sort(dnas);
         List<String> element = new ArrayList<>();
-        String prefix, suffix, right;
-        while(!dnas.isEmpty()){
-            element.add(left);
-            suffix = left.substring(1,k);
-            for (int i = 0;i<dnas.size();i++){
-                prefix = dnas.get(i).substring(0,k-1);
-                if (prefix.equals(suffix)){
-                    right = dnas.get(i);
-                    element.add(right);
-                    suffix = right.substring(1,k);
+        for (int i=0;i<dnas.size();i++){
+            String suffix = dnas.get(i).substring(1,k);
+            for (int j=0;j<dnas.size();j++){
+                String prefx = dnas.get(j).substring(0,k-1);
+                if (prefx.equals(suffix)){
+                    element.add(dnas.get(i));
+                    element.add(dnas.get(j));
                     overlapGraph.add(element);
-                    break;
-                }
-            }
-            for (int i = 0;i<dnas.size();i++){
-                prefix = dnas.get(i).substring(0,k-1);
-                if (prefix.equals(suffix)){
-                    left = dnas.get(i);
                     break;
                 }
             }
