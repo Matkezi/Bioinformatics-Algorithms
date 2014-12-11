@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -81,11 +80,10 @@
       <file leaf-file-name="GraphProblem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7975952" vertical-offset="656" max-vertical-offset="1717">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.6012024" vertical-offset="1099" max-vertical-offset="2125">
+              <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -689,7 +687,7 @@
       <workItem from="1417260798308" duration="6209000" />
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
-      <workItem from="1418319834969" duration="10428000" />
+      <workItem from="1418319834969" duration="11810000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -987,11 +985,15 @@
       <created>1418338766757</created>
       <updated>1418338766757</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="more refactoring...">
+      <created>1418338855591</created>
+      <updated>1418338855591</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56783000" />
+    <option name="totallyTimeSpent" value="58165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1041,7 +1043,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="changed loops..." />
     <MESSAGE value="moved min to &lt;= instead of ==, 1 mistake in solution" />
     <MESSAGE value="added firstTime variable" />
     <MESSAGE value="works for simple example" />
@@ -1066,18 +1067,11 @@
     <MESSAGE value="RETHINKING DONE!, now coding" />
     <MESSAGE value="refactor gprahproblem" />
     <MESSAGE value="more refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="more refactoring" />
+    <MESSAGE value="more refactoring..." />
+    <option name="LAST_COMMIT_MESSAGE" value="more refactoring..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="67" />
     </breakpoint-manager>
   </component>
@@ -1431,11 +1425,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7975952" vertical-offset="656" max-vertical-offset="1717">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.6012024" vertical-offset="1099" max-vertical-offset="2125">
+          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
           </folding>
         </state>
       </provider>

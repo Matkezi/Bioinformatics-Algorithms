@@ -16,6 +16,7 @@ public class GraphProblem {
     private List<String> dnas = new ArrayList<>();
     int k;
     private List<List<String>> overlapGraph = new ArrayList<>();
+    private List<List<String>> deBruijnGraph = new ArrayList<>();
 
     public GraphProblem(List<String> dnas) {
         this.dnas = dnas;
@@ -41,23 +42,40 @@ public class GraphProblem {
         }
     }
 
+    /**
+     * Checks if a kMer is in the graph adn returns index.
+     * @param kMer kMer to be checked if in the graph.
+     * @return -1 if not kMer not in a graph, else a position of kMer in a graph.
+     */
+    private int graphContains(String kMer){
+
+        for (int i = 0;i<overlapGraph.size();i++){
+            if (overlapGraph.get(i).get(0).equals(kMer)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void findDebruijnGraph(){
 
         Collections.sort(dnas);
 
         for (int i=0;i<dnas.size();i++){
             List<String> element = new ArrayList<>();
-            String suffix = dnas.get(i).substring(1,k);
-            for (int j=0;j<dnas.size();j++){
-                String prefix = dnas.get(j).substring(0,k-1);
-                if (prefix.equals(suffix)){
-                    element.add(dnas.get(i));
-                    element.add(dnas.get(j));
-                    overlapGraph.add(element);
-                    break;
-                }
-            }
+            String left = dnas.get(i).substring(0,k-1);
+            String right = dnas.get(i).substring(1,k);
 
+            int index = graphContains(left);
+            if (index >= 0){
+                element = deBruijnGraph.get(index);
+                deBruijnGraph.remove(index);
+                element.add(right);
+            } else {
+                element.add(left);
+                element.add(right);
+            }
+            deBruijnGraph.add(element);
         }
     }
 
@@ -71,12 +89,12 @@ public class GraphProblem {
 
     public void printDeBruijnGraph() throws IOException{
         PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\DeBruijnGraphProblemOut.txt", "UTF-8");
-        for (int i = 0;i<overlapGraph.size();i++){
-            if (overlapGraph.get(i).size() == 2) writer.println(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
+        for (int i = 0;i<deBruijnGraph.size();i++){
+            if (deBruijnGraph.get(i).size() == 2) writer.println(deBruijnGraph.get(i).get(0)+" -> "+deBruijnGraph.get(i).get(1));
             else {
-                writer.print(overlapGraph.get(i).get(0)+" -> "+overlapGraph.get(i).get(1));
-                for (int j = 3;j<overlapGraph.get(i).size();j += 2){
-                    writer.print(","+overlapGraph.get(i).get(j));
+                writer.print(deBruijnGraph.get(i).get(0)+" -> "+deBruijnGraph.get(i).get(1));
+                for (int j = 3;j<deBruijnGraph.get(i).size();j += 2){
+                    writer.print(","+deBruijnGraph.get(i).get(j));
                 }
                 writer.println();
             }
