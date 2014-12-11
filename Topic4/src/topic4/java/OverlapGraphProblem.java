@@ -27,8 +27,9 @@ public class OverlapGraphProblem {
 
     public void findOverlapGraph(){
         Collections.sort(dnas);
-        List<String> element = new ArrayList<>();
+
         for (int i=0;i<dnas.size();i++){
+            List<String> element = new ArrayList<>();
             String suffix = dnas.get(i).substring(1,k);
             for (int j=0;j<dnas.size();j++){
                 String prefx = dnas.get(j).substring(0,k-1);
@@ -39,7 +40,7 @@ public class OverlapGraphProblem {
                     break;
                 }
             }
-            element.clear();
+
         }
     }
 
@@ -52,7 +53,7 @@ public class OverlapGraphProblem {
         writer.close();
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void execute () throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
         File file1 = new File(dir, "overlapGraphProblem.txt");

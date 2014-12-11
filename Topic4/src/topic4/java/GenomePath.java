@@ -35,7 +35,7 @@ public class GenomePath {
         return genome;
     }
 
-    public static void main (String[] args) throws IOException {
+    public static void execute () throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
         File file1 = new File(dir, "simpleGenomePath.txt");
