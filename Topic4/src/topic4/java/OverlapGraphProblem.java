@@ -25,6 +25,25 @@ public class OverlapGraphProblem {
         k = dnas.get(0).length();
     }
 
+//    public void findOverlapGraph(){
+//        Collections.sort(dnas);
+//
+//        for (int i=0;i<dnas.size();i++){
+//            List<String> element = new ArrayList<>();
+//            String suffix = dnas.get(i).substring(1,k);
+//            for (int j=0;j<dnas.size();j++){
+//                String prefx = dnas.get(j).substring(0,k-1);
+//                if (prefx.equals(suffix)){
+//                    element.add(dnas.get(i));
+//                    element.add(dnas.get(j));
+//                    overlapGraph.add(element);
+//                    break;
+//                }
+//            }
+//
+//        }
+//    }
+
     public void findOverlapGraph(){
         Collections.sort(dnas);
 
@@ -32,8 +51,8 @@ public class OverlapGraphProblem {
             List<String> element = new ArrayList<>();
             String suffix = dnas.get(i).substring(1,k);
             for (int j=0;j<dnas.size();j++){
-                String prefx = dnas.get(j).substring(0,k-1);
-                if (prefx.equals(suffix)){
+                String prefix = dnas.get(j).substring(0,k-1);
+                if (prefix.equals(suffix)){
                     element.add(dnas.get(i));
                     element.add(dnas.get(j));
                     overlapGraph.add(element);
