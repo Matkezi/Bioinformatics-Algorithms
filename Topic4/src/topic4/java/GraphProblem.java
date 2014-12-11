@@ -49,8 +49,8 @@ public class GraphProblem {
      */
     private int graphContains(String kMer){
 
-        for (int i = 0;i<overlapGraph.size();i++){
-            if (overlapGraph.get(i).get(0).equals(kMer)){
+        for (int i = 0;i<deBruijnGraph.size();i++){
+            if (deBruijnGraph.get(i).get(0).equals(kMer)){
                 return i;
             }
         }
@@ -71,11 +71,12 @@ public class GraphProblem {
                 element = deBruijnGraph.get(index);
                 deBruijnGraph.remove(index);
                 element.add(right);
+                deBruijnGraph.add(index,element);
             } else {
                 element.add(left);
                 element.add(right);
+                deBruijnGraph.add(element);
             }
-            deBruijnGraph.add(element);
         }
     }
 
@@ -93,7 +94,7 @@ public class GraphProblem {
             if (deBruijnGraph.get(i).size() == 2) writer.println(deBruijnGraph.get(i).get(0)+" -> "+deBruijnGraph.get(i).get(1));
             else {
                 writer.print(deBruijnGraph.get(i).get(0)+" -> "+deBruijnGraph.get(i).get(1));
-                for (int j = 3;j<deBruijnGraph.get(i).size();j += 2){
+                for (int j = 2;j<deBruijnGraph.get(i).size();j ++){
                     writer.print(","+deBruijnGraph.get(i).get(j));
                 }
                 writer.println();

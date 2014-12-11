@@ -35,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="646">
-              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,8 +80,8 @@
       <file leaf-file-name="GraphProblem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6012024" vertical-offset="1099" max-vertical-offset="2125">
-              <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+            <state vertical-scroll-proportion="1.3466934" vertical-offset="552" max-vertical-offset="2142">
+              <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -687,7 +687,7 @@
       <workItem from="1417260798308" duration="6209000" />
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
-      <workItem from="1418319834969" duration="11810000" />
+      <workItem from="1418319834969" duration="12305000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -989,11 +989,15 @@
       <created>1418338855591</created>
       <updated>1418338855591</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="try1">
+      <created>1418340239462</created>
+      <updated>1418340239462</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58165000" />
+    <option name="totallyTimeSpent" value="58660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1043,7 +1047,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="moved min to &lt;= instead of ==, 1 mistake in solution" />
     <MESSAGE value="added firstTime variable" />
     <MESSAGE value="works for simple example" />
     <MESSAGE value="addedn more complications" />
@@ -1068,11 +1071,12 @@
     <MESSAGE value="refactor gprahproblem" />
     <MESSAGE value="more refactoring" />
     <MESSAGE value="more refactoring..." />
-    <option name="LAST_COMMIT_MESSAGE" value="more refactoring..." />
+    <MESSAGE value="try1" />
+    <option name="LAST_COMMIT_MESSAGE" value="try1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="67" />
+      <option name="time" value="71" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1416,7 +1420,7 @@
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="646">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1425,8 +1429,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6012024" vertical-offset="1099" max-vertical-offset="2125">
-          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+        <state vertical-scroll-proportion="1.3466934" vertical-offset="552" max-vertical-offset="2142">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
