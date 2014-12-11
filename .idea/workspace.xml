@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/DeBruijnGraphProblemOut.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/overlapGraphProblemOut.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/simpleGenomePathOut.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bioinformatics-Algorithms.iws" />
@@ -44,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.40881765" vertical-offset="0" max-vertical-offset="499">
+              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -96,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OverlapGraph.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OverlapGraph.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.749499" vertical-offset="17" max-vertical-offset="544">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="544">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,10 +131,10 @@
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraphProblem.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
       </list>
     </option>
   </component>
@@ -203,6 +205,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="topic4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bioinformatics-Algorithms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Topic4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="topic4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -707,7 +731,7 @@
       <workItem from="1417260798308" duration="6209000" />
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
-      <workItem from="1418319834969" duration="12606000" />
+      <workItem from="1418319834969" duration="12673000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1017,11 +1041,15 @@
       <created>1418340748124</created>
       <updated>1418340748124</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="DeBruijn works for complex, refactoring of OverlapGraph">
+      <created>1418341051446</created>
+      <updated>1418341051446</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58961000" />
+    <option name="totallyTimeSpent" value="59028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1071,7 +1099,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="works for simple example" />
     <MESSAGE value="addedn more complications" />
     <MESSAGE value="random WORKING, problems with output format,&#10;&#10;problem with class names, need to refactor" />
     <MESSAGE value="made refactoring" />
@@ -1096,7 +1123,8 @@
     <MESSAGE value="more refactoring..." />
     <MESSAGE value="try1" />
     <MESSAGE value="DeBruijn works for simple, complex untested" />
-    <option name="LAST_COMMIT_MESSAGE" value="DeBruijn works for simple, complex untested" />
+    <MESSAGE value="DeBruijn works for complex, refactoring of OverlapGraph" />
+    <option name="LAST_COMMIT_MESSAGE" value="DeBruijn works for complex, refactoring of OverlapGraph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1423,14 +1451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="799">
@@ -1438,16 +1458,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#simpleGenomeConstruct#0;class#GenomePath#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="646">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1469,11 +1479,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.749499" vertical-offset="17" max-vertical-offset="544">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="544">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="646">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40881765" vertical-offset="0" max-vertical-offset="499">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
