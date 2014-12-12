@@ -14,61 +14,46 @@ public class Euler {
 
     private class Edge {
 
-        List<Edge> unExplored = new ArrayList<>();
+        List<String> unExplored = new ArrayList<>();
         String edgeName;
 
         private Edge(String edgeName) {
             this.edgeName = edgeName;
         }
-
-        private Edge(Edge e) {
-            this(e.edgeName);
-        }
-
-        private Edge (){
-
-        }
     }
 
-    private HashMap<Edge, List<Edge>> graph = new HashMap<>();
+    private HashMap<String, Edge> graph = new HashMap<>();
 
     private List<String> lines = new ArrayList<>();
     private List<Edge> cycle = new ArrayList<>();
 
     private void formGraph(){
         for (String line : lines){
-            List<Edge> rightEdges = new ArrayList<>();
+            List<String> rightEdges = new ArrayList<>();
             String[] lineSplit = line.split("->");
             Edge leftEdge = new Edge(lineSplit[0].trim());
             if (lineSplit[1].contains(",")) {
                 String[] toNodes = lineSplit[1].split(",");
                 for (String toNode : toNodes) {
-                    rightEdges.add(new Edge (toNode.trim()));
+                    rightEdges.add(toNode.trim());
                 }
-            } else rightEdges.add(new Edge(lineSplit[1].trim()));
-            graph.put(leftEdge,rightEdges);
+            } else rightEdges.add(lineSplit[1].trim());
+            graph.put(leftEdge.edgeName,leftEdge);
             leftEdge.unExplored = rightEdges;
         }
     }
 
     private void findEulerCycle(){
 
-        List<Edge> keysAsArray = new ArrayList<>(graph.keySet());
+        List<String> keysAsArray = new ArrayList<>(graph.keySet());
         Random r = new Random();
 
-        Edge currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
 
-        Edge start = new Edge (currentEdge);
+        String start = currentEdge;
 
         do {
-            cycle.add(currentEdge);
-            Edge next = new Edge();
-            for (int i = 0;i<currentEdge.unExplored.size();i++){
 
-                currentEdge.unExplored.remove(i);
-
-            }
-            currentEdge = next;
         } while (!currentEdge.equals(start));
 
     }

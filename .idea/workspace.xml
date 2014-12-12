@@ -89,14 +89,12 @@
       <file leaf-file-name="Euler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.3923242" vertical-offset="0" max-vertical-offset="1615">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.6162047" vertical-offset="646" max-vertical-offset="1360">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#431#432#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#401#402#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -745,7 +743,7 @@
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
       <workItem from="1418319834969" duration="13594000" />
-      <workItem from="1418370733127" duration="14836000" />
+      <workItem from="1418370733127" duration="15097000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1091,11 +1089,15 @@
       <created>1418391876940</created>
       <updated>1418391876940</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="before changing edges">
+      <created>1418393337558</created>
+      <updated>1418393337558</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74785000" />
+    <option name="totallyTimeSpent" value="75046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="872" extended-state="6" />
@@ -1146,7 +1148,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="all added and commit..." />
     <MESSAGE value="small changes in input" />
     <MESSAGE value="make composition done&#10;" />
     <MESSAGE value="old, BAD, approach, with find first, that is UNNECCESARY..." />
@@ -1171,22 +1172,17 @@
     <MESSAGE value="added basic edges and graph, and unExplored attribute" />
     <MESSAGE value="added random start" />
     <MESSAGE value="added copy constructor to edge" />
-    <option name="LAST_COMMIT_MESSAGE" value="added copy constructor to edge" />
+    <MESSAGE value="before changing edges" />
+    <option name="LAST_COMMIT_MESSAGE" value="before changing edges" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
-          <line>84</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="81" />
@@ -1586,14 +1582,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3923242" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.6162047" vertical-offset="646" max-vertical-offset="1360">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
           </folding>
         </state>
       </provider>
