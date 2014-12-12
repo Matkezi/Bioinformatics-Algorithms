@@ -42,18 +42,9 @@ public class Euler {
             } else rightEdges.add(lineSplit[1].trim());
             graph.put(leftEdge.edgeName,leftEdge);
             leftEdge.unExplored = rightEdges;
-            unExploredEdges.add(lineSplit[1].trim());
+            unExploredEdges.add(lineSplit[0].trim());
             leftEdge.pointsTo.addAll(rightEdges);
         }
-    }
-
-    private boolean unExploredEdges(){
-        for (String key : graph.keySet()){
-            if (graph.get(key).unExplored.size() > 0){
-                return true;
-            }
-        }
-        return false;
     }
 
     private String newStart(){
@@ -85,12 +76,12 @@ public class Euler {
 
     private void findEulerCycle(){
 
-        List<String> keysAsArray = new ArrayList<>(graph.keySet());
-        Random r = new Random();
+//        List<String> keysAsArray = new ArrayList<>(graph.keySet());
+//        Random r = new Random();
+//
+//        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
 
-        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
-
-        //String currentEdge = "4";
+        String currentEdge = "4";
         String start = currentEdge;
 
         do {
@@ -116,7 +107,7 @@ public class Euler {
                     next = graph.get(currentEdge).unExplored.get(0);
                     graph.get(currentEdge).unExplored.remove(0);
                     if (graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
-                } else next = graph.get(currentEdge).pointsTo.get(r.nextInt(graph.get(currentEdge).pointsTo.size()));
+                } else next = graph.get(currentEdge).pointsTo.get(0);//r.nextInt(graph.get(currentEdge).pointsTo.size()
 
                 currentEdge = next;
             } while (!currentEdge.equals(start));
