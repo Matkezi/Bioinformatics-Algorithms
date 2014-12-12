@@ -56,6 +56,26 @@ public class Euler {
         for (String edge : cycle){
             if (graph.get(edge).unExplored.size() > 0) return edge;
         }
+        return null;
+    }
+
+    private List<String> resolveCycle(){
+        String newStart = newStart();
+        List<String> cycle1 = new ArrayList<>();
+        int newStartIndex = -1;
+        for (int i = 0;i<cycle.size();i++){
+            if (cycle.get(i).equals(newStart)){
+                newStartIndex = i;
+                cycle1.add(newStart);
+            } else if(newStartIndex != -1){
+                cycle1.add(cycle.get(i));
+            }
+        }
+
+        for (int j = 0;j<newStartIndex;j++){
+            cycle1.add(cycle.get(j));
+        }
+        return cycle1;
     }
 
     private void findEulerCycle(){
@@ -75,9 +95,19 @@ public class Euler {
         } while (!cycle.contains(currentEdge));
 
         while(unExploredEdges()){
-            String newStart = newStart();
+            List<String> cycle1 = resolveCycle();
 
+            currentEdge = cycle1.get(0);
 
+            do {
+                cycle1.add(currentEdge);
+
+                String next = graph.get(currentEdge).unExplored.get(0);
+                graph.get(currentEdge).unExplored.remove(0);
+
+                currentEdge = next;
+            } while (!cycle1.contains(currentEdge));
+            cycle = cycle1;
         }
 
     }
@@ -91,7 +121,7 @@ public class Euler {
         lines = Files.readAllLines(filepath);
         formGraph();
         findEulerCycle();
-        System.out.print("");
+        System.out.print(cycle);
 
     }
 
