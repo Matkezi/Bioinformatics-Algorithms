@@ -1,5 +1,7 @@
 package topic4.java;
 
+import topic1.java.Stopwatch;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -107,7 +109,15 @@ public class Euler {
                     next = graph.get(currentEdge).unExplored.get(0);
                     graph.get(currentEdge).unExplored.remove(0);
                     if (graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
-                } else next = graph.get(currentEdge).pointsTo.get(r.nextInt(graph.get(currentEdge).pointsTo.size()));//r.nextInt(graph.get(currentEdge).pointsTo.size()
+                } else {
+                    for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++) {
+                        String tmp = graph.get(currentEdge).pointsTo.get(i);//r.nextInt(graph.get(currentEdge).pointsTo.size()
+                        if (!cycle.contains(tmp)) {
+                            next = tmp;
+                            break;
+                        }
+                    }
+                }
 
                 currentEdge = next;
             } while (!currentEdge.equals(start));
@@ -126,7 +136,9 @@ public class Euler {
 
         lines = Files.readAllLines(filepath);
         formGraph();
+        Stopwatch timer = new Stopwatch();
         findEulerCycle();
+        System.out.println(timer.elapsedTime());
         System.out.print(cycle);
 
     }
