@@ -20,6 +20,10 @@ public class Euler {
         private Edge(String edgeName) {
             this.edgeName = edgeName;
         }
+
+        private Edge(Edge e) {
+            this(e.edgeName);
+        }
     }
 
     private HashMap<Edge, List<Edge>> graph = new HashMap<>();
@@ -50,6 +54,8 @@ public class Euler {
 
         Edge currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
         cycle.add(currentEdge);
+
+        Edge start = new Edge (currentEdge);
 
 
 
