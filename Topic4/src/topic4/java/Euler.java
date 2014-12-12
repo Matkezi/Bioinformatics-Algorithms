@@ -14,9 +14,12 @@ public class Euler {
 
     private class Edge {
 
+        List<Edge> unExplored = new ArrayList<>();
         String edgeName;
 
-
+        private Edge(String edgeName) {
+            this.edgeName = edgeName;
+        }
     }
 
     private HashMap<Edge, List<Edge>> graph = new HashMap<>();
@@ -25,20 +28,17 @@ public class Euler {
 
     private void formGraph(){
         for (String line : lines){
-            List<String> rightSide = new ArrayList<>();
+            List<Edge> rightEdges = new ArrayList<>();
             String[] lineSplit = line.split("->");
+            Edge leftEdge = new Edge(lineSplit[0].trim());
             if (lineSplit[1].contains(",")) {
                 String[] toNodes = lineSplit[1].split(",");
                 for (String toNode : toNodes) {
-                    rightSide.add(toNode.trim());
+                    rightEdges.add(new Edge (toNode.trim()));
                 }
-            } else rightSide.add(lineSplit[1].trim());
-
-            graph.put(lineSplit[0].trim(),null);
-
-
-
-
+            } else rightEdges.add(new Edge(lineSplit[1].trim()));
+            graph.put(leftEdge,rightEdges);
+            leftEdge.unExplored = rightEdges;
         }
     }
 
@@ -54,8 +54,8 @@ public class Euler {
         Path filepath = file1.toPath();
 
         lines = Files.readAllLines(filepath);
-        findEulerCycle();
         formGraph();
+        findEulerCycle();
 
     }
 
