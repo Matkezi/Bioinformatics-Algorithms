@@ -98,11 +98,12 @@ public class Euler {
 
             String next = graph.get(currentEdge).unExplored.get(0);
             graph.get(currentEdge).unExplored.remove(0);
+            if(graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
 
             currentEdge = next;
         } while (!currentEdge.equals(start));
 
-        while(unExploredEdges()){
+        while(!unExploredEdges.isEmpty()){
             List<String> cycle1 = resolveCycle();
 
             currentEdge = cycle1.get(0);
@@ -111,21 +112,11 @@ public class Euler {
             do {
                 cycle1.add(currentEdge);
                 String next = "";
-                boolean allExplored = true;
-                for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++){
-                    if (graph.get(currentEdge).unExplored.contains(graph.get(currentEdge).pointsTo.get(i))){
-                        next = graph.get(currentEdge).unExplored.get(0);
-                        graph.get(currentEdge).unExplored.remove(0);
-                        allExplored = false;
-                        break;
-                    }
-                }
-
-                if (allExplored){
-                    next = graph.get(currentEdge).pointsTo.get(r.nextInt(graph.get(currentEdge).pointsTo.size()));
-
-                }
-
+                if (unExploredEdges.contains(currentEdge)){
+                    next = graph.get(currentEdge).unExplored.get(0);
+                    graph.get(currentEdge).unExplored.remove(0);
+                    if (graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
+                } else next = graph.get(currentEdge).pointsTo.get(r.nextInt(graph.get(currentEdge).pointsTo.size()));
 
                 currentEdge = next;
             } while (!currentEdge.equals(start));
