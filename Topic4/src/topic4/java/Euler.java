@@ -24,6 +24,10 @@ public class Euler {
         private Edge(Edge e) {
             this(e.edgeName);
         }
+
+        private Edge (){
+
+        }
     }
 
     private HashMap<Edge, List<Edge>> graph = new HashMap<>();
@@ -53,11 +57,19 @@ public class Euler {
         Random r = new Random();
 
         Edge currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
-        cycle.add(currentEdge);
 
         Edge start = new Edge (currentEdge);
 
+        do {
+            cycle.add(currentEdge);
+            Edge next = new Edge();
+            for (int i = 0;i<currentEdge.unExplored.size();i++){
 
+                currentEdge.unExplored.remove(i);
+
+            }
+            currentEdge = next;
+        } while (!currentEdge.equals(start));
 
     }
 
@@ -70,6 +82,7 @@ public class Euler {
         lines = Files.readAllLines(filepath);
         formGraph();
         findEulerCycle();
+        System.out.print("");
 
     }
 
