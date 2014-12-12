@@ -14,7 +14,7 @@ public class Euler {
 
     private class Edge {
 
-
+        List<String> pointsTo = new ArrayList<>();
         List<String> unExplored = new ArrayList<>();
         String edgeName;
 
@@ -41,6 +41,7 @@ public class Euler {
             } else rightEdges.add(lineSplit[1].trim());
             graph.put(leftEdge.edgeName,leftEdge);
             leftEdge.unExplored = rightEdges;
+            leftEdge.pointsTo.addAll(rightEdges);
         }
     }
 
@@ -73,18 +74,22 @@ public class Euler {
             }
         }
 
+        for (int j = 0;j<newStartIndex;j++){
+            cycle1.add(cycle.get(j));
+        }
 
         return cycle1;
     }
 
     private void findEulerCycle(){
 
-//        List<String> keysAsArray = new ArrayList<>(graph.keySet());
-//        Random r = new Random();
-//
-//        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        List<String> keysAsArray = new ArrayList<>(graph.keySet());
+        Random r = new Random();
 
-        String currentEdge = "4";
+        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+
+        //String currentEdge = "4";
+        String start = currentEdge;
 
         do {
             cycle.add(currentEdge);
@@ -93,27 +98,37 @@ public class Euler {
             graph.get(currentEdge).unExplored.remove(0);
 
             currentEdge = next;
-        } while (!cycle.contains(currentEdge));
+        } while (!currentEdge.equals(start));
 
         while(unExploredEdges()){
             List<String> cycle1 = resolveCycle();
 
             currentEdge = cycle1.get(0);
+            start = currentEdge;
 
             do {
                 cycle1.add(currentEdge);
                 String next = "";
-                if (graph.get(currentEdge).unExplored.size() > 0) {
-                    next = graph.get(currentEdge).unExplored.get(0);
-                    graph.get(currentEdge).unExplored.remove(0);
-                } else if (cycle.contains(next)){
-                    cycle1.add(next);
-                } else break;
+                boolean allExplored = true;
+                for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++){
+                    if (graph.get(currentEdge).unExplored.contains(graph.get(currentEdge).pointsTo.get(i))){
+                        next = graph.get(currentEdge).unExplored.get(0);
+                        graph.get(currentEdge).unExplored.remove(0);
+                        allExplored = false;
+                        break;
+                    }
+                }
+
+                if (allExplored){
+                    next = graph.get(currentEdge).pointsTo.get(0);
+                }
+
 
                 currentEdge = next;
-            } while (!cycle1.contains(currentEdge));
+            } while (!currentEdge.equals(start));
             cycle = cycle1;
         }
+
         cycle.add(currentEdge);
 
     }
