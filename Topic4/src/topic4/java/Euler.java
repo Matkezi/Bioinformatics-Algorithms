@@ -43,6 +43,15 @@ public class Euler {
         }
     }
 
+    private boolean unExploredEdges(){
+        for (String key : graph.keySet()){
+            if (graph.get(key).unExplored.size() > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void findEulerCycle(){
 
         List<String> keysAsArray = new ArrayList<>(graph.keySet());
@@ -50,17 +59,18 @@ public class Euler {
 
         String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
 
-        System.out.print(graph);
-
         do {
             cycle.add(currentEdge);
-            String next ="";
 
-            next = graph.get(currentEdge).unExplored.get(0);
+            String next = graph.get(currentEdge).unExplored.get(0);
             graph.get(currentEdge).unExplored.remove(0);
 
             currentEdge = next;
         } while (!cycle.contains(currentEdge));
+
+        while(unExploredEdges()){
+
+        }
 
     }
 
