@@ -25,7 +25,7 @@ public class Euler {
     private HashMap<String, Edge> graph = new HashMap<>();
 
     private List<String> lines = new ArrayList<>();
-    private List<Edge> cycle = new ArrayList<>();
+    private List<String> cycle = new ArrayList<>();
 
     private void formGraph(){
         for (String line : lines){
@@ -50,11 +50,17 @@ public class Euler {
 
         String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
 
-        String start = currentEdge;
+        System.out.print(graph);
 
         do {
+            cycle.add(currentEdge);
+            String next ="";
 
-        } while (!currentEdge.equals(start));
+            next = graph.get(currentEdge).unExplored.get(0);
+            graph.get(currentEdge).unExplored.remove(0);
+
+            currentEdge = next;
+        } while (!cycle.contains(currentEdge));
 
     }
 
