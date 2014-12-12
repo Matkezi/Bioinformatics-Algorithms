@@ -121,6 +121,7 @@ public class Euler {
 
                 if (allExplored){
                     next = graph.get(currentEdge).pointsTo.get(0);
+
                 }
 
 

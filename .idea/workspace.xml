@@ -88,8 +88,8 @@
       <file leaf-file-name="Euler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.30490404" vertical-offset="619" max-vertical-offset="1598">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.80383795" vertical-offset="677" max-vertical-offset="1615">
+              <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
               <folding>
                 <element signature="docComment;class#Euler#0" expanded="false" />
                 <element signature="class#Edge#0;class#Euler#0" expanded="false" />
@@ -745,7 +745,7 @@
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
       <workItem from="1418319834969" duration="13594000" />
-      <workItem from="1418370733127" duration="21513000" />
+      <workItem from="1418370733127" duration="21857000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1123,11 +1123,15 @@
       <created>1418398894447</created>
       <updated>1418398894448</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="works for small exmples... ending is a bit missbla">
+      <created>1418401859377</created>
+      <updated>1418401859377</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81462000" />
+    <option name="totallyTimeSpent" value="81806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1178,7 +1182,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="typo prefx -&gt; prefix" />
     <MESSAGE value="RETHINKING DONE!, now coding" />
     <MESSAGE value="refactor gprahproblem" />
     <MESSAGE value="more refactoring" />
@@ -1203,19 +1206,26 @@
     <MESSAGE value="kinda working, some differences in final... order" />
     <MESSAGE value="removed part from cycle1" />
     <MESSAGE value="adding pointsTo to Edge" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding pointsTo to Edge" />
+    <MESSAGE value="works for small exmples... ending is a bit missbla" />
+    <option name="LAST_COMMIT_MESSAGE" value="works for small exmples... ending is a bit missbla" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
-          <line>143</line>
+          <line>144</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="89" />
+      <option name="time" value="90" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1604,8 +1614,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.30490404" vertical-offset="619" max-vertical-offset="1598">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.80383795" vertical-offset="677" max-vertical-offset="1615">
+          <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
           <folding>
             <element signature="docComment;class#Euler#0" expanded="false" />
             <element signature="class#Edge#0;class#Euler#0" expanded="false" />
