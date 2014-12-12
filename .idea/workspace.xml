@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/Topic4.iml" afterPath="$PROJECT_DIR$/Topic4/Topic4.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bioinformatics-Algorithms.iws" />
@@ -89,8 +88,8 @@
       <file leaf-file-name="Euler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84879035" vertical-offset="888" max-vertical-offset="1921">
-              <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.34879032" vertical-offset="1068" max-vertical-offset="1938">
+              <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
               <folding>
                 <element signature="docComment;class#Euler#0" expanded="false" />
                 <element signature="class#Edge#0;class#Euler#0" expanded="false" />
@@ -754,7 +753,7 @@
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
       <workItem from="1418319834969" duration="13594000" />
-      <workItem from="1418370733127" duration="24392000" />
+      <workItem from="1418370733127" duration="24483000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1160,11 +1159,15 @@
       <created>1418403323164</created>
       <updated>1418403323164</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="redone next">
+      <created>1418404743268</created>
+      <updated>1418404743268</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84341000" />
+    <option name="totallyTimeSpent" value="84432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1215,7 +1218,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="DeBruijn works for complex, refactoring of OverlapGraph" />
     <MESSAGE value="added out files" />
     <MESSAGE value="refactored DeBruijn" />
     <MESSAGE value="made formGraph, now handling unExploredEdges" />
@@ -1240,14 +1242,15 @@
     <MESSAGE value="remake of unExploredEdges" />
     <MESSAGE value="works for simple" />
     <MESSAGE value="redone newStart and returned random" />
-    <option name="LAST_COMMIT_MESSAGE" value="redone newStart and returned random" />
+    <MESSAGE value="redone next" />
+    <option name="LAST_COMMIT_MESSAGE" value="redone next" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
-          <line>139</line>
+          <line>140</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
@@ -1660,8 +1663,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84879035" vertical-offset="888" max-vertical-offset="1921">
-          <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.34879032" vertical-offset="1068" max-vertical-offset="1938">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
           <folding>
             <element signature="docComment;class#Euler#0" expanded="false" />
             <element signature="class#Edge#0;class#Euler#0" expanded="false" />

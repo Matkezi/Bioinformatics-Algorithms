@@ -105,19 +105,20 @@ public class Euler {
             do {
                 cycle1.add(currentEdge);
                 String next = "";
-                if (unExploredEdges.contains(currentEdge)){
+                if (unExploredEdges.contains(currentEdge)) {
                     next = graph.get(currentEdge).unExplored.get(0);
                     graph.get(currentEdge).unExplored.remove(0);
-                    if (graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
-                } else {
-                    for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++) {
-                        String tmp = graph.get(currentEdge).pointsTo.get(i);//r.nextInt(graph.get(currentEdge).pointsTo.size()
-                        if (!cycle.contains(tmp)) {
-                            next = tmp;
-                            break;
-                        }
-                    }
+                    if (graph.get(currentEdge).unExplored.size() == 0) unExploredEdges.remove(currentEdge);
                 }
+//                 else {
+//                    for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++) {
+//                        String tmp = graph.get(currentEdge).pointsTo.get(i);//r.nextInt(graph.get(currentEdge).pointsTo.size()
+//                        if (!cycle.contains(tmp)) {
+//                            next = tmp;
+//                            break;
+//                        }
+//                    }
+//                }
 
                 currentEdge = next;
             } while (!currentEdge.equals(start));
