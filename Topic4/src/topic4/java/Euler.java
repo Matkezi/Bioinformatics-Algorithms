@@ -27,6 +27,7 @@ public class Euler {
 
     private List<String> lines = new ArrayList<>();
     private List<String> cycle = new ArrayList<>();
+    private HashSet<String> unExploredEdges = new HashSet<>();
 
     private void formGraph(){
         for (String line : lines){
@@ -41,6 +42,7 @@ public class Euler {
             } else rightEdges.add(lineSplit[1].trim());
             graph.put(leftEdge.edgeName,leftEdge);
             leftEdge.unExplored = rightEdges;
+            unExploredEdges.add(lineSplit[1].trim());
             leftEdge.pointsTo.addAll(rightEdges);
         }
     }
