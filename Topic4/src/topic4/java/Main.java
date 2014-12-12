@@ -10,7 +10,8 @@ public class Main {
 
     public static void main (String[] args) throws IOException{
 
-        OverlapGraph.execute();
+        DeBruijnGraph dbg = new DeBruijnGraph();
+        dbg.execute();
 
     }
 }

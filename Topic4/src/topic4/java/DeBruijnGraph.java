@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,14 +13,9 @@ import java.util.List;
  */
 public class DeBruijnGraph {
 
-    public static void execute() throws IOException{
+    private List<String> lines = new ArrayList<>();
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "DeBruijn.txt");
-        Path filepath = file1.toPath();
-
-        List<String> lines = Files.readAllLines(filepath);
-
+    private void simpleDeBruijn()throws IOException{
         StringComposition sc = new StringComposition(Integer.parseInt(lines.get(0)),lines.get(1));
         sc.makeComposition();
 
@@ -27,6 +23,19 @@ public class DeBruijnGraph {
 
         gp.findDebruijnGraph();
         gp.printDeBruijnGraph();
+    }
+
+    public  void execute() throws IOException{
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
+        Path filepath = file1.toPath();
+
+        lines = Files.readAllLines(filepath);
+
+        simpleDeBruijn();
+
+
     }
 
 }
