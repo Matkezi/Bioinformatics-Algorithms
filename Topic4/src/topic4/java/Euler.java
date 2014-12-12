@@ -52,6 +52,12 @@ public class Euler {
         return false;
     }
 
+    private String newStart(){
+        for (String edge : cycle){
+            if (graph.get(edge).unExplored.size() > 0) return edge;
+        }
+    }
+
     private void findEulerCycle(){
 
         List<String> keysAsArray = new ArrayList<>(graph.keySet());
@@ -69,6 +75,8 @@ public class Euler {
         } while (!cycle.contains(currentEdge));
 
         while(unExploredEdges()){
+            String newStart = newStart();
+
 
         }
 
