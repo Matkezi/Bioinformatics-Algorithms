@@ -120,7 +120,7 @@ public class Euler {
                 }
 
                 if (allExplored){
-                    next = graph.get(currentEdge).pointsTo.get(0);
+                    next = graph.get(currentEdge).pointsTo.get(r.nextInt(graph.get(currentEdge).pointsTo.size()));
 
                 }
 
