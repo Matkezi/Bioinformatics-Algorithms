@@ -14,6 +14,7 @@ public class Euler {
 
     private class Edge {
 
+
         List<String> unExplored = new ArrayList<>();
         String edgeName;
 
@@ -78,10 +79,12 @@ public class Euler {
 
     private void findEulerCycle(){
 
-        List<String> keysAsArray = new ArrayList<>(graph.keySet());
-        Random r = new Random();
+//        List<String> keysAsArray = new ArrayList<>(graph.keySet());
+//        Random r = new Random();
+//
+//        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
 
-        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        String currentEdge = "4";
 
         do {
             cycle.add(currentEdge);
@@ -99,9 +102,13 @@ public class Euler {
 
             do {
                 cycle1.add(currentEdge);
-
-                String next = graph.get(currentEdge).unExplored.get(0);
-                graph.get(currentEdge).unExplored.remove(0);
+                String next = "";
+                if (graph.get(currentEdge).unExplored.size() > 0) {
+                    next = graph.get(currentEdge).unExplored.get(0);
+                    graph.get(currentEdge).unExplored.remove(0);
+                } else if (cycle.contains(next)){
+                    cycle1.add(next);
+                } else break;
 
                 currentEdge = next;
             } while (!cycle1.contains(currentEdge));
