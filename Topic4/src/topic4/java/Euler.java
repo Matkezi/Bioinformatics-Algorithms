@@ -72,9 +72,7 @@ public class Euler {
             }
         }
 
-        for (int j = 0;j<newStartIndex;j++){
-            cycle1.add(cycle.get(j));
-        }
+
         return cycle1;
     }
 
@@ -109,6 +107,7 @@ public class Euler {
             } while (!cycle1.contains(currentEdge));
             cycle = cycle1;
         }
+        cycle.add(currentEdge);
 
     }
 
