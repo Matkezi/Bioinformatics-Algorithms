@@ -15,7 +15,7 @@ public class DeBruijnGraph {
 
     private List<String> lines = new ArrayList<>();
 
-    private void simpleDeBruijn()throws IOException{
+    private void simpleDeBruijn() throws IOException{
         StringComposition sc = new StringComposition(Integer.parseInt(lines.get(0)),lines.get(1));
         sc.makeComposition();
 
@@ -23,6 +23,14 @@ public class DeBruijnGraph {
 
         gp.findDebruijnGraph();
         gp.printDeBruijnGraph();
+    }
+
+    private void simpleDeBruijnFromKmers() throws IOException{
+
+        GraphProblem gp = new GraphProblem(lines);
+        gp.findDebruijnGraph();
+        gp.printDeBruijnGraph();
+
     }
 
     public  void execute() throws IOException{
@@ -33,7 +41,7 @@ public class DeBruijnGraph {
 
         lines = Files.readAllLines(filepath);
 
-        simpleDeBruijn();
+        simpleDeBruijnFromKmers();
 
 
     }

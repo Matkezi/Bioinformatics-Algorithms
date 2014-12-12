@@ -10,8 +10,8 @@ public class Main {
 
     public static void main (String[] args) throws IOException{
 
-        DeBruijnGraph dbg = new DeBruijnGraph();
-        dbg.execute();
+        Euler eu = new Euler();
+        eu.execute();
 
     }
 }
