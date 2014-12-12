@@ -25,6 +25,7 @@ public class Euler {
     private HashMap<Edge, List<Edge>> graph = new HashMap<>();
 
     private List<String> lines = new ArrayList<>();
+    private List<Edge> cycle = new ArrayList<>();
 
     private void formGraph(){
         for (String line : lines){
@@ -43,6 +44,13 @@ public class Euler {
     }
 
     private void findEulerCycle(){
+
+        List<Edge> keysAsArray = new ArrayList<>(graph.keySet());
+        Random r = new Random();
+
+        Edge currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        cycle.add(currentEdge);
+
 
 
     }

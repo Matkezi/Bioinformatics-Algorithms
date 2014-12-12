@@ -89,8 +89,8 @@
       <file leaf-file-name="Euler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67105263" vertical-offset="221" max-vertical-offset="1156">
-              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.8059361" vertical-offset="548" max-vertical-offset="1292">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#351#352#0" expanded="true" />
@@ -336,21 +336,21 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="224" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="223" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="225" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="898" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="421" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="224" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="223" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="225" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="898" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="421" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FullScreen" value="false" />
   </component>
@@ -742,7 +742,7 @@
       <workItem from="1417711527542" duration="135000" />
       <workItem from="1418209794541" duration="4718000" />
       <workItem from="1418319834969" duration="13594000" />
-      <workItem from="1418370733127" duration="12862000" />
+      <workItem from="1418370733127" duration="13039000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1076,11 +1076,15 @@
       <created>1418390836260</created>
       <updated>1418390836260</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="added basic edges and graph, and unExplored attribute">
+      <created>1418391368666</created>
+      <updated>1418391368666</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72811000" />
+    <option name="totallyTimeSpent" value="72988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="800" y="0" width="800" height="856" extended-state="0" />
@@ -1099,7 +1103,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328877" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268229" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1131,7 +1135,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="removed break..." />
     <MESSAGE value="changed this.motifs= motifs to&#10;addAll, incresead number of calls form 20 to 40 WORKS FOR SIMPLE" />
     <MESSAGE value="algorithm works, but problem when submiting to rosalind, however results seem ok" />
     <MESSAGE value="all added and commit..." />
@@ -1156,14 +1159,15 @@
     <MESSAGE value="working..." />
     <MESSAGE value="old approach" />
     <MESSAGE value="refactoringfd-.gvdfeyf" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoringfd-.gvdfeyf" />
+    <MESSAGE value="added basic edges and graph, and unExplored attribute" />
+    <option name="LAST_COMMIT_MESSAGE" value="added basic edges and graph, and unExplored attribute" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java</url>
-          <line>57</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="78" />
         </line-breakpoint>
@@ -1565,8 +1569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67105263" vertical-offset="221" max-vertical-offset="1156">
-          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.8059361" vertical-offset="548" max-vertical-offset="1292">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#351#352#0" expanded="true" />
