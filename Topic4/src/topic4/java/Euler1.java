@@ -20,7 +20,7 @@ public class Euler1 {
 
     private List<String> lines = new ArrayList<>();
     private List<String> cycle = new ArrayList<>();
-    String src,dest;
+    String start,end;
 
     private void formGraph(){
         for (String line : lines){
@@ -90,10 +90,8 @@ public class Euler1 {
     }
 
     private void findEulerPath(){
-        List<String> keysAsArray = new ArrayList<>(graph.keySet());
-        Random r = new Random();
 
-        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        String currentEdge = start;
         cycle.add(currentEdge);
 
         while (true){
@@ -110,7 +108,7 @@ public class Euler1 {
             } else break;
         }
 
-        while (!graph.isEmpty()){
+        do{
             for (int i = 0;i<cycle.size();i++){
                 if (graph.containsKey(cycle.get(i))){
                     currentEdge = cycle.get(i);
@@ -138,11 +136,14 @@ public class Euler1 {
                     break;
                 }
             }
-        }
+        } while (!graph.isEmpty());
 
     }
 
-    private void balanceGraph(){
+    /**
+     * Finds start, and end edge in for Euler path, can also be used to balance the graph
+     */
+    private void findStartEnd(){
         HashMap<String,List<Integer>> connections = new HashMap<>();
         for (String key : graph.keySet()){
             List<Integer> outIn = new ArrayList<>();
@@ -171,17 +172,12 @@ public class Euler1 {
 
         for (String key : connections.keySet()){
             if (connections.get(key).get(0) > connections.get(key).get(1)){
-                dest = key;
+                start = key;
             } else if (connections.get(key).get(0) < connections.get(key).get(1)){
-                src = key;
+                end = key;
             }
         }
-
-
-        List<String> tmp = new ArrayList<>();
-        tmp.add(dest);
-        //graph.put(src,tmp);
-        System.out.print(src+" "+dest);
+        System.out.print(start+" "+end);
 
     }
 
@@ -201,7 +197,7 @@ public class Euler1 {
 
         lines = Files.readAllLines(filepath);
         formGraph();
-        balanceGraph();
+        findStartEnd();
         findEulerPath();
         printEuler();
     }
