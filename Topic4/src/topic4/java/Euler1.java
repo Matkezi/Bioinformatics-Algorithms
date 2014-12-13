@@ -90,7 +90,31 @@ public class Euler1 {
 
     private void balanceGraph(){
         HashMap<String,List<Integer>> connections = new HashMap<>();
+        for (String key : graph.keySet()){
+            List<Integer> outIn = new ArrayList<>();
+            outIn.add(graph.get(key).size());
+            outIn.add(0);
+            connections.put(key,outIn);
+        }
 
+        for (String key : graph.keySet()){
+            List<String> rightSide = graph.get(key);
+            for (String right : rightSide){
+                if (graph.containsKey(right)) {
+                    connections.get(right).set(1, connections.get(right).get(1) + 1);
+                } else {
+                    if (connections.containsKey(right)){
+                        connections.get(right).set(1, connections.get(right).get(1) + 1);
+                    } else {
+                        List<Integer> tmp = new ArrayList<>();
+                        tmp.add(0);
+                        tmp.add(1);
+                        connections.put(right, tmp);
+                    }
+                }
+            }
+        }
+        System.out.print("fd");
 
     }
 
