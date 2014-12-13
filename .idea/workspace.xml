@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/out/EulerPath.txt" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/EulerPath.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bioinformatics-Algorithms.iws" />
@@ -87,11 +88,12 @@
       <file leaf-file-name="Euler1.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3319149" vertical-offset="830" max-vertical-offset="1530">
-              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.524" vertical-offset="1744" max-vertical-offset="2669">
+              <caret line="176" column="13" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
               <folding>
                 <element signature="method#findEulerCycle#0;class#Euler1#0" expanded="false" />
-                <element signature="e#2533#2541#0" expanded="true" />
+                <element signature="e#2554#2562#0" expanded="true" />
+                <element signature="e#4454#4462#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -753,7 +755,7 @@
       <workItem from="1418319834969" duration="13594000" />
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
-      <workItem from="1418473955968" duration="4175000" />
+      <workItem from="1418473955968" duration="5111000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1175,15 +1177,19 @@
       <created>1418476187800</created>
       <updated>1418476187800</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="balanceGraph progress">
+      <created>1418478181765</created>
+      <updated>1418478181765</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91912000" />
+    <option name="totallyTimeSpent" value="92848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1192,7 +1198,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3515625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3515625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.589375" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1205,7 +1211,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55739796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16125" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1230,7 +1236,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="working..." />
     <MESSAGE value="old approach" />
     <MESSAGE value="refactoringfd-.gvdfeyf" />
     <MESSAGE value="added basic edges and graph, and unExplored attribute" />
@@ -1255,7 +1260,8 @@
     <MESSAGE value="REMOVED next" />
     <MESSAGE value="changing approach gstegrtghhbdthdhdzhtrdhgdtzh" />
     <MESSAGE value="making balance graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="making balance graph" />
+    <MESSAGE value="balanceGraph progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="balanceGraph progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1274,13 +1280,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java</url>
-          <line>137</line>
-          <properties />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java</url>
-          <line>116</line>
+          <line>183</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
@@ -1664,11 +1664,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3319149" vertical-offset="830" max-vertical-offset="1530">
-          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.524" vertical-offset="1744" max-vertical-offset="2669">
+          <caret line="176" column="13" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
           <folding>
             <element signature="method#findEulerCycle#0;class#Euler1#0" expanded="false" />
-            <element signature="e#2533#2541#0" expanded="true" />
+            <element signature="e#2554#2562#0" expanded="true" />
+            <element signature="e#4454#4462#0" expanded="true" />
           </folding>
         </state>
       </provider>

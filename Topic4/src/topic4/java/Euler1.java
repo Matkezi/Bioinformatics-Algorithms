@@ -20,6 +20,7 @@ public class Euler1 {
 
     private List<String> lines = new ArrayList<>();
     private List<String> cycle = new ArrayList<>();
+    String src,dest;
 
     private void formGraph(){
         for (String line : lines){
@@ -36,6 +37,59 @@ public class Euler1 {
     }
 
     private void findEulerCycle(){
+        List<String> keysAsArray = new ArrayList<>(graph.keySet());
+        Random r = new Random();
+
+        String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        cycle.add(currentEdge);
+
+        while (true){
+            cycle.add(graph.get(currentEdge).get(0));
+
+            if (graph.get(currentEdge).size() == 1){
+                graph.remove(currentEdge);
+            } else {
+                graph.get(currentEdge).remove(0);
+            }
+
+            if (graph.containsKey(cycle.get(cycle.size() - 1))){
+                currentEdge = cycle.get(cycle.size()-1);
+            } else break;
+        }
+
+        while (!graph.isEmpty()){
+            for (int i = 0;i<cycle.size();i++){
+                if (graph.containsKey(cycle.get(i))){
+                    currentEdge = cycle.get(i);
+                    List<String> cycle1 = new ArrayList<>();
+                    cycle1.add(currentEdge);
+                    while (true){
+                        cycle1.add(graph.get(currentEdge).get(0));
+
+                        if (graph.get(currentEdge).size() == 1){
+                            graph.remove(currentEdge);
+                        } else {
+                            graph.get(currentEdge).remove(0);
+                        }
+
+                        if (graph.containsKey(cycle1.get(cycle1.size() - 1))){
+                            currentEdge = cycle1.get(cycle1.size()-1);
+                        } else break;
+                    }
+                    List<String> newList = new ArrayList<String>();
+                    newList.addAll(cycle.subList(0,i));
+                    newList.addAll(cycle1);
+                    newList.addAll(cycle.subList(i+1,cycle.size()));
+                    cycle.clear();
+                    cycle.addAll(newList);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    private void findEulerPath(){
         List<String> keysAsArray = new ArrayList<>(graph.keySet());
         Random r = new Random();
 
@@ -114,7 +168,20 @@ public class Euler1 {
                 }
             }
         }
-        System.out.print("fd");
+
+        for (String key : connections.keySet()){
+            if (connections.get(key).get(0) > connections.get(key).get(1)){
+                dest = key;
+            } else if (connections.get(key).get(0) < connections.get(key).get(1)){
+                src = key;
+            }
+        }
+
+
+        List<String> tmp = new ArrayList<>();
+        tmp.add(dest);
+        //graph.put(src,tmp);
+        System.out.print(src+" "+dest);
 
     }
 
@@ -135,7 +202,7 @@ public class Euler1 {
         lines = Files.readAllLines(filepath);
         formGraph();
         balanceGraph();
-        findEulerCycle();
+        findEulerPath();
         printEuler();
     }
 
