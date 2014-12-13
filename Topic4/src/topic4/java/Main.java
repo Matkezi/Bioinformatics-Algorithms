@@ -10,7 +10,7 @@ public class Main {
 
     public static void main (String[] args) throws IOException{
 
-        Euler eu = new Euler();
+        Euler1 eu = new Euler1();
         eu.execute();
 
     }

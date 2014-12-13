@@ -122,7 +122,9 @@ public class Euler {
 
                 currentEdge = next;
             } while (!currentEdge.equals(start));
+            cycle.clear();
             cycle = cycle1;
+            if (cycle.size() == (graph.size())) break;
         }
 
         cycle.add(currentEdge);
