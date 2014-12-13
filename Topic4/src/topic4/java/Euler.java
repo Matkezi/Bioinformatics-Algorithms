@@ -206,7 +206,7 @@ public class Euler {
         lines = Files.readAllLines(filepath);
         formGraph();
         findStartEnd();
-        findEulerPath();
+        findEulerCycle();
         printEuler();
     }
 

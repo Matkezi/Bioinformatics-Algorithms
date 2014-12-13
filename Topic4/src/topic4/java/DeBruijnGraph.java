@@ -35,8 +35,12 @@ public class DeBruijnGraph {
 
     public  void execute() throws IOException{
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
+//        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+//        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
+        File file1 = new File(dir, "universalStringKmersOut.txt");
+
         Path filepath = file1.toPath();
 
         lines = Files.readAllLines(filepath);

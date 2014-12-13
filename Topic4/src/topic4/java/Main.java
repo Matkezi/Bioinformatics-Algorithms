@@ -10,8 +10,16 @@ public class Main {
 
     public static void main (String[] args) throws IOException{
 
+        UniversalString us = new UniversalString(3);
+        us.printUniversalString();
+
+        DeBruijnGraph dbg = new DeBruijnGraph();
+        dbg.execute();
+
         Euler eu = new Euler();
         eu.execute();
+
+        GenomePath.execute();
 
     }
 }
