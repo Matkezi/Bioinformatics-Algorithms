@@ -4,6 +4,7 @@ import topic1.java.Stopwatch;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -14,136 +15,199 @@ import java.util.*;
  */
 public class Euler {
 
-    private class Edge {
 
-        List<String> pointsTo = new ArrayList<>();
-        List<String> unExplored = new ArrayList<>();
-        String edgeName;
-
-        private Edge(String edgeName) {
-            this.edgeName = edgeName;
-        }
-    }
-
-    private HashMap<String, Edge> graph = new HashMap<>();
+    private HashMap<String, List<String>> graph = new HashMap<>();
 
     private List<String> lines = new ArrayList<>();
     private List<String> cycle = new ArrayList<>();
-    private HashSet<String> unExploredEdges = new HashSet<>();
+    String start,end;
 
     private void formGraph(){
         for (String line : lines){
             List<String> rightEdges = new ArrayList<>();
             String[] lineSplit = line.split("->");
-            Edge leftEdge = new Edge(lineSplit[0].trim());
             if (lineSplit[1].contains(",")) {
                 String[] toNodes = lineSplit[1].split(",");
                 for (String toNode : toNodes) {
                     rightEdges.add(toNode.trim());
                 }
             } else rightEdges.add(lineSplit[1].trim());
-            graph.put(leftEdge.edgeName,leftEdge);
-            leftEdge.unExplored = rightEdges;
-            unExploredEdges.add(lineSplit[0].trim());
-            leftEdge.pointsTo.addAll(rightEdges);
+            graph.put(lineSplit[0].trim(),rightEdges);
         }
-    }
-
-    private String newStart(){
-        for (String edge : cycle){
-            if (unExploredEdges.contains(edge)) return edge;
-        }
-        return null;
-    }
-
-    private List<String> resolveCycle(){
-        String newStart = newStart();
-        List<String> cycle1 = new ArrayList<>();
-        int newStartIndex = -1;
-        for (int i = 0;i<cycle.size();i++){
-            if (cycle.get(i).equals(newStart)){
-                newStartIndex = i;
-                cycle1.add(newStart);
-            } else if(newStartIndex != -1){
-                cycle1.add(cycle.get(i));
-            }
-        }
-
-        for (int j = 0;j<newStartIndex;j++){
-            cycle1.add(cycle.get(j));
-        }
-
-        return cycle1;
     }
 
     private void findEulerCycle(){
-
         List<String> keysAsArray = new ArrayList<>(graph.keySet());
         Random r = new Random();
 
         String currentEdge = keysAsArray.get(r.nextInt(keysAsArray.size()));
-
-        //String currentEdge = "4";
-        String start = currentEdge;
-
-        do {
-            cycle.add(currentEdge);
-
-            String next = graph.get(currentEdge).unExplored.get(0);
-            graph.get(currentEdge).unExplored.remove(0);
-            if(graph.get(currentEdge).unExplored.size()==0) unExploredEdges.remove(currentEdge);
-
-            currentEdge = next;
-        } while (!currentEdge.equals(start));
-
-        while(!unExploredEdges.isEmpty()){
-            List<String> cycle1 = resolveCycle();
-
-            currentEdge = cycle1.get(0);
-            start = currentEdge;
-
-            do {
-                cycle1.add(currentEdge);
-                String next = "";
-                if (unExploredEdges.contains(currentEdge)) {
-                    next = graph.get(currentEdge).unExplored.get(0);
-                    graph.get(currentEdge).unExplored.remove(0);
-                    if (graph.get(currentEdge).unExplored.size() == 0) unExploredEdges.remove(currentEdge);
-                }
-//                 else {
-//                    for (int i = 0;i<graph.get(currentEdge).pointsTo.size();i++) {
-//                        String tmp = graph.get(currentEdge).pointsTo.get(i);//r.nextInt(graph.get(currentEdge).pointsTo.size()
-//                        if (!cycle.contains(tmp)) {
-//                            next = tmp;
-//                            break;
-//                        }
-//                    }
-//                }
-
-                currentEdge = next;
-            } while (!currentEdge.equals(start));
-            cycle.clear();
-            cycle = cycle1;
-            if (cycle.size() == (graph.size())) break;
-        }
-
         cycle.add(currentEdge);
 
+        while (true){
+            cycle.add(graph.get(currentEdge).get(0));
+
+            if (graph.get(currentEdge).size() == 1){
+                graph.remove(currentEdge);
+            } else {
+                graph.get(currentEdge).remove(0);
+            }
+
+            if (graph.containsKey(cycle.get(cycle.size() - 1))){
+                currentEdge = cycle.get(cycle.size()-1);
+            } else break;
+        }
+
+        while (!graph.isEmpty()){
+            for (int i = 0;i<cycle.size();i++){
+                if (graph.containsKey(cycle.get(i))){
+                    currentEdge = cycle.get(i);
+                    List<String> cycle1 = new ArrayList<>();
+                    cycle1.add(currentEdge);
+                    while (true){
+                        cycle1.add(graph.get(currentEdge).get(0));
+
+                        if (graph.get(currentEdge).size() == 1){
+                            graph.remove(currentEdge);
+                        } else {
+                            graph.get(currentEdge).remove(0);
+                        }
+
+                        if (graph.containsKey(cycle1.get(cycle1.size() - 1))){
+                            currentEdge = cycle1.get(cycle1.size()-1);
+                        } else break;
+                    }
+                    List<String> newList = new ArrayList<String>();
+                    newList.addAll(cycle.subList(0,i));
+                    newList.addAll(cycle1);
+                    newList.addAll(cycle.subList(i+1,cycle.size()));
+                    cycle.clear();
+                    cycle.addAll(newList);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    private void findEulerPath(){
+
+        String currentEdge = start;
+        cycle.add(currentEdge);
+
+        while (true){
+            cycle.add(graph.get(currentEdge).get(0));
+
+            if (graph.get(currentEdge).size() == 1){
+                graph.remove(currentEdge);
+            } else {
+                graph.get(currentEdge).remove(0);
+            }
+
+            if (graph.containsKey(cycle.get(cycle.size() - 1))){
+                currentEdge = cycle.get(cycle.size()-1);
+            } else break;
+        }
+
+        do{
+            for (int i = 0;i<cycle.size();i++){
+                if (graph.containsKey(cycle.get(i))){
+                    currentEdge = cycle.get(i);
+                    List<String> cycle1 = new ArrayList<>();
+                    cycle1.add(currentEdge);
+                    while (true){
+                        cycle1.add(graph.get(currentEdge).get(0));
+
+                        if (graph.get(currentEdge).size() == 1){
+                            graph.remove(currentEdge);
+                        } else {
+                            graph.get(currentEdge).remove(0);
+                        }
+
+                        if (graph.containsKey(cycle1.get(cycle1.size() - 1))){
+                            currentEdge = cycle1.get(cycle1.size()-1);
+                        } else break;
+                    }
+                    List<String> newList = new ArrayList<String>();
+                    newList.addAll(cycle.subList(0,i));
+                    newList.addAll(cycle1);
+                    newList.addAll(cycle.subList(i+1,cycle.size()));
+                    cycle.clear();
+                    cycle.addAll(newList);
+                    break;
+                }
+            }
+        } while (!graph.isEmpty());
+
+    }
+
+    /**
+     * Finds start, and end edge in for Euler path, can also be used to balance the graph
+     */
+    private void findStartEnd(){
+        HashMap<String,List<Integer>> connections = new HashMap<>();
+        for (String key : graph.keySet()){
+            List<Integer> outIn = new ArrayList<>();
+            outIn.add(graph.get(key).size());
+            outIn.add(0);
+            connections.put(key,outIn);
+        }
+
+        for (String key : graph.keySet()){
+            List<String> rightSide = graph.get(key);
+            for (String right : rightSide){
+                if (graph.containsKey(right)) {
+                    connections.get(right).set(1, connections.get(right).get(1) + 1);
+                } else {
+                    if (connections.containsKey(right)){
+                        connections.get(right).set(1, connections.get(right).get(1) + 1);
+                    } else {
+                        List<Integer> tmp = new ArrayList<>();
+                        tmp.add(0);
+                        tmp.add(1);
+                        connections.put(right, tmp);
+                    }
+                }
+            }
+        }
+
+        for (String key : connections.keySet()){
+            if (connections.get(key).get(0) > connections.get(key).get(1)){
+                start = key;
+            } else if (connections.get(key).get(0) < connections.get(key).get(1)){
+                end = key;
+            }
+        }
+    }
+
+    public void printEuler() throws IOException{
+        PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\EulerPathOut.txt", "UTF-8");
+        for (int i = 0;i<cycle.size();i++) {
+            writer.println(cycle.get(i));
+
+//            if (i != cycle.size()-1){
+//                writer.print(cycle.get(i)+"->");
+//            } else {
+//                writer.print(cycle.get(i));
+//            }
+        }
+        writer.close();
     }
 
     public void execute() throws IOException {
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "EulerCycle.txt");
+//        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+//        File file1 = new File(dir, "EulerPath.txt");
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
+        File file1 = new File(dir, "DeBruijnGraphProblemOut.txt");
+
         Path filepath = file1.toPath();
 
         lines = Files.readAllLines(filepath);
         formGraph();
-        Stopwatch timer = new Stopwatch();
-        findEulerCycle();
-        System.out.println(timer.elapsedTime());
-        System.out.print(cycle);
-
+        findStartEnd();
+        findEulerPath();
+        printEuler();
     }
 
 }

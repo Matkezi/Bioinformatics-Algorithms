@@ -37,8 +37,12 @@ public class GenomePath {
 
     public static void execute () throws IOException {
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "simpleGenomePath.txt");
+//        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+//        File file1 = new File(dir, "simpleGenomePath.txt");
+//        Path filepath = file1.toPath();
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
+        File file1 = new File(dir, "EulerPathOut.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);
