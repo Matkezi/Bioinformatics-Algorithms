@@ -52,11 +52,68 @@ public class DeBruijnGraph {
         gp.printDeBruijnGraph();
     }
 
+
+
     private void MaximalNonBranchingPaths() throws IOException{
-        Euler eu = new Euler();
-        eu.execute();
-        HashMap<String, List<String>> graph = eu.getGraph();
-        HashMap<String,List<Integer>> connections = eu.getConnections();
+//        Euler eu = new Euler();
+//        eu.execute();
+//        HashMap<String, List<String>> graph = eu.getGraph();
+//        HashMap<String,List<Integer>> connections = eu.getConnections();
+
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+        File file1 = new File(dir, "testGraph.txt");
+
+        Path filepath = file1.toPath();
+
+        lines = Files.readAllLines(filepath);
+        HashMap<String, List<String>> graph = new HashMap<>();
+        HashMap<String,List<Integer>> connections = new HashMap<>();
+
+        for (String line : lines){
+            List<String> rightEdges = new ArrayList<>();
+            String[] lineSplit = line.split("->");
+            if (lineSplit[1].contains(",")) {
+                String[] toNodes = lineSplit[1].split(",");
+                for (String toNode : toNodes) {
+                    rightEdges.add(toNode.trim());
+                }
+            } else rightEdges.add(lineSplit[1].trim());
+            graph.put(lineSplit[0].trim(),rightEdges);
+        }
+
+        for (String key : graph.keySet()){
+            List<Integer> outIn = new ArrayList<>();
+            outIn.add(graph.get(key).size());
+            outIn.add(0);
+            connections.put(key,outIn);
+        }
+
+        for (String key : graph.keySet()){
+            List<String> rightSide = graph.get(key);
+            for (String right : rightSide){
+                if (graph.containsKey(right)) {
+                    connections.get(right).set(1, connections.get(right).get(1) + 1);
+                } else {
+                    if (connections.containsKey(right)){
+                        connections.get(right).set(1, connections.get(right).get(1) + 1);
+                    } else {
+                        List<Integer> tmp = new ArrayList<>();
+                        tmp.add(0);
+                        tmp.add(1);
+                        connections.put(right, tmp);
+                    }
+                }
+            }
+        }
+
+        for (String key : connections.keySet()){
+            if (connections.get(key).get(0) > connections.get(key).get(1)){
+                String start = key;
+            } else if (connections.get(key).get(0) < connections.get(key).get(1)){
+                String end = key;
+            }
+        }
+
 
         List<List<String>> paths = new ArrayList<>();
         for (String node : graph.keySet()){
@@ -75,6 +132,9 @@ public class DeBruijnGraph {
                 }
             }
         }
+
+
+
         System.out.println("");
     }
 
