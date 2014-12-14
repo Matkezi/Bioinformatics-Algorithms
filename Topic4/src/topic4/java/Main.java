@@ -16,6 +16,8 @@ public class Main {
         Euler eu = new Euler();
         eu.execute();
 
+        StringSpelledByGappedPatterns ssgp = new StringSpelledByGappedPatterns();
+        ssgp.execute();
 
     }
 }
