@@ -17,13 +17,17 @@ public class Euler {
 
 
     private HashMap<String, List<String>> graph = new HashMap<>();
-
+    private HashMap<String,List<Integer>> connections = new HashMap<>();
     private List<String> lines = new ArrayList<>();
     private List<String> cycle = new ArrayList<>();
     String start,end;
 
     public HashMap<String, List<String>> getGraph() {
         return graph;
+    }
+
+    public HashMap<String, List<Integer>> getConnections() {
+        return connections;
     }
 
     private void formGraph(){
@@ -148,7 +152,7 @@ public class Euler {
      * Finds start, and end edge in for Euler path, can also be used to balance the graph
      */
     private void findStartEnd(){
-        HashMap<String,List<Integer>> connections = new HashMap<>();
+
         for (String key : graph.keySet()){
             List<Integer> outIn = new ArrayList<>();
             outIn.add(graph.get(key).size());
@@ -210,7 +214,7 @@ public class Euler {
         lines = Files.readAllLines(filepath);
 
         formGraph();
-        //findStartEnd();
+        findStartEnd();
         //findEulerPath();
         //printEuler();
     }

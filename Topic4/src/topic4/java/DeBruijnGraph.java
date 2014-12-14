@@ -56,6 +56,18 @@ public class DeBruijnGraph {
         Euler eu = new Euler();
         eu.execute();
         HashMap<String, List<String>> graph = eu.getGraph();
+        HashMap<String,List<Integer>> connections = eu.getConnections();
+
+        List<String> paths = new ArrayList<>();
+        for (String node : graph.keySet()){
+            if (!connections.get(node).get(0).equals(connections.get(node).get(1)) ){
+                if (connections.get(node).get(0) > 0){
+                    for (String out : graph.get(node)){
+
+                    }
+                }
+            }
+        }
     }
 
     public  void execute() throws IOException{
@@ -71,6 +83,7 @@ public class DeBruijnGraph {
         lines = Files.readAllLines(filepath);
 
         simpleDeBruijnFromKmers();
+        MaximalNonBranchingPaths();
 
 
     }
