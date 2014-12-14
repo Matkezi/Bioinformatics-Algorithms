@@ -33,13 +33,30 @@ public class DeBruijnGraph {
 
     }
 
+    private void  pairedDeBruijnFromKmers() throws IOException{
+        String[] line1 = lines.get(0).split("\\s+");
+        int k = Integer.parseInt(line1[0]);
+        int d = Integer.parseInt(line1[1]);
+        List<String>  pairs1 = new ArrayList<>();
+        List<String>  pairs2 = new ArrayList<>();
+
+        for (int i = 1;i<lines.size();i++){
+            String[] line = lines.get(i).split("|");
+            pairs1.add(line[0]);
+            pairs2.add(line[1]);
+        }
+
+        GraphProblem gp = new GraphProblem(pairs1,pairs2,k,d);
+        gp.findPairedDebruijnGraph();
+    }
+
     public  void execute() throws IOException{
 
-//        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-//        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
+        File file1 = new File(dir, "pairedDeBruijn.txt");
 
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
-        File file1 = new File(dir, "universalStringKmersOut.txt");
+//        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
+//        File file1 = new File(dir, "universalStringKmersOut.txt");
 
         Path filepath = file1.toPath();
 

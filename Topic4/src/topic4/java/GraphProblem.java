@@ -14,13 +14,22 @@ import java.util.*;
 public class GraphProblem {
 
     private List<String> dnas = new ArrayList<>();
-    int k;
+    private List<String> pairs1 = new ArrayList<>();
+    private List<String> pairs2 = new ArrayList<>();
+    int k,d;
     private List<List<String>> overlapGraph = new ArrayList<>();
     private List<List<String>> deBruijnGraph = new ArrayList<>();
 
     public GraphProblem(List<String> dnas) {
         this.dnas = dnas;
         k = dnas.get(0).length();
+    }
+
+    public GraphProblem(List<String> pairs1, List<String> pairs2, int k, int d) {
+        this.pairs1 = pairs1;
+        this.pairs2 = pairs2;
+        this.k = k;
+        this.d = d;
     }
 
     public void findOverlapGraph(){
@@ -78,6 +87,16 @@ public class GraphProblem {
                 deBruijnGraph.add(element);
             }
         }
+    }
+
+    public void findPairedDebruijnGraph(){
+
+
+
+    }
+
+    public void printPairedDebruijnGraph(){
+
     }
 
     public void printOverLapGraph() throws IOException{
