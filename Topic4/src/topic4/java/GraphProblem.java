@@ -91,13 +91,27 @@ public class GraphProblem {
 
     public void findPairedDebruijnGraph(){
 
+        for (int i = 0;i<pairs1.size();i++){
+            List<String> element = new ArrayList<>();
+            String left = pairs1.get(i).substring(0,k-1)+"|"+pairs2.get(i).substring(0,k-1);
+            String right = pairs1.get(i).substring(1,k)+"|"+pairs2.get(i).substring(1,k);
 
+            int index = graphContains(left);
+            if (index >= 0){
+                element = deBruijnGraph.get(index);
+                deBruijnGraph.remove(index);
+                element.add(right);
+                deBruijnGraph.add(index,element);
+            } else {
+                element.add(left);
+                element.add(right);
+                deBruijnGraph.add(element);
+            }
+
+        }
 
     }
 
-    public void printPairedDebruijnGraph(){
-
-    }
 
     public void printOverLapGraph() throws IOException{
         PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\overlapGraphProblemOut.txt", "UTF-8");
@@ -108,7 +122,7 @@ public class GraphProblem {
     }
 
     public void printDeBruijnGraph() throws IOException{
-        PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\DeBruijnGraphProblemOut.txt", "UTF-8");
+        PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\pairedDeBruijnGraphProblemOut.txt", "UTF-8");
         for (int i = 0;i<deBruijnGraph.size();i++){
             if (deBruijnGraph.get(i).size() == 2) writer.println(deBruijnGraph.get(i).get(0)+" -> "+deBruijnGraph.get(i).get(1));
             else {

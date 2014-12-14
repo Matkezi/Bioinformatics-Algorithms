@@ -41,13 +41,14 @@ public class DeBruijnGraph {
         List<String>  pairs2 = new ArrayList<>();
 
         for (int i = 1;i<lines.size();i++){
-            String[] line = lines.get(i).split("|");
+            String[] line = lines.get(i).split("\\|");
             pairs1.add(line[0]);
             pairs2.add(line[1]);
         }
 
         GraphProblem gp = new GraphProblem(pairs1,pairs2,k,d);
         gp.findPairedDebruijnGraph();
+        gp.printDeBruijnGraph();
     }
 
     public  void execute() throws IOException{
@@ -62,7 +63,7 @@ public class DeBruijnGraph {
 
         lines = Files.readAllLines(filepath);
 
-        simpleDeBruijnFromKmers();
+        pairedDeBruijnFromKmers();
 
 
     }

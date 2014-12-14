@@ -199,14 +199,14 @@ public class Euler {
 //        File file1 = new File(dir, "EulerPath.txt");
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
-        File file1 = new File(dir, "DeBruijnGraphProblemOut.txt");
+        File file1 = new File(dir, "PairedDeBruijnGraphProblemOut.txt");
 
         Path filepath = file1.toPath();
 
         lines = Files.readAllLines(filepath);
         formGraph();
         findStartEnd();
-        findEulerCycle();
+        findEulerPath();
         printEuler();
     }
 
