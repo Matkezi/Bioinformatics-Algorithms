@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -114,7 +115,7 @@ public class DeBruijnGraph {
             }
         }
 
-
+        HashSet<String> used = new HashSet<>();
         List<List<String>> paths = new ArrayList<>();
         for (String node : graph.keySet()){
             if (!(connections.get(node).get(0) == 1 && connections.get(node).get(1) == 1) ){
@@ -123,19 +124,27 @@ public class DeBruijnGraph {
                         List<String> nonBranchingPath = new ArrayList<>();
                         nonBranchingPath.add(node);
                         nonBranchingPath.add(w);
+
+                        used.add(node);
+                        used.add(w);
+
                         while (connections.get(w).get(0) == 1 && connections.get(w).get(1) == 1){
                             nonBranchingPath.add(graph.get(w).get(0));
                             w = graph.get(w).get(0);
+                            used.add(w);
                         }
                         paths.add(nonBranchingPath);
                     }
                 }
-            } else {
-
             }
         }
 
+        for (String node : graph.keySet() ){
+            if (!used.contains(node)){
+                List<String> cycle = new ArrayList<>();
 
+            }
+        }
 
         System.out.println("");
     }
