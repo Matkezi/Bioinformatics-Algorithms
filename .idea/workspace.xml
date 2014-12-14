@@ -152,8 +152,8 @@
       <file leaf-file-name="DeBruijnGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15452538" vertical-offset="2497" max-vertical-offset="3298">
-              <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
+            <state vertical-scroll-proportion="-1.4260485" vertical-offset="2499" max-vertical-offset="3298">
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -765,7 +765,7 @@
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
       <workItem from="1418473955968" duration="11557000" />
-      <workItem from="1418549635797" duration="17557000" />
+      <workItem from="1418549635797" duration="17655000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1271,11 +1271,15 @@
       <created>1418595075727</created>
       <updated>1418595075727</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="working!!!">
+      <created>1418595603636</created>
+      <updated>1418595603637</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116851000" />
+    <option name="totallyTimeSpent" value="116949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="800" y="0" width="800" height="860" extended-state="0" />
@@ -1326,7 +1330,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="redone next" />
     <MESSAGE value="REMOVED next" />
     <MESSAGE value="changing approach gstegrtghhbdthdhdzhtrdhgdtzh" />
     <MESSAGE value="making balance graph" />
@@ -1351,7 +1354,8 @@
     <MESSAGE value="fixed while, now need isolated cycle" />
     <MESSAGE value="added set..." />
     <MESSAGE value="cycle added" />
-    <option name="LAST_COMMIT_MESSAGE" value="cycle added" />
+    <MESSAGE value="working!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="working!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1783,8 +1787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15452538" vertical-offset="2497" max-vertical-offset="3298">
-          <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
+        <state vertical-scroll-proportion="-1.4260485" vertical-offset="2499" max-vertical-offset="3298">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding />
         </state>
       </provider>
