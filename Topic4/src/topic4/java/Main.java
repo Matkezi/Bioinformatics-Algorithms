@@ -13,11 +13,13 @@ public class Main {
         DeBruijnGraph dbg = new DeBruijnGraph();
         dbg.execute();
 
-        Euler eu = new Euler();
-        eu.execute();
+//        Euler eu = new Euler();
+//        eu.execute();
+//
+//        GenomePath.execute();
 
-        StringSpelledByGappedPatterns ssgp = new StringSpelledByGappedPatterns();
-        ssgp.execute();
+//        StringSpelledByGappedPatterns ssgp = new StringSpelledByGappedPatterns();
+//        ssgp.execute();
 
     }
 }

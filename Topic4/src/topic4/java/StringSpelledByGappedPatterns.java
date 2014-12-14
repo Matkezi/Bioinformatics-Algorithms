@@ -35,10 +35,20 @@ public class StringSpelledByGappedPatterns {
             secondPatterns.add(line[1]);
         }
 
-        String prefix = StringSpelledByPatterns(firstPatterns);
-        String suffix = StringSpelledByPatterns(secondPatterns);
+        String prefixString = StringSpelledByPatterns(firstPatterns);
+        String suffixString = StringSpelledByPatterns(secondPatterns);
 
-        return "df";
+        StringBuilder prefix = new StringBuilder(prefixString);
+        StringBuilder suffix = new StringBuilder(suffixString);
+
+        for (int i = k+d+1;i<prefix.length();i++){
+            if (prefix.charAt(i) != suffix.charAt(i-k-d)){
+                return  "there is no string spelled by the gapped patterns";
+            }
+        }
+
+        prefix.append(suffix.subSequence(suffixString.length()-k-d,suffixString.length()));
+        return prefix.toString();
     }
 
 

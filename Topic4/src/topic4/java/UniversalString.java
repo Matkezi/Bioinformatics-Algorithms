@@ -21,7 +21,7 @@ public class UniversalString {
     public void printUniversalString() throws IOException{
         PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\universalStringKmersOut.txt", "UTF-8");
         for (int i = 0;i<(int) Math.pow(2, k);i++) {
-            writer.println(String.format("%9s", Integer.toBinaryString(i)).replace(' ', '0'));
+            writer.println(String.format("%3s", Integer.toBinaryString(i)).replace(' ', '0'));
         }
         writer.close();
     }

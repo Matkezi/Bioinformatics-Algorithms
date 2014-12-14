@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -51,10 +52,16 @@ public class DeBruijnGraph {
         gp.printDeBruijnGraph();
     }
 
+    private void MaximalNonBranchingPaths() throws IOException{
+        Euler eu = new Euler();
+        eu.execute();
+        HashMap<String, List<String>> graph = eu.getGraph();
+    }
+
     public  void execute() throws IOException{
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "pairedDeBruijn.txt");
+        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
 
 //        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
 //        File file1 = new File(dir, "universalStringKmersOut.txt");
@@ -63,7 +70,7 @@ public class DeBruijnGraph {
 
         lines = Files.readAllLines(filepath);
 
-        pairedDeBruijnFromKmers();
+        simpleDeBruijnFromKmers();
 
 
     }

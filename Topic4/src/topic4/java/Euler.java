@@ -22,6 +22,10 @@ public class Euler {
     private List<String> cycle = new ArrayList<>();
     String start,end;
 
+    public HashMap<String, List<String>> getGraph() {
+        return graph;
+    }
+
     private void formGraph(){
         for (String line : lines){
             List<String> rightEdges = new ArrayList<>();
@@ -199,15 +203,16 @@ public class Euler {
 //        File file1 = new File(dir, "EulerPath.txt");
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
-        File file1 = new File(dir, "PairedDeBruijnGraphProblemOut.txt");
+        File file1 = new File(dir, "DeBruijnGraphProblemOut.txt");
 
         Path filepath = file1.toPath();
 
         lines = Files.readAllLines(filepath);
+
         formGraph();
-        findStartEnd();
-        findEulerPath();
-        printEuler();
+        //findStartEnd();
+        //findEulerPath();
+        //printEuler();
     }
 
 }
