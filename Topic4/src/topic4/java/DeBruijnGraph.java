@@ -142,7 +142,19 @@ public class DeBruijnGraph {
         for (String node : graph.keySet() ){
             if (!used.contains(node)){
                 List<String> cycle = new ArrayList<>();
+                cycle.add(node);
+                used.add(node);
+                String nextNode = graph.get(node).get(0);
 
+                while (!nextNode.equals(node)){
+                    cycle.add(nextNode);
+                    used.add(nextNode);
+                    nextNode = graph.get(nextNode).get(0);
+                }
+
+                cycle.add(nextNode);
+                used.add(nextNode);
+                paths.add(cycle);
             }
         }
 
