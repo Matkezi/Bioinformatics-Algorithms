@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bioinformatics-Algorithms.iws" />
@@ -48,11 +46,9 @@
       <file leaf-file-name="StringSpelledByGappedPatterns.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60627675" vertical-offset="0" max-vertical-offset="701">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.07275321" vertical-offset="0" max-vertical-offset="701">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1003">
-              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding>
                 <element signature="e#335#336#0" expanded="true" />
                 <element signature="e#367#368#0" expanded="true" />
@@ -779,7 +775,7 @@
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
       <workItem from="1418473955968" duration="11557000" />
-      <workItem from="1418549635797" duration="5143000" />
+      <workItem from="1418549635797" duration="5437000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1233,11 +1229,15 @@
       <created>1418556196724</created>
       <updated>1418556196724</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="redone, recursion making">
+      <created>1418556621318</created>
+      <updated>1418556621318</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104437000" />
+    <option name="totallyTimeSpent" value="104731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="800" y="0" width="800" height="860" extended-state="0" />
@@ -1288,7 +1288,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="WORKS, first part" />
     <MESSAGE value="added find if any unExploredEdges left" />
     <MESSAGE value="added newStart" />
     <MESSAGE value="kinda working, some differences in final... order" />
@@ -1313,7 +1312,8 @@
     <MESSAGE value="added pairedDeBrijn graph skeleton" />
     <MESSAGE value="pairedDeBruijn and Euler prob working, now just need to return to string" />
     <MESSAGE value="k and d changed to static" />
-    <option name="LAST_COMMIT_MESSAGE" value="k and d changed to static" />
+    <MESSAGE value="redone, recursion making" />
+    <option name="LAST_COMMIT_MESSAGE" value="redone, recursion making" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1649,17 +1649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1003">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-          <folding>
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1037">
@@ -1673,25 +1662,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="1224">
           <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding>
-            <element signature="docComment;class#GraphProblem#0" expanded="false" />
-            <element signature="method#GraphProblem#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#GraphProblem#1;class#GraphProblem#0" expanded="false" />
-            <element signature="method#findOverlapGraph#0;class#GraphProblem#0" expanded="false" />
-            <element signature="docComment;method#graphContains#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#graphContains#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#findDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#findPairedDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
-            <element signature="method#printDeBruijnGraph#0;class#GraphProblem#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1719,13 +1689,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="docComment;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#1;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findOverlapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="docComment;method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findPairedDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printDeBruijnGraph#0;class#GraphProblem#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1003">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60627675" vertical-offset="0" max-vertical-offset="701">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.07275321" vertical-offset="0" max-vertical-offset="701">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
