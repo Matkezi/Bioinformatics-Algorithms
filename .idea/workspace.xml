@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/out/EulerPathOut.txt" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/EulerPathOut.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -41,9 +39,21 @@
       <file leaf-file-name="DeBruijnGraph.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="1224">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="1224">
+              <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringSpelledByGappedPatterns.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,9 +61,20 @@
       <file leaf-file-name="GraphProblem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43168604" vertical-offset="1726" max-vertical-offset="2414">
-              <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.22972973" vertical-offset="0" max-vertical-offset="740">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding>
+                <element signature="docComment;class#GraphProblem#0" expanded="false" />
+                <element signature="method#GraphProblem#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#GraphProblem#1;class#GraphProblem#0" expanded="false" />
+                <element signature="method#findOverlapGraph#0;class#GraphProblem#0" expanded="false" />
+                <element signature="docComment;method#graphContains#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#graphContains#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#findDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#findPairedDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
+                <element signature="method#printDeBruijnGraph#0;class#GraphProblem#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,7 +82,7 @@
       <file leaf-file-name="StringComposition.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1071">
+            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="935">
               <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
               <folding />
             </state>
@@ -71,9 +92,12 @@
       <file leaf-file-name="GenomePath.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="969">
-              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1003">
+              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <folding>
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,18 +105,8 @@
       <file leaf-file-name="Euler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="3604">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2730" max-vertical-offset="3604">
               <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OverlapGraph.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="544">
-              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -111,8 +125,8 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="476">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -159,20 +173,22 @@
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/UniversalString.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="800" />
-    <option name="width" value="800" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -765,7 +781,7 @@
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
       <workItem from="1418473955968" duration="11557000" />
-      <workItem from="1418549635797" duration="4393000" />
+      <workItem from="1418549635797" duration="4711000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1211,14 +1227,18 @@
       <created>1418553946712</created>
       <updated>1418553946712</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="pairedDeBruijn and Euler prob working, now just need to return to string">
+      <created>1418555885649</created>
+      <updated>1418555885650</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103687000" />
+    <option name="totallyTimeSpent" value="104005000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="800" y="0" width="800" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1240,7 +1260,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50510204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4502551" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16125" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1266,7 +1286,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="before changing edges" />
     <MESSAGE value="gfvdgtrhr" />
     <MESSAGE value="WORKS, first part" />
     <MESSAGE value="added find if any unExploredEdges left" />
@@ -1291,18 +1310,11 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="universalString not working" />
     <MESSAGE value="added pairedDeBrijn graph skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pairedDeBrijn graph skeleton" />
+    <MESSAGE value="pairedDeBruijn and Euler prob working, now just need to return to string" />
+    <option name="LAST_COMMIT_MESSAGE" value="pairedDeBruijn and Euler prob working, now just need to return to string" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java</url>
-          <line>18</line>
-          <properties />
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="115" />
     </breakpoint-manager>
   </component>
@@ -1311,19 +1323,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1037">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1938">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="docComment;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#1;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findOverlapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="docComment;method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findPairedDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printDeBruijnGraph#0;class#GraphProblem#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1616,14 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1037">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topic1/src/topic1/java/Stopwatch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="799">
@@ -1650,17 +1657,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="969">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="476">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1003">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1672,19 +1674,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1037">
+          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="626" max-vertical-offset="1224">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="1224">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43168604" vertical-offset="1726" max-vertical-offset="2414">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.22972973" vertical-offset="0" max-vertical-offset="740">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="docComment;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#GraphProblem#1;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findOverlapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="docComment;method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#graphContains#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#findPairedDebruijnGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printOverLapGraph#0;class#GraphProblem#0" expanded="false" />
+            <element signature="method#printDeBruijnGraph#0;class#GraphProblem#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

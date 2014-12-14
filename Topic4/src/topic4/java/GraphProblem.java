@@ -16,7 +16,7 @@ public class GraphProblem {
     private List<String> dnas = new ArrayList<>();
     private List<String> pairs1 = new ArrayList<>();
     private List<String> pairs2 = new ArrayList<>();
-    int k,d;
+    static int k,d;
     private List<List<String>> overlapGraph = new ArrayList<>();
     private List<List<String>> deBruijnGraph = new ArrayList<>();
 

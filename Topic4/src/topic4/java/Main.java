@@ -16,7 +16,6 @@ public class Main {
         Euler eu = new Euler();
         eu.execute();
 
-        GenomePath.execute();
 
     }
 }
