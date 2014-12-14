@@ -2,6 +2,7 @@ package topic4.java;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -157,6 +158,19 @@ public class DeBruijnGraph {
                 paths.add(cycle);
             }
         }
+
+        PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out\\testOut.txt", "UTF-8");
+        for (int i = 0;i<paths.size();i++){
+            for (int j = 0;j<paths.get(i).size();j++){
+                if (j == paths.get(i).size()-1){
+                    writer.print(paths.get(i).get(j));
+                } else {
+                    writer.print(paths.get(i).get(j)+" -> ");
+                }
+            }
+            writer.println();
+        }
+        writer.close();
 
         System.out.println("");
     }
