@@ -58,16 +58,24 @@ public class DeBruijnGraph {
         HashMap<String, List<String>> graph = eu.getGraph();
         HashMap<String,List<Integer>> connections = eu.getConnections();
 
-        List<String> paths = new ArrayList<>();
+        List<List<String>> paths = new ArrayList<>();
         for (String node : graph.keySet()){
             if (!connections.get(node).get(0).equals(connections.get(node).get(1)) ){
                 if (connections.get(node).get(0) > 0){
-                    for (String out : graph.get(node)){
-
+                    for (String w : graph.get(node)){
+                        List<String> nonBranchingPath = new ArrayList<>();
+                        nonBranchingPath.add(node);
+                        nonBranchingPath.add(w);
+                        while (connections.get(w).get(0).equals(connections.get(w).get(1))){
+                            nonBranchingPath.add(graph.get(w).get(0));
+                            w = graph.get(w).get(0);
+                        }
+                        paths.add(nonBranchingPath);
                     }
                 }
             }
         }
+
     }
 
     public  void execute() throws IOException{
