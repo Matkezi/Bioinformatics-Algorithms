@@ -123,13 +123,15 @@ public class DeBruijnGraph {
                         List<String> nonBranchingPath = new ArrayList<>();
                         nonBranchingPath.add(node);
                         nonBranchingPath.add(w);
-                        while (connections.get(node).get(0) == 1 && connections.get(node).get(1) == 1){
+                        while (connections.get(w).get(0) == 1 && connections.get(w).get(1) == 1){
                             nonBranchingPath.add(graph.get(w).get(0));
                             w = graph.get(w).get(0);
                         }
                         paths.add(nonBranchingPath);
                     }
                 }
+            } else {
+
             }
         }
 
