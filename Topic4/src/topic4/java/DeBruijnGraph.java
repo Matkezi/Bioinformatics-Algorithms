@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Matko
@@ -172,7 +169,23 @@ public class DeBruijnGraph {
         }
         writer.close();
 
+        for (List<String> list : paths){
+            simpleGenomeConstruct(list);
+        }
+
         System.out.println("");
+    }
+
+    public void simpleGenomeConstruct(List<String> dnas){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0;i<dnas.size();i++){
+            if (i == dnas.size()-1){
+                sb.append(dnas.get(i));
+            } else {
+                sb.append(dnas.get(i).substring(0,1));
+            }
+        }
+        System.out.println(sb.toString());
     }
 
     public  void execute() throws IOException{

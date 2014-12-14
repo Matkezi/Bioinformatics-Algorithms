@@ -16,7 +16,7 @@ public class Main {
 //        Euler eu = new Euler();
 //        eu.execute();
 //
-//        GenomePath.execute();
+        GenomePath.execute();
 
 //        StringSpelledByGappedPatterns ssgp = new StringSpelledByGappedPatterns();
 //        ssgp.execute();

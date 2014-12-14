@@ -42,7 +42,7 @@ public class GenomePath {
 //        Path filepath = file1.toPath();
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
-        File file1 = new File(dir, "EulerPathOut.txt");
+        File file1 = new File(dir, "testOut.txt");
         Path filepath = file1.toPath();
 
         List<String> lines = Files.readAllLines(filepath);

@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b240cf78-785a-4f3a-93d9-289d09d28415" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/out/DeBruijnGraphProblemOut.txt" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/DeBruijnGraphProblemOut.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" afterPath="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topic4/src/topic4/out/simpleGenomePathOut.txt" afterPath="$PROJECT_DIR$/Topic4/src/topic4/out/simpleGenomePathOut.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bioinformatics-Algorithms.iws" />
@@ -69,9 +73,12 @@
       <file leaf-file-name="StringComposition.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="935">
+            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="969">
               <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#750#751#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,8 +86,8 @@
       <file leaf-file-name="GenomePath.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="1003">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1003">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="31" selection-end-column="5" />
               <folding>
                 <element signature="e#335#336#0" expanded="true" />
                 <element signature="e#367#368#0" expanded="true" />
@@ -123,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -152,8 +159,8 @@
       <file leaf-file-name="DeBruijnGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4260485" vertical-offset="2499" max-vertical-offset="3298">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4392936" vertical-offset="2742" max-vertical-offset="3570">
+              <caret line="178" column="57" selection-start-line="178" selection-start-column="57" selection-end-line="178" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -181,12 +188,12 @@
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/OverlapGraph.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Euler1.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/UniversalString.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/StringSpelledByGappedPatterns.java" />
-        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Euler.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java" />
+        <option value="$PROJECT_DIR$/Topic4/src/topic4/java/Main.java" />
         <option value="$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java" />
       </list>
     </option>
@@ -765,7 +772,7 @@
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
       <workItem from="1418473955968" duration="11557000" />
-      <workItem from="1418549635797" duration="17655000" />
+      <workItem from="1418549635797" duration="18273000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1275,11 +1282,15 @@
       <created>1418595603636</created>
       <updated>1418595603637</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="just need to figure out output format">
+      <created>1418595707864</created>
+      <updated>1418595707864</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116949000" />
+    <option name="totallyTimeSpent" value="117567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="800" y="0" width="800" height="860" extended-state="0" />
@@ -1330,7 +1341,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="REMOVED next" />
     <MESSAGE value="changing approach gstegrtghhbdthdhdzhtrdhgdtzh" />
     <MESSAGE value="making balance graph" />
     <MESSAGE value="balanceGraph progress" />
@@ -1355,20 +1365,21 @@
     <MESSAGE value="added set..." />
     <MESSAGE value="cycle added" />
     <MESSAGE value="working!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="working!!!" />
+    <MESSAGE value="just need to figure out output format" />
+    <option name="LAST_COMMIT_MESSAGE" value="just need to figure out output format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java</url>
-          <line>119</line>
+          <line>116</line>
           <properties />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java</url>
-          <line>174</line>
+          <line>175</line>
           <properties />
           <option name="timeStamp" value="125" />
         </line-breakpoint>
@@ -1418,7 +1429,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="1071">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1712,33 +1726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="935">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="527">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="1003">
-          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding>
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GraphProblem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="901">
@@ -1785,10 +1772,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/StringComposition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="935">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/GenomePath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1003">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4260485" vertical-offset="2499" max-vertical-offset="3298">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4392936" vertical-offset="2742" max-vertical-offset="3570">
+          <caret line="178" column="57" selection-start-line="178" selection-start-column="57" selection-end-line="178" selection-end-column="57" />
           <folding />
         </state>
       </provider>
