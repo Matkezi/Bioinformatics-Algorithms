@@ -14,7 +14,21 @@ import java.util.List;
 public class StringSpelledByGappedPatterns {
 
 
+    private String StringSpelledByPatterns(List<String> dnas){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0;i<dnas.size();i++){
+            if (i == dnas.size()-1){
+                sb.append(dnas.get(i));
+            } else {
+                sb.append(dnas.get(i).substring(0,1));
+            }
+        }
+        return sb.toString();
+    }
+
     private String findString(List<String> gapped, int k,int  d){
+
+
 
     }
 
