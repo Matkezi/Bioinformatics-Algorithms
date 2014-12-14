@@ -27,15 +27,24 @@ public class StringSpelledByGappedPatterns {
     }
 
     private String findString(List<String> gapped, int k,int  d){
+        List<String> firstPatterns = new ArrayList<>();
+        List<String> secondPatterns = new ArrayList<>();
+        for (int i = 0;i<gapped.size();i++){
+            String[] line = gapped.get(i).split("\\|");
+            firstPatterns.add(line[0]);
+            secondPatterns.add(line[1]);
+        }
 
+        String prefix = StringSpelledByPatterns(firstPatterns);
+        String suffix = StringSpelledByPatterns(secondPatterns);
 
-
+        return "df";
     }
 
 
     public void execute() throws IOException{
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
-        File file1 = new File(dir, "PairedDeBruijnGraphProblemOut.txt");
+        File file1 = new File(dir, "EulerPathOut.txt");
 
         Path filepath = file1.toPath();
 
