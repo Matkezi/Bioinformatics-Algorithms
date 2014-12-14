@@ -60,13 +60,13 @@ public class DeBruijnGraph {
 
         List<List<String>> paths = new ArrayList<>();
         for (String node : graph.keySet()){
-            if (!connections.get(node).get(0).equals(connections.get(node).get(1)) ){
+            if (!(connections.get(node).get(0) == 1 && connections.get(node).get(1) == 1) ){
                 if (connections.get(node).get(0) > 0){
                     for (String w : graph.get(node)){
                         List<String> nonBranchingPath = new ArrayList<>();
                         nonBranchingPath.add(node);
                         nonBranchingPath.add(w);
-                        while (connections.get(w).get(0).equals(connections.get(w).get(1))){
+                        while (connections.get(node).get(0) == 1 && connections.get(node).get(1) == 1){
                             nonBranchingPath.add(graph.get(w).get(0));
                             w = graph.get(w).get(0);
                         }
@@ -75,7 +75,7 @@ public class DeBruijnGraph {
                 }
             }
         }
-
+        System.out.println("");
     }
 
     public  void execute() throws IOException{

@@ -150,8 +150,8 @@
       <file leaf-file-name="DeBruijnGraph.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82122093" vertical-offset="642" max-vertical-offset="1683">
-              <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.28648648" vertical-offset="808" max-vertical-offset="1683">
+              <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -190,9 +190,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="800" />
-    <option name="width" value="800" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -763,7 +764,7 @@
       <workItem from="1418370733127" duration="24807000" />
       <workItem from="1418406988617" duration="2981000" />
       <workItem from="1418473955968" duration="11557000" />
-      <workItem from="1418549635797" duration="13765000" />
+      <workItem from="1418549635797" duration="13969000" />
     </task>
     <task id="LOCAL-00001" summary="tottaly new approach&#10;">
       <created>1417181079868</created>
@@ -1241,14 +1242,18 @@
       <created>1418591250395</created>
       <updated>1418591250395</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="almost done...">
+      <created>1418591806028</created>
+      <updated>1418591806028</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113059000" />
+    <option name="totallyTimeSpent" value="113263000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="800" y="0" width="800" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1296,7 +1301,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="works for small exmples... ending is a bit missbla" />
     <MESSAGE value="messing with allExplored" />
     <MESSAGE value="changed next to random choose, now messing with for loops" />
     <MESSAGE value="adding unexplorededges set" />
@@ -1321,7 +1325,8 @@
     <MESSAGE value="progress" />
     <MESSAGE value="adding maxnonbrencpaths" />
     <MESSAGE value="erfegregre" />
-    <option name="LAST_COMMIT_MESSAGE" value="erfegregre" />
+    <MESSAGE value="almost done..." />
+    <option name="LAST_COMMIT_MESSAGE" value="almost done..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1332,8 +1337,14 @@
           <properties />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="125" />
+      <option name="time" value="126" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1744,8 +1755,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Topic4/src/topic4/java/DeBruijnGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82122093" vertical-offset="642" max-vertical-offset="1683">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.28648648" vertical-offset="808" max-vertical-offset="1683">
+          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
           <folding />
         </state>
       </provider>
