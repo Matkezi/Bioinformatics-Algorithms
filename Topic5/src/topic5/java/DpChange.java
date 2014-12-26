@@ -35,6 +35,8 @@ public class DpChange {
             coins[i] = Integer.parseInt(readCoins[i]);
         }
 
+        minNumCoins = new int[money+1];
+
 
         System.out.println(lines);
     }
