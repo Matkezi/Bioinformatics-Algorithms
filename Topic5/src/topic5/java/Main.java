@@ -10,6 +10,7 @@ public class Main {
 
     public static void main (String[] args) throws IOException {
         DpChange dpc = new DpChange();
-        dpc.execute();
+        dpc.loadFromFiles();
+        System.out.print(dpc.getMinNumCoins());
     }
 }

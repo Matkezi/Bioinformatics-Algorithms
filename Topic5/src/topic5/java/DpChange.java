@@ -17,8 +17,23 @@ public class DpChange {
     int[] coins;
     int[] minNumCoins;
 
-    public void execute() throws IOException{
+    public int getMinNumCoins(){
 
+        for (int m = 1;m<=money;m++){
+            minNumCoins[m] = (int) Double.POSITIVE_INFINITY;
+            for (int i = 0;i<coins.length;i++){
+                if (m >= coins[i]){
+                    if(minNumCoins[m-coins[i]] + 1 < minNumCoins[m]){
+                        minNumCoins[m] = minNumCoins[m-coins[i]] + 1;
+                    }
+                }
+            }
+        }
+
+        return minNumCoins[minNumCoins.length-1];
+    }
+
+    public void loadFromFiles() throws IOException{
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
         File file = new File(dir, "DpChange.txt");
@@ -37,7 +52,5 @@ public class DpChange {
 
         minNumCoins = new int[money+1];
 
-
-        System.out.println(lines);
     }
 }
