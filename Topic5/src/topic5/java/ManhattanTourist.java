@@ -15,6 +15,26 @@ public class ManhattanTourist {
     int[][] down;
     int[][] right;
 
+    public int getLongestManhattanPath(){
+        int[][] s = new int[n+1][m+1];
+
+        for (int i = 1;i<n+1;i++){
+            s[i][0] = s[i-1][0] + down[i-1][0];
+        }
+
+        for (int j = 1;j<m+1;j++){
+            s[0][j] = s[0][j-1] + right[0][j-1];
+        }
+
+        for (int i = 1;i<n+1;i++){
+            for (int j = 1;j<m+1;j++){
+                s[i][j] = Integer.max(s[i-1][j]+down[i-1][j],s[i][j-1]+right[i][j-1]);
+            }
+        }
+
+        return s[n][m];
+    }
+
     public void loadFromFiles() throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
@@ -46,7 +66,5 @@ public class ManhattanTourist {
             }
         }
 
-        //load right matrix
-       System.out.print("gdf");
     }
 }
