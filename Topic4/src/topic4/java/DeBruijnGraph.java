@@ -191,7 +191,7 @@ public class DeBruijnGraph {
     public  void execute() throws IOException{
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\resources");
-        File file1 = new File(dir, "simpleDeBruijnFromKmers.txt");
+        File file1 = new File(dir, "reads.txt");
 
 //        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic4\\src\\topic4\\out");
 //        File file1 = new File(dir, "universalStringKmersOut.txt");
@@ -200,8 +200,8 @@ public class DeBruijnGraph {
 
         lines = Files.readAllLines(filepath);
 
-        simpleDeBruijnFromKmers();
-        MaximalNonBranchingPaths();
+        pairedDeBruijnFromKmers();
+//        MaximalNonBranchingPaths();
 
 
     }

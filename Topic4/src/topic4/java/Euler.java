@@ -144,6 +144,7 @@ public class Euler {
                     break;
                 }
             }
+            System.out.println("Control read: "+cycle);
         } while (!graph.isEmpty());
 
     }
@@ -215,8 +216,8 @@ public class Euler {
 
         formGraph();
         findStartEnd();
-        //findEulerPath();
-        //printEuler();
+        findEulerPath();
+        printEuler();
     }
 
 }
