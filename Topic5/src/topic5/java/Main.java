@@ -9,8 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        DpChange dpc = new DpChange();
-        dpc.loadFromFiles();
-        System.out.print(dpc.getMinNumCoins());
+        ManhattanTourist mt = new ManhattanTourist();
+        mt.loadFromFiles();
     }
 }
