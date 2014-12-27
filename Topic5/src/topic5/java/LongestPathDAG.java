@@ -40,9 +40,11 @@ public class LongestPathDAG {
             String[] tmp = line[1].split(":");
             int dest = Integer.parseInt(tmp[0]);
             int weight = Integer.parseInt(tmp[1]);
+
             if (!graph.containsKey(src)) graph.put(src, new Node(src,dest,weight));
             else {
-
+                Node temp = graph.get(src);
+                temp.updateNode(dest,weight);
             }
 
         }
@@ -57,6 +59,12 @@ public class LongestPathDAG {
         List<Integer> weight = new ArrayList<>();
 
         private Node(int src, int dest, int weight) {
+            this.src = src;
+            this.dest.add(dest);
+            this.weight.add(weight);
+        }
+
+        public void updateNode(int dest, int weight){
             this.dest.add(dest);
             this.weight.add(weight);
         }
