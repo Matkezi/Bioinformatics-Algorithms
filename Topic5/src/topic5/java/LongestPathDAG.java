@@ -57,7 +57,7 @@ public class LongestPathDAG {
         int[] weight;
         int i = 0;
 
-        private node(int src, int dest, int weight) {
+        private Node(int src, int dest, int weight) {
             this.dest[i] = dest;
             this.weight[i] = weight;
             i++;
