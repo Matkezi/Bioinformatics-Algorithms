@@ -48,6 +48,9 @@ public class LongestPathDAG {
                 }
             }
         }
+//        still needs implementation
+//        if Graph has edges that have not been removed
+//        return "the input graph is not a DAG"
 
     }
 
@@ -89,12 +92,22 @@ public class LongestPathDAG {
         }
     }
 
+    private void outputLongestPathDAG(){
+        int startingindex;
+
+        for (int i = 0;i<topologicalOrderedList.size();i++){
+            if (source == topologicalOrderedList.get(i).src) {
+                startingindex = i;
+                break;
+            }
+        }
+    }
+
     public void executeLongestPathDAG() throws IOException{
         loadFromFiles();
         findIncoming();
         topologicalOrdering();
-        loadFromFiles();
-
+        outputLongestPathDAG();
     }
 
     private class Node {
