@@ -10,6 +10,6 @@ public class Main {
 
     public static void main (String[] args) throws IOException {
         LongestPathDAG lpd = new LongestPathDAG();
-        lpd.loadFromFiles();
+        lpd.executeLongestPathDAG();
     }
 }

@@ -21,10 +21,17 @@ public class LongestPathDAG {
     private void topologicalOrdering(){
         List<Node> candidates = new ArrayList<>();
 
+        for (Integer key : graph.keySet()){
+
+        }
 
     }
 
-    public void loadFromFiles() throws IOException {
+    private void findIncoming(){
+
+    }
+
+    private void loadFromFiles() throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
         File file = new File(dir, "LongestPathDAG.txt");
@@ -44,12 +51,19 @@ public class LongestPathDAG {
             if (!graph.containsKey(src)) graph.put(src, new Node(src,dest,weight));
             else {
                 Node temp = graph.get(src);
-                temp.updateNode(dest,weight);
+                temp.updateDestinations(dest,weight);
             }
 
         }
 
-        System.out.print("hui");
+        System.out.print("hzjbn");
+
+    }
+
+    public void executeLongestPathDAG() throws IOException{
+        loadFromFiles();
+        findIncoming();
+        topologicalOrdering();
 
     }
 
@@ -57,6 +71,7 @@ public class LongestPathDAG {
         int src;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
+        List<Integer> incoming = new ArrayList<>();
 
         private Node(int src, int dest, int weight) {
             this.src = src;
@@ -64,9 +79,13 @@ public class LongestPathDAG {
             this.weight.add(weight);
         }
 
-        public void updateNode(int dest, int weight){
+        public void updateDestinations(int dest, int weight){
             this.dest.add(dest);
             this.weight.add(weight);
+        }
+
+        public void updateIncoming(int inc){
+            this.incoming.add(inc);
         }
     }
 }
