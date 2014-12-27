@@ -51,6 +51,14 @@ public class LongestPathDAG {
 
     }
 
+    private void refreshTopologicalList(){
+        for (int i = 0;i<topologicalOrderedList.size();i++){
+            Node temp = graph.get(topologicalOrderedList.get(i).src);
+            topologicalOrderedList.remove(i);
+            topologicalOrderedList.add(i,temp);
+        }
+    }
+
     private void findIncoming(){
         for (Integer key : graph.keySet()){
             Node temp = graph.get(key);
@@ -60,12 +68,6 @@ public class LongestPathDAG {
             }
         }
     }
-
-    private void setSourceWeight(){
-        Node temp = graph.get(source);
-        temp.ownWeight = 0;
-    }
-
 
     public int maxIndex(List<Integer> list) {
         Integer i=0, maxIndex=-1, max=null;
@@ -80,17 +82,12 @@ public class LongestPathDAG {
     }
 
     private void setWeights(){
-        //setSourceWeight();
         refreshTopologicalList();
         Node temp = topologicalOrderedList.get(0);
         temp.ownWeight = 0;
         for (int i = 1;i<topologicalOrderedList.size();i++){
             Node currentNode = topologicalOrderedList.get(i);
             List<Integer> values = new ArrayList<>();
-//            for (int inc : currentNode.incoming){
-//                Node incNode = graph.get(inc);
-//                values.add(incNode.ownWeight+incNode.destWeightMap.get(currentNode.src));
-//            }
 
             for (int j = 0;j<currentNode.incoming.size();j++){
                 Node incNode = graph.get(currentNode.incoming.get(j));
@@ -107,12 +104,35 @@ public class LongestPathDAG {
 
     }
 
-    private void refreshTopologicalList(){
-        for (int i = 0;i<topologicalOrderedList.size();i++){
-            Node temp = graph.get(topologicalOrderedList.get(i).src);
-            topologicalOrderedList.remove(i);
-            topologicalOrderedList.add(i,temp);
+    private void outputLongestPathDAG(){
+        System.out.println(graph.get(sink).ownWeight);
+        Node currentNode = graph.get(sink);
+
+        List<Integer> path = new ArrayList<>();
+        while(currentNode.src != source){
+            path.add(currentNode.src);
+            currentNode = currentNode.backtrack;
         }
+        path.add(source);
+        Collections.reverse(path);
+
+        for (Integer node : path){
+            System.out.print(node+"->");
+        }
+    }
+
+    public void executeLongestPathDAG() throws IOException{
+        loadFromFiles();
+        findIncoming();
+        topologicalOrdering();
+
+        graph.clear();
+        loadFromFiles();
+        findIncoming();
+
+        makeDestWeightMaps();
+        setWeights();
+        outputLongestPathDAG();
     }
 
     private void loadFromFiles() throws IOException {
@@ -143,39 +163,6 @@ public class LongestPathDAG {
         }
     }
 
-    private void outputLongestPathDAG(){
-        System.out.println(graph.get(sink).ownWeight);
-        Node currentNode = graph.get(sink);
-
-        List<Integer> path = new ArrayList<>();
-        while(currentNode.src != source){
-            path.add(currentNode.src);
-            currentNode = currentNode.backtrack;
-        }
-        path.add(source);
-        Collections.reverse(path);
-
-        for (Integer node : path){
-            System.out.print(node+"->");
-        }
-    }
-
-
-
-    public void executeLongestPathDAG() throws IOException{
-        loadFromFiles();
-        findIncoming();
-        topologicalOrdering();
-
-        graph.clear();
-        loadFromFiles();
-        findIncoming();
-
-        makeDestWeightMaps();
-        setWeights();
-        outputLongestPathDAG();
-    }
-
     private void makeDestWeightMaps(){
         for (Integer key : graph.keySet()){
             Node temp = graph.get(key);
@@ -185,7 +172,7 @@ public class LongestPathDAG {
 
     private class Node {
         int src;
-        int ownWeight;
+        int ownWeight = Integer.MIN_VALUE;
         Node backtrack;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
