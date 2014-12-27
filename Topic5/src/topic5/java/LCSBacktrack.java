@@ -21,7 +21,6 @@ public class LCSBacktrack {
             return;
         }
 
-
         switch (backtrack[i][j]){
             case "down": outputLCS(i-1,j);
                          break;
