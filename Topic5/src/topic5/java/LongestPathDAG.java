@@ -16,13 +16,32 @@ public class LongestPathDAG {
 
     int source, sink;
     Map<Integer,Node> graph = new HashMap<>();
-    List<Node> topologicalOrder = new ArrayList<>();
+    List<Node> topologicalOrderedList = new ArrayList<>();
 
     private void topologicalOrdering(){
         List<Node> candidates = new ArrayList<>();
 
         for (Integer key : graph.keySet()){
+            Node temp = graph.get(key);
+            if (temp.incoming.isEmpty()) candidates.add(temp);
+        }
 
+        while (!candidates.isEmpty()){
+            Node arbitrary = candidates.get(0);
+            topologicalOrderedList.add(arbitrary);
+            for (int i = 0;i<arbitrary.dest.size();){
+                int b = arbitrary.dest.get(i);
+                Node temp = graph.get(b);
+
+                for (int j = 0;j<temp.incoming.size();j++){
+                    if (temp.incoming.get(j) == arbitrary.src){
+                        temp.incoming.remove(j);
+                        break;
+                    }
+                }
+
+                arbitrary.dest.remove(i);
+            }
         }
 
     }
