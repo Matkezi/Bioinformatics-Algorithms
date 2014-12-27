@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Matko
@@ -13,7 +15,14 @@ import java.util.List;
 public class LongestPathDAG {
 
     int source, sink;
-    List<node> graph = new ArrayList<>();
+    Map<Integer,Node> graph = new HashMap<>();
+    List<Node> topologicalOrder = new ArrayList<>();
+
+    private void topologicalOrdering(){
+        List<Node> candidates = new ArrayList<>();
+
+
+    }
 
     public void loadFromFiles() throws IOException {
 
@@ -31,7 +40,10 @@ public class LongestPathDAG {
             String[] tmp = line[1].split(":");
             int dest = Integer.parseInt(tmp[0]);
             int weight = Integer.parseInt(tmp[1]);
-            graph.add(new node(src,dest,weight));
+            if (!graph.containsKey(src)) graph.put(src, new Node(src,dest,weight));
+            else {
+
+            }
 
         }
 
@@ -39,13 +51,16 @@ public class LongestPathDAG {
 
     }
 
-    private class node {
-        int src,dest,weight;
+    private class Node {
+        int src;
+        int[] dest;
+        int[] weight;
+        int i = 0;
 
         private node(int src, int dest, int weight) {
-            this.src = src;
-            this.dest = dest;
-            this.weight = weight;
+            this.dest[i] = dest;
+            this.weight[i] = weight;
+            i++;
         }
     }
 }
