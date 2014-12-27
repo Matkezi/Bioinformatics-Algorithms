@@ -93,13 +93,17 @@ public class LongestPathDAG {
     }
 
     private void outputLongestPathDAG(){
-        int startingindex;
+        int startingindex = 0;
 
         for (int i = 0;i<topologicalOrderedList.size();i++){
             if (source == topologicalOrderedList.get(i).src) {
                 startingindex = i;
                 break;
             }
+        }
+
+        for (int i = startingindex;;i++){
+
         }
     }
 
