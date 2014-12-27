@@ -9,8 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        ManhattanTourist mt = new ManhattanTourist();
-        mt.loadFromFiles();
-        System.out.print(mt.getLongestManhattanPath());
+        LCSBacktrack lcsb = new LCSBacktrack();
+        lcsb.loadFromFiles();
     }
 }

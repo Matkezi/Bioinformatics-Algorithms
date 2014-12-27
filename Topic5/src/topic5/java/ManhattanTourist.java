@@ -14,9 +14,10 @@ public class ManhattanTourist {
     int n,m;
     int[][] down;
     int[][] right;
+    int[][] s;
 
     public int getLongestManhattanPath(){
-        int[][] s = new int[n+1][m+1];
+        s = new int[n+1][m+1];
 
         for (int i = 1;i<n+1;i++){
             s[i][0] = s[i-1][0] + down[i-1][0];
@@ -50,7 +51,7 @@ public class ManhattanTourist {
         down = new int[n][m+1];
         right = new int[n+1][m];
 
-        //load down matix
+        //load down matrix
         for (int i = 1;i<n+1;i++){
             String[] line = lines.get(i).split(" ");
             for (int j = 0;j<m+1;j++){
