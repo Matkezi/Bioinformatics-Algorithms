@@ -37,7 +37,7 @@ public class LCSBacktrack {
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]){
                     backtrack[i][j] = "right";
-                } if (s[i][j] == s[i-1][j-1]+1){
+                } if (v[i-1].equals(w[j-1]) && s[i][j] == s[i-1][j-1]+1){
                     backtrack[i][j] = "diagonal";
                 }
             }
