@@ -69,6 +69,23 @@ public class LongestPathDAG {
         temp.ownWeight = 0;
     }
 
+    private void setWeights(){
+        //setSourceWeight();
+        refreshTopologicalList();
+        Node temp = topologicalOrderedList.get(0);
+        temp.ownWeight = 0;
+        for (int i = 1;i<topologicalOrderedList.size();i++){
+            Node currentNode = topologicalOrderedList.get(i);
+            List<Integer> values = new ArrayList<>();
+            for (int inc : currentNode.incoming){
+                Node incNode = graph.get(inc);
+
+
+            }
+        }
+
+    }
+
     private void refreshTopologicalList(){
         for (int i = 0;i<topologicalOrderedList.size();i++){
             Node temp = graph.get(topologicalOrderedList.get(i).src);
@@ -120,9 +137,16 @@ public class LongestPathDAG {
         loadFromFiles();
         findIncoming();
 
-        setSourceWeight();
-        refreshTopologicalList();
+        makeDestWeightMaps();
+        setWeights();
         outputLongestPathDAG();
+    }
+
+    private void makeDestWeightMaps(){
+        for (Integer key : graph.keySet()){
+            Node temp = graph.get(key);
+            temp.makeDestWeightMap();
+        }
     }
 
     private class Node {
@@ -131,6 +155,7 @@ public class LongestPathDAG {
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
+        Map<Integer,Integer> destWeightMap = new HashMap<>();
 
         private Node(int src){
             this.src = src;
@@ -149,6 +174,12 @@ public class LongestPathDAG {
 
         public void updateIncoming(int inc){
             this.incoming.add(inc);
+        }
+
+        public void makeDestWeightMap(){
+            for (int i = 0;i<dest.size();i++){
+                destWeightMap.put(dest.get(i),weight.get(i));
+            }
         }
     }
 }
