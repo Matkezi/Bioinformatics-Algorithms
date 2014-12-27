@@ -21,14 +21,14 @@ public class LCSBacktrack {
     }
 
     private void formBacktrack(){
-        backtrack = new String[w.length][v.length];
+        backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
 
                 int maxTmp = Integer.max(s[i-1][j],s[i][j-1]);
-                if (v[i].equals(w[j])){
+                if (v[i-1].equals(w[j-1])){
                     int diagonal = s[i-1][j-1] + 1;
                     s[i][j] = Integer.max(maxTmp,diagonal);
                 } else s[i][j] = maxTmp;
@@ -37,7 +37,7 @@ public class LCSBacktrack {
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]){
                     backtrack[i][j] = "right";
-                } if (s[i][j] == s[i-1][j-1]){
+                } if (s[i][j] == s[i-1][j-1]+1){
                     backtrack[i][j] = "diagonal";
                 }
             }
