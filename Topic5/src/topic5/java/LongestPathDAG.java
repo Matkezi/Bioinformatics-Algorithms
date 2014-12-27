@@ -3,10 +3,7 @@ package topic5.java;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Matko
@@ -79,9 +76,10 @@ public class LongestPathDAG {
             List<Integer> values = new ArrayList<>();
             for (int inc : currentNode.incoming){
                 Node incNode = graph.get(inc);
-
-
+                values.add(incNode.ownWeight+incNode.destWeightMap.get(currentNode.src));
             }
+            Collections.sort(values);
+            currentNode.ownWeight = values.get(values.size()-1);
         }
 
     }
@@ -178,7 +176,7 @@ public class LongestPathDAG {
 
         public void makeDestWeightMap(){
             for (int i = 0;i<dest.size();i++){
-                destWeightMap.put(dest.get(i),weight.get(i));
+                destWeightMap.put(dest.get(i), weight.get(i));
             }
         }
     }
