@@ -24,7 +24,7 @@ public class LongestPathDAG {
         Map<Integer, Node> graph = new HashMap<>();
 
         for (Integer key : this.graph.keySet()){
-            graph.put(key, new Node(this.graph.get(key));
+            graph.put(key, new Node(this.graph.get(key)));
         }
 
         for (Integer key : graph.keySet()){
