@@ -152,6 +152,7 @@ public class LongestPathDAG {
     private class Node {
         int src;
         int ownWeight = Integer.MIN_VALUE;
+        int backtrack;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
