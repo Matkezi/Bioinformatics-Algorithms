@@ -64,6 +64,11 @@ public class LongestPathDAG {
         }
     }
 
+    private void setSourceWeight(){
+        Node temp = graph.get(source);
+        temp.ownWeight = 0;
+    }
+
     private void loadFromFiles() throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
@@ -107,6 +112,8 @@ public class LongestPathDAG {
         }
     }
 
+
+
     public void executeLongestPathDAG() throws IOException{
         loadFromFiles();
         findIncoming();
@@ -114,11 +121,13 @@ public class LongestPathDAG {
         graph.clear();
         loadFromFiles();
         findIncoming();
+        setSourceWeight();
         outputLongestPathDAG();
     }
 
     private class Node {
         int src;
+        int ownWeight = Integer.MIN_VALUE;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
