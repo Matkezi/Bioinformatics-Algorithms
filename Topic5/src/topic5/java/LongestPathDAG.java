@@ -28,7 +28,13 @@ public class LongestPathDAG {
     }
 
     private void findIncoming(){
-
+        for (Integer key : graph.keySet()){
+            Node temp = graph.get(key);
+            for (Integer dest : temp.dest){
+                Node temp1 = graph.get(dest);
+                temp1.updateIncoming(temp.src);
+            }
+        }
     }
 
     private void loadFromFiles() throws IOException {
@@ -54,10 +60,9 @@ public class LongestPathDAG {
                 temp.updateDestinations(dest,weight);
             }
 
+            if (!graph.containsKey(dest)) graph.put(dest, new Node(dest));
+
         }
-
-        System.out.print("hzjbn");
-
     }
 
     public void executeLongestPathDAG() throws IOException{
@@ -72,6 +77,10 @@ public class LongestPathDAG {
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
+
+        private Node(int src){
+            this.src = src;
+        }
 
         private Node(int src, int dest, int weight) {
             this.src = src;
