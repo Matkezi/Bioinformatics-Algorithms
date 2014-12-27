@@ -21,6 +21,12 @@ public class LongestPathDAG {
     private void topologicalOrdering(){
         List<Node> candidates = new ArrayList<>();
 
+        Map<Integer, Node> graph = new HashMap<>();
+
+        for (Integer key : this.graph.keySet()){
+            graph.put(key, new Node(this.graph.get(key));
+        }
+
         for (Integer key : graph.keySet()){
             Node temp = graph.get(key);
             if (temp.incoming.isEmpty()) candidates.add(temp);
@@ -119,6 +125,14 @@ public class LongestPathDAG {
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
+
+        //copy constructor
+        private Node (Node node){
+            this.src = node.src;
+            this.dest = node.dest;
+            this.weight = node.weight;
+            this.incoming = node.incoming;
+        }
 
         private Node(int src){
             this.src = src;
