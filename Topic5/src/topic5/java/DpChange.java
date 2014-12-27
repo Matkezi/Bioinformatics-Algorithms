@@ -18,7 +18,7 @@ public class DpChange {
     public int getMinNumCoins(){
 
         for (int m = 1;m<=money;m++){
-            minNumCoins[m] = (int) Double.POSITIVE_INFINITY;
+            minNumCoins[m] = Integer.MAX_VALUE;
             for (int i = 0;i<coins.length;i++){
                 if (m >= coins[i]){
                     if(minNumCoins[m-coins[i]] + 1 < minNumCoins[m]){
