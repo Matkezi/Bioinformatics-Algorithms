@@ -78,6 +78,8 @@ public class LongestPathDAG {
                 Node incNode = graph.get(inc);
                 values.add(incNode.ownWeight+incNode.destWeightMap.get(currentNode.src));
             }
+
+            if (currentNode.incoming.isEmpty()) values.add(Integer.MIN_VALUE);
             Collections.sort(values);
             currentNode.ownWeight = values.get(values.size()-1);
         }
@@ -121,7 +123,7 @@ public class LongestPathDAG {
     }
 
     private void outputLongestPathDAG(){
-
+        System.out.println(graph.get(sink).ownWeight);
     }
 
 
