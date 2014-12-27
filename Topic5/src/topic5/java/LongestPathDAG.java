@@ -3,6 +3,7 @@ package topic5.java;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
 public class LongestPathDAG {
 
     int source, sink;
-    List<node> graph;
+    List<node> graph = new ArrayList<>();
 
     public void loadFromFiles() throws IOException {
 
@@ -34,12 +35,14 @@ public class LongestPathDAG {
 
         }
 
+        System.out.print("hui");
+
     }
 
     private class node {
         int src,dest,weight;
 
-        private node(int src, int dest, int weigth) {
+        private node(int src, int dest, int weight) {
             this.src = src;
             this.dest = dest;
             this.weight = weight;

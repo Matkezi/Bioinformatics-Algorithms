@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        LCSBacktrack lcsb = new LCSBacktrack();
-        lcsb.loadFromFiles();
+        LongestPathDAG lpd = new LongestPathDAG();
+        lpd.loadFromFiles();
     }
 }
