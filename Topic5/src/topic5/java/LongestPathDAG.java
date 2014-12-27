@@ -29,6 +29,7 @@ public class LongestPathDAG {
         while (!candidates.isEmpty()){
             Node arbitrary = candidates.get(0);
             topologicalOrderedList.add(arbitrary);
+            candidates.remove(arbitrary);
             for (int i = 0;i<arbitrary.dest.size();){
                 int b = arbitrary.dest.get(i);
                 Node temp = graph.get(b);
@@ -41,6 +42,10 @@ public class LongestPathDAG {
                 }
 
                 arbitrary.dest.remove(i);
+
+                if (temp.incoming.isEmpty()){
+                    candidates.add(temp);
+                }
             }
         }
 
@@ -88,6 +93,7 @@ public class LongestPathDAG {
         loadFromFiles();
         findIncoming();
         topologicalOrdering();
+        loadFromFiles();
 
     }
 
