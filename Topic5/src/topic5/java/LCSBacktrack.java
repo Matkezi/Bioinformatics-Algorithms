@@ -16,8 +16,22 @@ public class LCSBacktrack {
     String[] v;
     String[] w;
 
-    public String outputLCS(String v, int i, int j){
-        return "hello";
+    public void outputLCS(int i, int j){
+        if (i == 0 || j == 0){
+            return;
+        }
+
+        switch (backtrack[i][j]){
+            case "down": outputLCS(i-1,j);
+                         break;
+
+            case "right": outputLCS(i,j-1);
+                          break;
+
+            default:      outputLCS(i-1,j-1);
+                          System.out.print(v[i-1]);
+                          break;
+        }
     }
 
     private void formBacktrack(){
@@ -56,6 +70,6 @@ public class LCSBacktrack {
         w = lines.get(1).split("");
 
         formBacktrack();
-        System.out.print("test");
+        outputLCS(v.length,w.length);
     }
 }
