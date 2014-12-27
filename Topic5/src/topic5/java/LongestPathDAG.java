@@ -53,14 +53,12 @@ public class LongestPathDAG {
 
     private class Node {
         int src;
-        int[] dest;
-        int[] weight;
-        int i = 0;
+        List<Integer> dest = new ArrayList<>();
+        List<Integer> weight = new ArrayList<>();
 
         private Node(int src, int dest, int weight) {
-            this.dest[i] = dest;
-            this.weight[i] = weight;
-            i++;
+            this.dest.add(dest);
+            this.weight.add(weight);
         }
     }
 }
