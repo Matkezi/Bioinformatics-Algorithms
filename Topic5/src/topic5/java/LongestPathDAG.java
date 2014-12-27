@@ -69,6 +69,14 @@ public class LongestPathDAG {
         temp.ownWeight = 0;
     }
 
+    private void refreshTopologicalList(){
+        for (int i = 0;i<topologicalOrderedList.size();i++){
+            Node temp = graph.get(topologicalOrderedList.get(i).src);
+            topologicalOrderedList.remove(i);
+            topologicalOrderedList.add(i,temp);
+        }
+    }
+
     private void loadFromFiles() throws IOException {
 
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
@@ -98,18 +106,7 @@ public class LongestPathDAG {
     }
 
     private void outputLongestPathDAG(){
-        int startingindex = 0;
 
-        for (int i = 0;i<topologicalOrderedList.size();i++){
-            if (source == topologicalOrderedList.get(i).src) {
-                startingindex = i;
-                break;
-            }
-        }
-
-        for (int i = startingindex;;i++){
-
-        }
     }
 
 
@@ -118,10 +115,13 @@ public class LongestPathDAG {
         loadFromFiles();
         findIncoming();
         topologicalOrdering();
+
         graph.clear();
         loadFromFiles();
         findIncoming();
+
         setSourceWeight();
+        refreshTopologicalList();
         outputLongestPathDAG();
     }
 
