@@ -66,6 +66,19 @@ public class LongestPathDAG {
         temp.ownWeight = 0;
     }
 
+
+    public int maxIndex(List<Integer> list) {
+        Integer i=0, maxIndex=-1, max=null;
+        for (Integer x : list) {
+            if ((x!=null) && ((max==null) || (x>max))) {
+                max = x;
+                maxIndex = i;
+            }
+            i++;
+        }
+        return maxIndex;
+    }
+
     private void setWeights(){
         //setSourceWeight();
         refreshTopologicalList();
@@ -74,12 +87,20 @@ public class LongestPathDAG {
         for (int i = 1;i<topologicalOrderedList.size();i++){
             Node currentNode = topologicalOrderedList.get(i);
             List<Integer> values = new ArrayList<>();
-            for (int inc : currentNode.incoming){
-                Node incNode = graph.get(inc);
+//            for (int inc : currentNode.incoming){
+//                Node incNode = graph.get(inc);
+//                values.add(incNode.ownWeight+incNode.destWeightMap.get(currentNode.src));
+//            }
+
+            for (int j = 0;j<currentNode.incoming.size();j++){
+                Node incNode = graph.get(currentNode.incoming.get(j));
                 values.add(incNode.ownWeight+incNode.destWeightMap.get(currentNode.src));
             }
 
             if (currentNode.incoming.isEmpty()) values.add(Integer.MIN_VALUE);
+
+            currentNode.backtrack = currentNode.incoming.get(maxIndex(values));
+
             Collections.sort(values);
             currentNode.ownWeight = values.get(values.size()-1);
         }
@@ -152,7 +173,7 @@ public class LongestPathDAG {
     private class Node {
         int src;
         int ownWeight = Integer.MIN_VALUE;
-        int backtrack;
+        int backtrack = -1;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
