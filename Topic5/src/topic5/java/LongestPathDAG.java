@@ -132,14 +132,6 @@ public class LongestPathDAG {
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
 
-        //copy constructor
-        private Node (Node node){
-            this.src = node.src;
-            this.dest = node.dest;
-            this.weight = node.weight;
-            this.incoming = node.incoming;
-        }
-
         private Node(int src){
             this.src = src;
         }
