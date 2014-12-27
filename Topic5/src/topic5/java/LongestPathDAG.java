@@ -99,7 +99,7 @@ public class LongestPathDAG {
 
             if (currentNode.incoming.isEmpty()) values.add(Integer.MIN_VALUE);
 
-            currentNode.backtrack = currentNode.incoming.get(maxIndex(values));
+            currentNode.backtrack = graph.get(currentNode.incoming.get(maxIndex(values)));
 
             Collections.sort(values);
             currentNode.ownWeight = values.get(values.size()-1);
@@ -145,6 +145,13 @@ public class LongestPathDAG {
 
     private void outputLongestPathDAG(){
         System.out.println(graph.get(sink).ownWeight);
+        Node currentNode = graph.get(sink);
+
+        List<Integer> path = new ArrayList<>();
+        while(currentNode.src != source){
+            path.add(currentNode.src);
+
+        }
     }
 
 
@@ -173,7 +180,7 @@ public class LongestPathDAG {
     private class Node {
         int src;
         int ownWeight = Integer.MIN_VALUE;
-        int backtrack = -1;
+        Node backtrack;
         List<Integer> dest = new ArrayList<>();
         List<Integer> weight = new ArrayList<>();
         List<Integer> incoming = new ArrayList<>();
