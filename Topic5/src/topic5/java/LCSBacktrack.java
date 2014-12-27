@@ -12,6 +12,7 @@ import java.util.List;
 public class LCSBacktrack {
 
     String[][] backtrack;
+    int[][] s;
     String[] v;
     String[] w;
 
@@ -21,6 +22,20 @@ public class LCSBacktrack {
 
     private void formBacktrack(){
         backtrack = new String[w.length][v.length];
+        s = new int[v.length][w.length];
+
+        for (int i =1;i<v.length;i++){
+            for (int j = 1;j<w.length;j++){
+                int maxTmp = Integer.max(s[i-1][j],s[i][j-1]);
+                if (v[i].equals(w[j])){
+                    int diagonal = s[i-1][j-1] + 1;
+                    s[i][j] = Integer.max(maxTmp,diagonal);
+                } else s[i][j] = maxTmp;
+
+
+
+            }
+        }
 
     }
 
