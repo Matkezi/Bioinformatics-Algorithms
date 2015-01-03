@@ -7,12 +7,37 @@ import java.util.List;
 /**
  * @author Matko
  * @version 1.0
+ * CODE CHALLENGE: Solve the Fitting Alignment Problem.
+Input: Two nucleotide strings v and w, where v has length at most 1000 and w has length at most 100.
+Output: A highest-scoring fitting alignment between v and w. Use the simple scoring method in which
+matches count +1 and both the mismatch and indel penalties are 1.
+
+Sample Input:
+GTAGGCTTAAGGTTA
+TAGATA
+
+Sample Output:
+2
+TAGGCTTA
+TAGA--TA
  */
 public class FittingAlignmentProblem extends LocalAlignmentProblem {
 
     List<Integer> possibleEndingsCoordinates = new ArrayList<>();
 
-    int biggestScore = 0;
+    int biggestScore = Integer.MIN_VALUE, score = 0;
+    List<String> biggestvOut = new ArrayList<>();
+    List<String> biggestwOut = new ArrayList<>();
+
+    protected void findScore(){
+        for (int i = 0;i<vOut.size();i++){
+            String v = vOut.get(i);
+            String w = wOut.get(i);
+
+            if (v.equals(w) ) score++;
+            else score--;
+        }
+    }
 
     protected void findAlignment(int i, int j){
 
@@ -55,30 +80,18 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-        /*
-        //initialiaze first row
-//        for (int j = 0;j<w.length;j++){
-//            s[0][j+1] = s[0][j]-sigma;
-//        }
-//
-//        //initialiaze first collumn
-//        for (int i = 0;i<v.length;i++){
-//            s[i+1][0] = s[i][0]-sigma;
-//        }
-        */
-
 
         for (int i =1;i<v.length+1;i++) {
             //set free taxi to start of a substring v'
             if (v[i - 1].equals(w[0])) {
-                s[i][0] = 0;
-                backtrack[i][0] = "start";
+                s[i][1] = 0;
+                backtrack[i][1] = "start";
             }
         }
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
 
-                if (backtrack[i][j].equals("start")) continue;
+                if (backtrack[i][j] != null) continue;
 
                 int indel = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
 
@@ -118,23 +131,31 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
         loadTable("PAM250_1.txt");
         formBacktrack();
         for (Integer rowIndex : possibleEndingsCoordinates){
+            vOut.clear();
+            wOut.clear();
             findAlignment(rowIndex, w.length);
             findScore();
-            if (score > biggestScore) biggestScore = score;
+            if (score > biggestScore) {
+                biggestScore = score;
+                biggestvOut.clear();
+                biggestwOut.clear();
+                biggestvOut.addAll(vOut);
+                biggestwOut.addAll(wOut);
+            }
         }
 
-        Collections.reverse(vOut);
-        Collections.reverse(wOut);
+        Collections.reverse(biggestvOut);
+        Collections.reverse(biggestwOut);
 
         //printing
-        System.out.println(score);
+        System.out.println(biggestScore);
 
-        for (int i = 0;i<vOut.size();i++){
-            System.out.print(vOut.get(i));
+        for (int i = 0;i<biggestvOut.size();i++){
+            System.out.print(biggestvOut.get(i));
         }
         System.out.println();
-        for (int i = 0;i<wOut.size();i++){
-            System.out.print(wOut.get(i));
+        for (int i = 0;i<biggestwOut.size();i++){
+            System.out.print(biggestwOut.get(i));
         }
 
 
