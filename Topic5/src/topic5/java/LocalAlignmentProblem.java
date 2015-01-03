@@ -112,7 +112,12 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 int diagonal = s[i-1][j-1] + pam250.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
 
-                if (s[i][j] == s[i-1][j]-sigma){
+                //compare current to 0 (starting node)
+                s[i][j] = Integer.max(s[i][j],0);
+
+                if (s[i][j] == 0){
+                    backtrack[i][j] = "start";
+                } if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]-sigma){
                     backtrack[i][j] = "right";
@@ -125,11 +130,11 @@ public class LocalAlignmentProblem extends LoadAndExecute {
     }
 
     /**
-     * Forms HasMap pam250, key is list of 2 alphabet letters and value is i"weight"
+     * Forms HasMap pam250, key is list of 2 alphabet letters and value is "weight"
      */
     private void loadpam250(){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        File file = new File(dir, "pam250.txt");
+        File file = new File(dir, "PAM250_1.txt");
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file.toPath());
@@ -160,7 +165,7 @@ public class LocalAlignmentProblem extends LoadAndExecute {
     @Override
     public void execute() {
 
-        List<String> lines = loadFromFiles("GlobalAlignmentProblem.txt");
+        List<String> lines = loadFromFiles("LocalAlignmentProblem.txt");
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
