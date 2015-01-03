@@ -12,7 +12,7 @@ import java.util.*;
  * CODE CHALLENGE: Solve the Global Alignment Problem.
 Input: Two protein strings written in the single-letter amino acid alphabet.
 Output: The maximum alignment score of these strings followed by an alignment achieving this
-maximum score. Use the BLOSUM62 scoring matrix and indel penalty σ = 5.
+maximum score. Use the bloSum62 scoring matrix and indel penalty σ = 5.
 
 Sample Input:
 PLEASANTLY
@@ -24,12 +24,12 @@ PLEASANTLY
 -MEA--N-LY
 
 
-TIP: BLOSUM62 gives you the score for both identities (Vi == Wj) and mismatches (Vi<>Wj).
+TIP: bloSum62 gives you the score for both identities (Vi == Wj) and mismatches (Vi<>Wj).
 Then, the alignment recurrence should be written as:
 
-S(i,j) = max { S(i-1,j) - sigma;           S(i, 1-j) -sigma;         S(i,j) + BLOSUM62(vi, wi) }
+S(i,j) = max { S(i-1,j) - sigma;           S(i, 1-j) -sigma;         S(i,j) + bloSum62(vi, wi) }
 
-where BLOSUM62(vi, wii) is the BLOSUM62 score for aligning residue vi with residue wi
+where bloSum62(vi, wii) is the bloSum62 score for aligning residue vi with residue wi
  */
 public class GlobalAlignmentProblem extends LoadAndExecute {
     String[][] backtrack;
@@ -38,7 +38,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] w;
 
     int sigma = 5;
-    HashMap<List,Integer> BloSum62 = new HashMap<>();
+    HashMap<List,Integer> bloSum62 = new HashMap<>();
 
     public void outputLCS(int i, int j){
         if (i == 0 || j == 0){
@@ -47,9 +47,11 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
         switch (backtrack[i][j]){
             case "down": outputLCS(i-1,j);
+                System.out.print("-");
                 break;
 
             case "right": outputLCS(i,j-1);
+                System.out.print(w[i-1]);
                 break;
 
             default:      outputLCS(i-1,j-1);
@@ -65,17 +67,22 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
 
-                int maxTmp = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
-                if (v[i-1].equals(w[j-1])){
-                    int diagonal = s[i-1][j-1] + 1;
-                    s[i][j] = Integer.max(maxTmp,diagonal);
-                } else s[i][j] = maxTmp;
+                int indel = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
 
-                if (s[i][j] == s[i-1][j]){
+                //form a key for diagonal
+                List<String> key = new ArrayList<>();
+                key.add(v[i-1]);
+                key.add(w[j-1]);
+
+                //compare diagonal and indel
+                int diagonal = s[i-1][j-1] + bloSum62.get(key);
+                s[i][j] = Integer.max(indel,diagonal);
+
+                if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
-                } if (s[i][j] == s[i][j-1]){
+                } if (s[i][j] == s[i][j-1]-sigma){
                     backtrack[i][j] = "right";
-                } if (v[i-1].equals(w[j-1]) && s[i][j] == s[i-1][j-1]+1){
+                } if (s[i][j] == s[i-1][j-1]+bloSum62.get(key)){
                     backtrack[i][j] = "diagonal";
                 }
             }
@@ -84,11 +91,11 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     }
 
     /**
-     * Forms HasMap BloSUm62, key is list of 2 alphabet letters and value is i"weight"
+     * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
      */
-    private void loadBloSum62(){
+    private void loadbloSum62(){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        File file = new File(dir, "BLOSUM62.txt");
+        File file = new File(dir, "bloSum62.txt");
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file.toPath());
@@ -98,7 +105,6 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
         List<String> alphabet = new LinkedList<>(Arrays.asList(lines.get(0).split("\\s+")));
         alphabet.remove(0);
-        System.out.println(alphabet);
 
         for (int i = 1;i<lines.size();i++){
             String[] currentLine = lines.get(i).split("\\s+");
@@ -112,7 +118,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
                 Integer value = Integer.parseInt(currentLine[j+1]);
 
-                BloSum62.put(key,value);
+                bloSum62.put(key,value);
             }
         }
     }
@@ -124,7 +130,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
-        loadBloSum62();
+        loadbloSum62();
         formBacktrack();
         outputLCS(v.length,w.length);
 
