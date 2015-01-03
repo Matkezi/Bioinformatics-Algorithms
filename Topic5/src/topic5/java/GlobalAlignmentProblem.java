@@ -43,16 +43,22 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     HashMap<List,Integer> bloSum62 = new HashMap<>();
 
     public void outputLCS(int i, int j){
-        if (i == 0 || j == 0){
-            return;
-        }
+
+            if (i == 0 && j == 0){
+                return;
+            }
+
 
         switch (backtrack[i][j]){
             case "down":
+                vOut.add(v[i-1]);
+                wOut.add("-");
                 outputLCS(i-1,j);
                 break;
 
             case "right":
+                vOut.add("-");
+                wOut.add(w[j-1]);
                 outputLCS(i,j-1);
                 break;
 
@@ -147,7 +153,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         loadbloSum62();
         formBacktrack();
         outputLCS(v.length,w.length);
-
+        System.out.println(vOut+" "+wOut);
 
     }
 
