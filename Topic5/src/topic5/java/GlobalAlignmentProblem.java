@@ -175,12 +175,20 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         loadbloSum62();
         formBacktrack();
         findAlignment(v.length, w.length);
-
-
         findScore();
 
-        System.out.println(vOut+" "+wOut);
+        Collections.reverse(vOut);
+        Collections.reverse(wOut);
+
         System.out.println(score);
+        for (int i = 0;i<vOut.size();i++){
+            System.out.print(vOut.get(i));
+        }
+        System.out.println();
+        for (int i = 0;i<wOut.size();i++){
+            System.out.print(wOut.get(i));
+        }
+
 
     }
 
