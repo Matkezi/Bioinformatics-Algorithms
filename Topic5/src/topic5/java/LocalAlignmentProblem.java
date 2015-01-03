@@ -23,22 +23,13 @@ Sample Output:
 EANL-Y
 ENALTY
  */
-public class LocalAlignmentProblem extends LoadAndExecute {
-    String[][] backtrack;
-    int[][] s;
-    String[] v;
-    String[] w;
+public class LocalAlignmentProblem extends GlobalAlignmentProblem {
 
-    int sigma = 5;
     HashMap<List,Integer> pam250 = new HashMap<>();
-
-    List<String> vOut = new ArrayList<>();
-    List<String> wOut = new ArrayList<>();
-    int score = 0;
 
     int maxRowindex = 0, maxColumnindex = 0;
 
-    private void findScore(){
+    protected void findScore(){
         for (int i = 0;i<vOut.size();i++){
             String v = vOut.get(i);
             String w = wOut.get(i);
@@ -53,7 +44,7 @@ public class LocalAlignmentProblem extends LoadAndExecute {
         }
     }
 
-    private void findAlignment(int i, int j){
+    protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
             return;
@@ -89,7 +80,6 @@ public class LocalAlignmentProblem extends LoadAndExecute {
 
         }
     }
-
 
     private void formLastNode(){
         int maxValue = 0;
@@ -211,5 +201,8 @@ public class LocalAlignmentProblem extends LoadAndExecute {
         for (int i = 0;i<wOut.size();i++){
             System.out.print(wOut.get(i));
         }
+
     }
+
+
 }

@@ -38,13 +38,13 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] w;
 
     int sigma = 5;
-    HashMap<List,Integer> bloSum62 = new HashMap<>();
+    HashMap<List,Integer> table = new HashMap<>();
 
     List<String> vOut = new ArrayList<>();
     List<String> wOut = new ArrayList<>();
     int score = 0;
 
-    private void findScore(){
+    protected void findScore(){
         for (int i = 0;i<vOut.size();i++){
             String v = vOut.get(i);
             String w = wOut.get(i);
@@ -54,12 +54,12 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 List<String> key = new ArrayList<>();
                 key.add(v);
                 key.add(w);
-                score += bloSum62.get(key);
+                score += table.get(key);
             }
         }
     }
 
-    private void findAlignment(int i, int j){
+    protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
             return;
@@ -117,14 +117,14 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 key.add(w[j-1]);
 
                 //compare diagonal and indel
-                int diagonal = s[i-1][j-1] + bloSum62.get(key);
+                int diagonal = s[i-1][j-1] + table.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
 
                 if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]-sigma){
                     backtrack[i][j] = "right";
-                } if (s[i][j] == s[i-1][j-1]+bloSum62.get(key)){
+                } if (s[i][j] == s[i-1][j-1]+table.get(key)){
                     backtrack[i][j] = "diagonal";
                 }
             }
@@ -135,9 +135,9 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     /**
      * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
      */
-    private void loadbloSum62(){
+    protected void loadTable(String filename){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        File file = new File(dir, "bloSum62.txt");
+        File file = new File(dir,filename);
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file.toPath());
@@ -160,7 +160,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
                 Integer value = Integer.parseInt(currentLine[j+1]);
 
-                bloSum62.put(key,value);
+                table.put(key,value);
             }
         }
     }
@@ -172,7 +172,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
-        loadbloSum62();
+        loadTable("bloSum62.txt");
         formBacktrack();
         findAlignment(v.length, w.length);
         findScore();
