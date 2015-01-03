@@ -9,27 +9,19 @@ import java.util.*;
  * @author Matko
  * @version 1.0
  *
- * CODE CHALLENGE: Solve the Global Alignment Problem.
+CODE CHALLENGE: Solve the Local Alignment Problem.
 Input: Two protein strings written in the single-letter amino acid alphabet.
-Output: The maximum alignment score of these strings followed by an alignment achieving this
-maximum score. Use the bloSum62 scoring matrix and indel penalty σ = 5.
+Output: The maximum score of a local alignment of the strings, followed by a local alignment of these
+strings achieving the maximum score. Use the PAM250 scoring matrix and indel penalty σ = 5.
 
 Sample Input:
-PLEASANTLY
 MEANLY
+PENALTY
 
 Sample Output:
-8
-PLEASANTLY
--MEA--N-LY
-
-
-TIP: bloSum62 gives you the score for both identities (Vi == Wj) and mismatches (Vi<>Wj).
-Then, the alignment recurrence should be written as:
-
-S(i,j) = max { S(i-1,j) - sigma;           S(i, 1-j) -sigma;         S(i,j) + bloSum62(vi, wi) }
-
-where bloSum62(vi, wii) is the bloSum62 score for aligning residue vi with residue wi
+15
+EANL-Y
+ENALTY
  */
 public class LocalAlignmentProblem extends LoadAndExecute {
     String[][] backtrack;
@@ -54,7 +46,7 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 List<String> key = new ArrayList<>();
                 key.add(v);
                 key.add(w);
-                score += bloSum62.get(key);
+                score += pam250.get(key);
             }
         }
     }
@@ -117,14 +109,14 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 key.add(w[j-1]);
 
                 //compare diagonal and indel
-                int diagonal = s[i-1][j-1] + bloSum62.get(key);
+                int diagonal = s[i-1][j-1] + pam250.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
 
                 if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]-sigma){
                     backtrack[i][j] = "right";
-                } if (s[i][j] == s[i-1][j-1]+bloSum62.get(key)){
+                } if (s[i][j] == s[i-1][j-1]+pam250.get(key)){
                     backtrack[i][j] = "diagonal";
                 }
             }
@@ -133,11 +125,11 @@ public class LocalAlignmentProblem extends LoadAndExecute {
     }
 
     /**
-     * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
+     * Forms HasMap pam250, key is list of 2 alphabet letters and value is i"weight"
      */
     private void loadpam250(){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        File file = new File(dir, "bloSum62.txt");
+        File file = new File(dir, "pam250.txt");
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file.toPath());
