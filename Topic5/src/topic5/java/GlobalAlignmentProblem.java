@@ -121,6 +121,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
     }
 
+
     /**
      * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
      */
