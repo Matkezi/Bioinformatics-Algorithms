@@ -76,11 +76,15 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 findAlignment(i, j - 1);
                 break;
 
-            default: //diagonal
+            case "diagonal":
                 vOut.add(v[i-1]);
                 wOut.add(w[j-1]);
                 findAlignment(i - 1, j - 1);
                 break;
+
+            default:
+                return;
+
         }
     }
 
