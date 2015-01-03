@@ -37,12 +37,15 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] v;
     String[] w;
 
-    List<String> vOut = new ArrayList<>();
-    List<String> wOut = new ArrayList<>();
     int sigma = 5;
     HashMap<List,Integer> bloSum62 = new HashMap<>();
 
-    public void outputLCS(int i, int j){
+    List<String> vOut = new ArrayList<>();
+    List<String> wOut = new ArrayList<>();
+    int score = 0;
+
+
+    private void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){
             return;
@@ -57,20 +60,20 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 vOut.add(v[i-1]);
                 wOut.add("-");
 
-                outputLCS(i-1,j);
+                findAlignment(i-1,j);
                 break;
 
             case "right":
                 vOut.add("-");
                 wOut.add(w[j-1]);
 
-                outputLCS(i,j-1);
+                findAlignment(i,j-1);
                 break;
 
             default: //diagonal
                 vOut.add(v[i-1]);
                 wOut.add(w[j-1]);
-                outputLCS(i-1,j-1);
+                findAlignment(i-1,j-1);
                 break;
         }
     }
@@ -157,8 +160,10 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
         loadbloSum62();
         formBacktrack();
-        outputLCS(v.length,w.length);
+        findAlignment(v.length,w.length);
+
         System.out.println(vOut+" "+wOut);
+        System.out.println(score);
 
     }
 
