@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        LocalAlignmentProblem lap = new LocalAlignmentProblem();
-        lap.execute();
+        Levenshtein l = new Levenshtein();
+        l.execute();
     }
 }

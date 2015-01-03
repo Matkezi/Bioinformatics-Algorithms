@@ -1,8 +1,5 @@
 package topic5.java;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.*;
 
 /**
@@ -27,7 +24,7 @@ public class LocalAlignmentProblem extends GlobalAlignmentProblem {
 
     int maxRowindex = 0, maxColumnindex = 0;
 
-    private void findAlignment(int i, int j){
+    protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
             return;
@@ -78,7 +75,7 @@ public class LocalAlignmentProblem extends GlobalAlignmentProblem {
         s[v.length][w.length] = maxValue;
     }
 
-    private void formBacktrack(){
+    protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 

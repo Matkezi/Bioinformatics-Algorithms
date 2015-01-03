@@ -45,21 +45,10 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     int score = 0;
 
     protected void findScore(){
-        for (int i = 0;i<vOut.size();i++){
-            String v = vOut.get(i);
-            String w = wOut.get(i);
-
-            if (v.equals("-") || w.equals("-")) score -= sigma;
-            else {
-                List<String> key = new ArrayList<>();
-                key.add(v);
-                key.add(w);
-                score += table.get(key);
-            }
-        }
+        score = s[v.length][w.length];
     }
 
-    private void findAlignment(int i, int j){
+    protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
             return;
@@ -92,19 +81,19 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         }
     }
 
-    private void formBacktrack(){
+    protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-        //initialiaze first row
-        for (int j = 0;j<w.length;j++){
-            s[0][j+1] = s[0][j]-sigma;
-        }
-
-        //initialiaze first collumn
-        for (int i = 0;i<v.length;i++){
-            s[i+1][0] = s[i][0]-sigma;
-        }
+//        //initialiaze first row
+//        for (int j = 0;j<w.length;j++){
+//            s[0][j+1] = s[0][j]-sigma;
+//        }
+//
+//        //initialiaze first collumn
+//        for (int i = 0;i<v.length;i++){
+//            s[i+1][0] = s[i][0]-sigma;
+//        }
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
