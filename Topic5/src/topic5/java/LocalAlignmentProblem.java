@@ -211,8 +211,5 @@ public class LocalAlignmentProblem extends LoadAndExecute {
         for (int i = 0;i<wOut.size();i++){
             System.out.print(wOut.get(i));
         }
-
     }
-
-
 }
