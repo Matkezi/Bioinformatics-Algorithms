@@ -65,7 +65,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
 
-                int maxTmp = Integer.max(s[i-1][j],s[i][j-1]);
+                int maxTmp = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
                 if (v[i-1].equals(w[j-1])){
                     int diagonal = s[i-1][j-1] + 1;
                     s[i][j] = Integer.max(maxTmp,diagonal);
