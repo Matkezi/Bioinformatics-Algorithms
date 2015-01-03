@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class FittingAlignmentProblem extends LocalAlignmentProblem {
 
+    List<Integer> possibleEndingsCoordinates = new ArrayList<>();
+
     protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
@@ -47,20 +49,6 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
         }
     }
 
-    private void formLastNode(){
-        int maxValue = 0;
-
-        for (int i = 0; i < s.length; i++)
-            for (int j = 0; j < s[i].length; j++)
-                if (s[i][j] > maxValue) {
-                    maxValue = s[i][j];
-                    maxRowindex = i;
-                    maxColumnindex = j;
-                }
-
-        s[v.length][w.length] = maxValue;
-    }
-
     protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
@@ -77,16 +65,24 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
 //        }
         */
 
-        //set free taxi to start of a substring v
+
+       //start and end of substring
         for (int i =1;i<v.length+1;i++){
+            //set free taxi to start of a substring v'
             if (v[i-1].equals(w[0])) {
                 s[i][0] = 0;
                 backtrack[i][0] = "start";
             }
+
+            //set free taxi from end of substring v'
+            if (v[i-1].equals(w[w.length-1])){
+
+            }
         }
 
-        //form last node of a backtrack matrix
-        formLastNode();
+
+
+
 
     }
 
