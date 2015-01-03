@@ -59,7 +59,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         }
     }
 
-    protected void findAlignment(int i, int j){
+    private void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
             return;
