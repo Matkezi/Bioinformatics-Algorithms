@@ -44,6 +44,20 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     List<String> wOut = new ArrayList<>();
     int score = 0;
 
+    private void findScore(){
+        for (int i = 0;i<vOut.size();i++){
+            String v = vOut.get(i);
+            String w = wOut.get(i);
+
+            if (v.equals("-") || w.equals("-")) score -= sigma;
+            else {
+                List<String> key = new ArrayList<>();
+                key.add(v);
+                key.add(w);
+                score += bloSum62.get(key);
+            }
+        }
+    }
 
     private void findAlignment(int i, int j){
 
@@ -60,20 +74,20 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 vOut.add(v[i-1]);
                 wOut.add("-");
 
-                findAlignment(i-1,j);
+                findAlignment(i - 1, j);
                 break;
 
             case "right":
                 vOut.add("-");
                 wOut.add(w[j-1]);
 
-                findAlignment(i,j-1);
+                findAlignment(i, j - 1);
                 break;
 
             default: //diagonal
                 vOut.add(v[i-1]);
                 wOut.add(w[j-1]);
-                findAlignment(i-1,j-1);
+                findAlignment(i - 1, j - 1);
                 break;
         }
     }
@@ -160,7 +174,10 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
         loadbloSum62();
         formBacktrack();
-        findAlignment(v.length,w.length);
+        findAlignment(v.length, w.length);
+
+
+        findScore();
 
         System.out.println(vOut+" "+wOut);
         System.out.println(score);
