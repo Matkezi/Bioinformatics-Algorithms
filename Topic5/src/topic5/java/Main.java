@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        LCSBacktrack lcs = new LCSBacktrack();
-        lcs.loadFromFiles();
+        GlobalAlignmentProblem gap = new GlobalAlignmentProblem();
+        gap.execute();
     }
 }

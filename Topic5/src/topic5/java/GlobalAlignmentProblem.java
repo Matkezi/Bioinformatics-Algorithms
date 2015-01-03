@@ -1,6 +1,8 @@
 package topic5.java;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Matko
@@ -33,6 +35,8 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     int[][] s;
     String[] v;
     String[] w;
+
+    HashMap<Set,Integer> BloSum62 = new HashMap<>();
 
     public void outputLCS(int i, int j){
         if (i == 0 || j == 0){
@@ -74,6 +78,10 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 }
             }
         }
+
+    }
+
+    private void loadBloSum62(){
 
     }
 
