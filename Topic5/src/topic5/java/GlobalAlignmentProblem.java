@@ -85,15 +85,15 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-//        //initialiaze first row
-//        for (int j = 0;j<w.length;j++){
-//            s[0][j+1] = s[0][j]-sigma;
-//        }
-//
-//        //initialiaze first collumn
-//        for (int i = 0;i<v.length;i++){
-//            s[i+1][0] = s[i][0]-sigma;
-//        }
+        //initialiaze first row
+        for (int j = 0;j<w.length;j++){
+            s[0][j+1] = s[0][j]-sigma;
+        }
+
+        //initialiaze first collumn
+        for (int i = 0;i<v.length;i++){
+            s[i+1][0] = s[i][0]-sigma;
+        }
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
