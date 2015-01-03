@@ -57,14 +57,12 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
                 vOut.add(v[i-1]);
                 wOut.add("-");
 
-
                 outputLCS(i-1,j);
                 break;
 
             case "right":
                 vOut.add("-");
                 wOut.add(w[j-1]);
-
 
                 outputLCS(i,j-1);
                 break;
