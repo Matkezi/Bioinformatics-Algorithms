@@ -66,24 +66,49 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
         */
 
 
-       //start and end of substring
-        for (int i =1;i<v.length+1;i++){
+        for (int i =1;i<v.length+1;i++) {
             //set free taxi to start of a substring v'
-            if (v[i-1].equals(w[0])) {
+            if (v[i - 1].equals(w[0])) {
                 s[i][0] = 0;
                 backtrack[i][0] = "start";
             }
+        }
+        for (int i =1;i<v.length+1;i++){
+            for (int j = 1;j<w.length+1;j++){
 
-            //set free taxi from end of substring v'
-            if (v[i-1].equals(w[w.length-1])){
+                if (backtrack[i][j].equals("start")) continue;
 
+                int indel = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
+
+                //form a key for diagonal
+                List<String> key = new ArrayList<>();
+                key.add(v[i-1]);
+                key.add(w[j-1]);
+
+                //compare diagonal and indel
+                int diagonal = s[i-1][j-1] + table.get(key);
+                s[i][j] = Integer.max(indel,diagonal);
+
+                //compare current to 0 (starting node)
+                s[i][j] = Integer.max(s[i][j],0);
+
+                if (s[i][j] == s[i-1][j]-sigma){
+                    backtrack[i][j] = "down";
+                } if (s[i][j] == s[i][j-1]-sigma){
+                    backtrack[i][j] = "right";
+                } if (s[i][j] == s[i-1][j-1]+table.get(key)){
+                    backtrack[i][j] = "diagonal";
+                }
             }
         }
 
 
-
-
-
+        for (int i =1;i<v.length+1;i++) {
+            //set free taxi from end of substring v'
+            if (v[i-1].equals(w[w.length-1])){
+                possibleEndingsCoordinates.add(i);
+            }
+        }
     }
 
     public void execute(){
@@ -93,7 +118,10 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
 
         loadTable("PAM250_1.txt");
         formBacktrack();
-        findAlignment(maxRowindex, maxColumnindex);
+        for (Integer rowIndex : possibleEndingsCoordinates){
+            findAlignment(rowIndex, w.length);
+        }
+
         findScore();
 
         Collections.reverse(vOut);
