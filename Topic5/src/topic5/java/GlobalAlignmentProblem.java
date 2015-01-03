@@ -44,21 +44,28 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
     public void outputLCS(int i, int j){
 
-            if (i == 0 && j == 0){
-                return;
-            }
+        if (i == 0 && j == 0){
+            return;
+        } else {
+            if (i == 0) i++;
+            else if (j == 0) j++;
+        }
 
 
         switch (backtrack[i][j]){
             case "down":
                 vOut.add(v[i-1]);
                 wOut.add("-");
+
+
                 outputLCS(i-1,j);
                 break;
 
             case "right":
                 vOut.add("-");
                 wOut.add(w[j-1]);
+
+
                 outputLCS(i,j-1);
                 break;
 
