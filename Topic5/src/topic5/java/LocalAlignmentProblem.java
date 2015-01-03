@@ -36,6 +36,8 @@ public class LocalAlignmentProblem extends LoadAndExecute {
     List<String> wOut = new ArrayList<>();
     int score = 0;
 
+    int maxRowindex = 0, maxColumnindex = 0;
+
     private void findScore(){
         for (int i = 0;i<vOut.size();i++){
             String v = vOut.get(i);
@@ -88,6 +90,21 @@ public class LocalAlignmentProblem extends LoadAndExecute {
         }
     }
 
+
+    private void formLastNode(){
+        int maxValue = 0;
+
+        for (int i = 0; i < s.length; i++)
+            for (int j = 0; j < s[i].length; j++)
+                if (s[i][j] > maxValue) {
+                    maxValue = s[i][j];
+                    maxRowindex = i;
+                    maxColumnindex = j;
+                }
+
+        s[v.length][w.length] = maxValue;
+    }
+
     private void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
@@ -130,6 +147,9 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 }
             }
         }
+
+        //form last node of a backtrack matrix
+        formLastNode();
 
     }
 
@@ -175,7 +195,7 @@ public class LocalAlignmentProblem extends LoadAndExecute {
 
         loadpam250();
         formBacktrack();
-        findAlignment(v.length, w.length);
+        findAlignment(maxRowindex, maxColumnindex);
         findScore();
 
         Collections.reverse(vOut);
