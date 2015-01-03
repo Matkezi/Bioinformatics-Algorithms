@@ -47,8 +47,8 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         if (i == 0 && j == 0){
             return;
         } else {
-            if (i == 0) i++;
-            else if (j == 0) j++;
+            if (i == 0) backtrack[i][j] = "right";
+            else if (j == 0) backtrack[i][j] = "down";
         }
 
 
