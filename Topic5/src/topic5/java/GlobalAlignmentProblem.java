@@ -102,6 +102,13 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
             for (int j = 0;j<alphabet.size();j++){
                 String secondLetter = alphabet.get(j);
 
+                List<String> key = new ArrayList<>();
+                key.add(firstLetter);
+                key.add(secondLetter);
+
+                Integer value = Integer.parseInt(currentLine[j+1]);
+
+                BloSum62.put(key,value);
             }
         }
     }
