@@ -1,8 +1,9 @@
 package topic5.java;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.*;
 
 /**
  * @author Matko
@@ -36,7 +37,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] v;
     String[] w;
 
-    HashMap<Set,Integer> BloSum62 = new HashMap<>();
+    HashMap<List,Integer> BloSum62 = new HashMap<>();
 
     public void outputLCS(int i, int j){
         if (i == 0 || j == 0){
@@ -82,7 +83,27 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     }
 
     private void loadBloSum62(){
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
+        File file = new File(dir, "BLOSUM62.txt");
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        List<String> alphabet = new LinkedList<>(Arrays.asList(lines.get(0).split("\\s+")));
+        alphabet.remove(0);
+        System.out.println(alphabet);
+
+        for (int i = 1;i<lines.size();i++){
+            String[] currentLine = lines.get(i).split("\\s+");
+            String firstLetter = currentLine[0];
+            for (int j = 0;j<alphabet.size();j++){
+                String secondLetter = alphabet.get(j);
+
+            }
+        }
     }
 
     @Override
@@ -92,6 +113,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
+        loadBloSum62();
         formBacktrack();
         outputLCS(v.length,w.length);
 
