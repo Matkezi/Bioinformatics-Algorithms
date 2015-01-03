@@ -119,7 +119,7 @@ public class LocalAlignmentProblem extends LoadAndExecute {
                 //compare current to 0 (starting node)
                 s[i][j] = Integer.max(s[i][j],0);
 
-                if (s[i][j] == 0){
+                if (s[i][j] == 0) {
                     backtrack[i][j] = "start";
                 } if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
