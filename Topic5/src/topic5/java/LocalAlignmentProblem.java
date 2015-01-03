@@ -31,14 +31,14 @@ S(i,j) = max { S(i-1,j) - sigma;           S(i, 1-j) -sigma;         S(i,j) + bl
 
 where bloSum62(vi, wii) is the bloSum62 score for aligning residue vi with residue wi
  */
-public class GlobalAlignmentProblem extends LoadAndExecute {
+public class LocalAlignmentProblem extends LoadAndExecute {
     String[][] backtrack;
     int[][] s;
     String[] v;
     String[] w;
 
     int sigma = 5;
-    HashMap<List,Integer> bloSum62 = new HashMap<>();
+    HashMap<List,Integer> pam250 = new HashMap<>();
 
     List<String> vOut = new ArrayList<>();
     List<String> wOut = new ArrayList<>();
@@ -135,7 +135,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     /**
      * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
      */
-    private void loadbloSum62(){
+    private void loadpam250(){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
         File file = new File(dir, "bloSum62.txt");
         List<String> lines = new ArrayList<>();
@@ -160,7 +160,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
                 Integer value = Integer.parseInt(currentLine[j+1]);
 
-                bloSum62.put(key,value);
+                pam250.put(key,value);
             }
         }
     }
@@ -172,7 +172,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
-        loadbloSum62();
+        loadpam250();
         formBacktrack();
         findAlignment(v.length, w.length);
         findScore();
