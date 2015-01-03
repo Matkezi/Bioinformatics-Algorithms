@@ -36,9 +36,8 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
     @Override
     public void execute() throws IOException{
-        File file = super.loadFromFiles("GlobalAlignmentProblem.txt");
 
-        List<String> lines = Files.readAllLines(file.toPath());
+        List<String> lines = Files.readAllLines(super.loadFromFiles("GlobalAlignmentProblem.txt").toPath());
     }
 
 
