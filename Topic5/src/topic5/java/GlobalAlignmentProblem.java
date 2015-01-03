@@ -24,7 +24,7 @@ PLEASANTLY
 -MEA--N-LY
 
 
- TIP: BLOSUM62 gives you the score for both identities (Vi == Wj) and mismatches (Vi<>Wj).
+TIP: BLOSUM62 gives you the score for both identities (Vi == Wj) and mismatches (Vi<>Wj).
 Then, the alignment recurrence should be written as:
 
 S(i,j) = max { S(i-1,j) - sigma;           S(i, 1-j) -sigma;         S(i,j) + BLOSUM62(vi, wi) }
@@ -37,6 +37,7 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] v;
     String[] w;
 
+    int sigma = 5;
     HashMap<List,Integer> BloSum62 = new HashMap<>();
 
     public void outputLCS(int i, int j){
@@ -82,6 +83,9 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
 
     }
 
+    /**
+     * Forms HasMap BloSUm62, key is list of 2 alphabet letters and value is i"weight"
+     */
     private void loadBloSum62(){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
         File file = new File(dir, "BLOSUM62.txt");
