@@ -189,7 +189,6 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
             System.out.print(wOut.get(i));
         }
 
-
     }
 
 
