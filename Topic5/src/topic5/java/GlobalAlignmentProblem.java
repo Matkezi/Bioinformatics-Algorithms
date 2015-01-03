@@ -37,6 +37,8 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     String[] v;
     String[] w;
 
+    List<String> vOut = new ArrayList<>();
+    List<String> wOut = new ArrayList<>();
     int sigma = 5;
     HashMap<List,Integer> bloSum62 = new HashMap<>();
 
@@ -46,16 +48,18 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
         }
 
         switch (backtrack[i][j]){
-            case "down": outputLCS(i-1,j);
-                System.out.print("-");
+            case "down":
+                outputLCS(i-1,j);
                 break;
 
-            case "right": outputLCS(i,j-1);
-                System.out.print(w[i-1]);
+            case "right":
+                outputLCS(i,j-1);
                 break;
 
-            default:      outputLCS(i-1,j-1);
-                System.out.print(v[i-1]);
+            default: //diagonal
+                vOut.add(v[i-1]);
+                wOut.add(w[j-1]);
+                outputLCS(i-1,j-1);
                 break;
         }
     }
@@ -63,6 +67,16 @@ public class GlobalAlignmentProblem extends LoadAndExecute {
     private void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
+
+        //initialiaze first row
+        for (int j = 0;j<w.length;j++){
+            s[0][j+1] = s[0][j]-sigma;
+        }
+
+        //initialiaze first collumn
+        for (int i = 0;i<v.length;i++){
+            s[i+1][0] = s[i][0]-sigma;
+        }
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
