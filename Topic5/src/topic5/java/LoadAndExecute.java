@@ -3,6 +3,7 @@ package topic5.java;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,10 +12,17 @@ import java.util.List;
  */
 public abstract class LoadAndExecute {
 
-    public abstract void execute() throws IOException;
+    public abstract void execute();
 
-    protected File loadFromFiles(String filename){
+    protected List<String> loadFromFiles(String filename){
         File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        return(new File(dir, filename));
+        File file = new File(dir, filename);
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return lines;
     }
 }
