@@ -24,6 +24,21 @@ public class LocalAlignmentProblem extends GlobalAlignmentProblem {
 
     int maxRowindex = 0, maxColumnindex = 0;
 
+    protected void findScore(){
+        for (int i = 0;i<vOut.size();i++){
+            String v = vOut.get(i);
+            String w = wOut.get(i);
+
+            if (v.equals("-") || w.equals("-")) score -= sigma;
+            else {
+                List<String> key = new ArrayList<>();
+                key.add(v);
+                key.add(w);
+                score += table.get(key);
+            }
+        }
+    }
+
     protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion

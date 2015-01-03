@@ -12,6 +12,8 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
 
     List<Integer> possibleEndingsCoordinates = new ArrayList<>();
 
+    int biggestScore = 0;
+
     protected void findAlignment(int i, int j){
 
         if (i == 0 && j == 0){//only when we reach the end of matrix we can end the reursion
@@ -89,9 +91,6 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
                 int diagonal = s[i-1][j-1] + table.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
 
-                //compare current to 0 (starting node)
-                s[i][j] = Integer.max(s[i][j],0);
-
                 if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]-sigma){
@@ -120,9 +119,9 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
         formBacktrack();
         for (Integer rowIndex : possibleEndingsCoordinates){
             findAlignment(rowIndex, w.length);
+            findScore();
+            if (score > biggestScore) biggestScore = score;
         }
-
-        findScore();
 
         Collections.reverse(vOut);
         Collections.reverse(wOut);
