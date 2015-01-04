@@ -26,26 +26,16 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
     int maxRowindex = 0, maxColumnindex = 0;
 
-    protected void findScore(){
-        for (int i = 0;i<vOut.size();i++){
-            String v = vOut.get(i);
-            String w = wOut.get(i);
-
-            if (v.equals(w)) score++;
-            else score--;
-
-        }
-    }
 
     protected void findAlignment(int i, int j){
 
-
-        if (i == 0 && j == 0){//only when we reach the end of matrix we can end the recursion
-            return;
-        } else {//if we are in row 0 we must go left, and if we are in column 0 we must go up
-            if (i == 0) backtrack[i][j] = "right";
-            else if (j == 0) backtrack[i][j] = "down";
-        }
+          if (j == 0) return;
+//        if (i == 0 && j == 0){//only when we reach the end of matrix we can end the recursion
+//            return;
+//        } else {//if we are in row 0 we must go left, and if we are in column 0 we must go up
+//            if (i == 0) backtrack[i][j] = "right";
+//            else if (j == 0) backtrack[i][j] = "down";
+//        }
 
 
         switch (backtrack[i][j]){
@@ -137,7 +127,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
         formBacktrack();
         findAlignment(maxRowindex, maxColumnindex);
-        //findScore();
         score = s[maxRowindex][maxColumnindex];
 
         Collections.reverse(vOut);
