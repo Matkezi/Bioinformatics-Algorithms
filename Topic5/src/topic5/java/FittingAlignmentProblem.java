@@ -106,24 +106,21 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         for (int i =1;i<v.length+1;i++){
             for (int j = 2;j<w.length+1;j++){
 
-                int indel = Integer.max(s[i-1][j]-sigma,s[i][j-1]-sigma);
+                int indel = Integer.max(s[i-1][j]-1,s[i][j-1]-1);
 
-                //form a key for diagonal
-                List<String> key = new ArrayList<>();
-                key.add(v[i-1]);
-                key.add(w[j-1]);
+                int diagonal = 0;
+                if (v[i-1].equals(w[j-1])) diagonal = s[i-1][j-1] + 1;
+                else diagonal = s[i-1][j-1] - 1;
 
                 //compare diagonal and indel
-                int diagonal = s[i-1][j-1] + table.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
 
-                if (s[i][j] == s[i-1][j]-sigma){
+                if (s[i][j] == s[i-1][j]-1){
                     backtrack[i][j] = "down";
-                } if (s[i][j] == s[i][j-1]-sigma){
+                } if (s[i][j] == s[i][j-1]-1){
                     backtrack[i][j] = "right";
-                } if (s[i][j] == s[i-1][j-1]+table.get(key)){
-                    backtrack[i][j] = "diagonal";
-                }
+                } else backtrack[i][j] = "diagonal";
+
             }
         }
 
