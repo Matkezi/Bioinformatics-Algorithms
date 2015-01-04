@@ -70,6 +70,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 break;
 
             default:
+                vOut.add(v[i-1]);
+                wOut.add(w[j-1]);
                 return;
 
         }
@@ -84,16 +86,26 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 maxRowindex = i;
             }
         }
-        s[v.length][w.length] = maxValue;
     }
 
     protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
+//        //initialiaze first row
+//        for (int j = 0;j<w.length;j++){
+//            s[0][j+1] = s[0][j]-1;
+//        }
+
+        //initialiaze first collumn
+        for (int i = 0;i<v.length;i++){
+            s[i+1][0] = s[i][0]-1;
+       }
+
         for (int i = 0;i<v.length;i++){
             backtrack[i+1][1] = "start";
         }
+
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 2;j<w.length+1;j++){
@@ -106,6 +118,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 else values.add(s[i-1][j-1] - 1);
 
                 Integer max = Collections.max(values);
+
+                s[i][j] = max;
 
                 int index = 0;
                 for (int k = 0;k<values.size();k++){
@@ -124,8 +138,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                     default:
                         backtrack[i][j] = "diagonal";
                 }
-
-                s[i][j] = max;
             }
         }
 
@@ -143,7 +155,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
         formBacktrack();
         findAlignment(maxRowindex, maxColumnindex);
-        findScore();
+        //findScore();
+        score = s[maxRowindex][maxColumnindex];
 
         Collections.reverse(vOut);
         Collections.reverse(wOut);
