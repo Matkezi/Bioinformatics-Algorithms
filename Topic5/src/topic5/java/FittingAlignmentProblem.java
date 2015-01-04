@@ -114,25 +114,22 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 }
 
                 switch (index){
-                    case 0: fromTop = true;
-                    case 1: fromLeft = true;
+                    case 0: {
+                        fromTop = true;
+                        break;
+                    }
+                    case 1: {
+                        fromLeft = true;
+                        break;
+                    }
                     default: fromDiagonal = true;
                 }
 
-                int indel = Integer.max(s[i-1][j]-1,s[i][j-1]-1);
+                s[i][j] = max;
 
-                int diagonal = 0;
-                if (v[i-1].equals(w[j-1])) diagonal = s[i-1][j-1] + 1;
-                else diagonal = s[i-1][j-1] - 1;
-
-                //compare diagonal and indel
-                s[i][j] = Integer.max(indel,diagonal);
-
-                if (s[i][j] == s[i-1][j]-1){
-                    backtrack[i][j] = "down";
-                } if (s[i][j] == s[i][j-1]-1){
-                    backtrack[i][j] = "right";
-                } if(s[i][j] == s[i-1][j-1] - 1 || s[i][j] == s[i-1][j-1] + 1) backtrack[i][j] = "diagonal";
+                if (fromTop) backtrack[i][j] = "down";
+                else if (fromLeft) backtrack[i][j] = "right";
+                else if (fromDiagonal) backtrack[i][j] = "diagonal";
 
             }
         }
