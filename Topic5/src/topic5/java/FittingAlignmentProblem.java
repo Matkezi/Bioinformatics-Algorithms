@@ -29,14 +29,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
     protected void findAlignment(int i, int j){
 
-          if (j == 0) return;
-//        if (i == 0 && j == 0){//only when we reach the end of matrix we can end the recursion
-//            return;
-//        } else {//if we are in row 0 we must go left, and if we are in column 0 we must go up
-//            if (i == 0) backtrack[i][j] = "right";
-//            else if (j == 0) backtrack[i][j] = "down";
-//        }
-
+        if (j == 0) return;
 
         switch (backtrack[i][j]){
             case "down":
