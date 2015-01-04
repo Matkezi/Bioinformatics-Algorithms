@@ -29,7 +29,7 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
     List<String> biggestvOut = new ArrayList<>();
     List<String> biggestwOut = new ArrayList<>();
 
-    protected void findScore(){
+    protected void findFitScore(){
         for (int i = 0;i<vOut.size();i++){
             String v = vOut.get(i);
             String w = wOut.get(i);
@@ -79,7 +79,6 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
     protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
-
 
         for (int i =1;i<v.length+1;i++) {
             //set free taxi to start of a substring v'
@@ -134,7 +133,7 @@ public class FittingAlignmentProblem extends LocalAlignmentProblem {
             vOut.clear();
             wOut.clear();
             findAlignment(rowIndex, w.length);
-            findScore();
+            findFitScore();
             if (score > biggestScore) {
                 biggestScore = score;
                 biggestvOut.clear();
