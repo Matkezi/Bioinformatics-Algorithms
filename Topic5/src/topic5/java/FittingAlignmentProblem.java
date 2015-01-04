@@ -97,8 +97,27 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         for (int i =1;i<v.length+1;i++){
             for (int j = 2;j<w.length+1;j++){
 
-                boolean fromTop = false, fromDiagonal = false, fromLeft = false;
+                boolean fromTop = false, fromLeft = false, fromDiagonal = false;
 
+                List<Integer> values = new ArrayList<>();
+                values.add(s[i-1][j]-1);
+                values.add(s[i][j-1]-1);
+
+                if (v[i-1].equals(w[j-1])) values.add(s[i-1][j-1] + 1);
+                else values.add(s[i-1][j-1] - 1);
+
+                Integer max = Collections.max(values);
+
+                int index = 0;
+                for (int k = 0;k<values.size();k++){
+                    if (values.get(k) == max) index = k;
+                }
+
+                switch (index){
+                    case 0: fromTop = true;
+                    case 1: fromLeft = true;
+                    default: fromDiagonal = true;
+                }
 
                 int indel = Integer.max(s[i-1][j]-1,s[i][j-1]-1);
 
