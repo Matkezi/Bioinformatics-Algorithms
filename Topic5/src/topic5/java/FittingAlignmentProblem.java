@@ -79,8 +79,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         int maxValue = 0;
         maxColumnindex = w.length;
         for (int i = 1; i < s.length; i++) {
-            if (s[i][w.length] >=
-                    maxValue) {
+            if (s[i][w.length] > maxValue) {
                 maxValue = s[i][w.length];
                 maxRowindex = i;
             }
@@ -90,21 +89,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
     protected void formBacktrack(){
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
-
-        //initialiaze first row
-        for (int j = 0;j<w.length;j++){
-            s[0][j+1] = s[0][j]-1;
-        }
-
-        //initialiaze first collumn
-        for (int i = 0;i<v.length;i++){
-            s[i+1][0] = s[i][0]-1;
-       }
-
-//        for (int i = 0;i<v.length;i++){
-//            backtrack[i+1][1] = "start";
-//        }
-
 
         for (int i =1;i<v.length+1;i++){
             for (int j = 1;j<w.length+1;j++){
@@ -116,13 +100,11 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 if (v[i-1].equals(w[j-1])) values.add(s[i-1][j-1] + 1);
                 else values.add(s[i-1][j-1] - 1);
 
-                Integer max = Collections.max(values);
-
-                s[i][j] = max;
+                s[i][j] = Collections.max(values);
 
                 int index = 0;
                 for (int k = 0;k<values.size();k++){
-                    if (values.get(k) == max) index = k;
+                    if (values.get(k) == s[i][j]) index = k;
                 }
 
                 switch (index){
@@ -140,6 +122,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
             }
         }
 
+
         //form last node of a backtrack matrix
         formLastNode();
 
@@ -154,8 +137,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
         formBacktrack();
         findAlignment(maxRowindex, maxColumnindex);
-        findScore();
-        //score = s[maxRowindex][maxColumnindex];
+        //findScore();
+        score = s[maxRowindex][maxColumnindex];
 
         Collections.reverse(vOut);
         Collections.reverse(wOut);
