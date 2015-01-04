@@ -115,7 +115,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                     backtrack[i][j] = "down";
                 } if (s[i][j] == s[i][j-1]-1){
                     backtrack[i][j] = "right";
-                } if() backtrack[i][j] = "diagonal";
+                } if(s[i][j] == s[i-1][j-1] - 1 || s[i][j] == s[i-1][j-1] + 1) backtrack[i][j] = "diagonal";
 
             }
         }
