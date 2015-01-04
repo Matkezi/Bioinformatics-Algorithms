@@ -70,8 +70,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 break;
 
             default:
-                vOut.add(v[i-1]);
-                wOut.add(w[j-1]);
                 return;
 
         }
@@ -103,13 +101,13 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
             s[i+1][0] = s[i][0]-1;
        }
 
-        for (int i = 0;i<v.length;i++){
-            backtrack[i+1][1] = "start";
-        }
+//        for (int i = 0;i<v.length;i++){
+//            backtrack[i+1][1] = "start";
+//        }
 
 
         for (int i =1;i<v.length+1;i++){
-            for (int j = 2;j<w.length+1;j++){
+            for (int j = 1;j<w.length+1;j++){
 
                 List<Integer> values = new ArrayList<>();
                 values.add(s[i-1][j]-1);
