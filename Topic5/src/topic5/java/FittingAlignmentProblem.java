@@ -70,7 +70,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 break;
 
             default:
-
                 return;
 
         }
@@ -99,8 +98,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         for (int i =1;i<v.length+1;i++){
             for (int j = 2;j<w.length+1;j++){
 
-                boolean fromTop = false, fromLeft = false;
-
                 List<Integer> values = new ArrayList<>();
                 values.add(s[i-1][j]-1);
                 values.add(s[i][j-1]-1);
@@ -117,21 +114,18 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
                 switch (index){
                     case 0: {
-                        fromTop = true;
+                        backtrack[i][j] = "down";
                         break;
                     }
                     case 1: {
-                        fromLeft = true;
+                        backtrack[i][j] = "right";
                         break;
                     }
+                    default:
+                        backtrack[i][j] = "diagonal";
                 }
 
                 s[i][j] = max;
-
-                if (fromTop) backtrack[i][j] = "down";
-                else if (fromLeft) backtrack[i][j] = "right";
-                else backtrack[i][j] = "diagonal";
-
             }
         }
 
