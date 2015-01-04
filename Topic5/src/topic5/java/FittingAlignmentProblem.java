@@ -24,7 +24,7 @@ TAGA--TA
  */
 public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
-    int maxRowindex = 0, maxColumnindex = w.length;
+    int maxRowindex = 0, maxColumnindex = 0;
 
     protected void findScore(){
         for (int i = 0;i<vOut.size();i++){
@@ -80,7 +80,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
     private void formLastNode(){
         int maxValue = 0;
-
+        maxColumnindex = w.length;
         for (int i = 1; i < s.length; i++) {
             if (s[i][w.length] > maxValue) {
                 maxValue = s[i][w.length];
@@ -94,15 +94,10 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-//        //initialiaze first row
-//        for (int j = 0;j<w.length;j++){
-//            s[0][j+1] = s[0][j]-sigma;
-//        }
-//
-//        //initialiaze first collumn
-//        for (int i = 0;i<v.length;i++){
-//            s[i+1][0] = s[i][0]-sigma;
-//        }
+        //initialiaze first collumn
+        for (int i = 0;i<v.length;i++){
+            s[i+1][0] = s[i][0]-1;
+        }
 
         for (int i = 0;i<v.length;i++){
             backtrack[i+1][1] = "start";
@@ -140,7 +135,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
     @Override
     public void execute() {
 
-        List<String> lines = loadFromFiles("LocalAlignmentProblem.txt");
+        List<String> lines = loadFromFiles("FittingAlignmentProblem.txt");
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
