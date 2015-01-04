@@ -24,7 +24,7 @@ TAGA--TA
  */
 public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
-    int maxRowindex = 0, maxColumnindex = 0;
+    int maxRowindex = 0, maxColumnindex = w.length;
 
     protected void findScore(){
         for (int i = 0;i<vOut.size();i++){
@@ -81,14 +81,12 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
     private void formLastNode(){
         int maxValue = 0;
 
-        for (int i = 0; i < s.length; i++)
-            for (int j = 0; j < s[i].length; j++)
-                if (s[i][j] > maxValue) {
-                    maxValue = s[i][j];
-                    maxRowindex = i;
-                    maxColumnindex = j;
-                }
-
+        for (int i = 1; i < s.length; i++) {
+            if (s[i][w.length] > maxValue) {
+                maxValue = s[i][w.length];
+                maxRowindex = i;
+            }
+        }
         s[v.length][w.length] = maxValue;
     }
 
@@ -107,7 +105,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 //        }
 
         for (int i = 0;i<v.length;i++){
-            s[i+1][1] = 0;
             backtrack[i+1][1] = "start";
         }
 
@@ -124,9 +121,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 //compare diagonal and indel
                 int diagonal = s[i-1][j-1] + table.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
-
-                //compare current to 0 (starting node)
-                s[i][j] = Integer.max(s[i][j],0);
 
                 if (s[i][j] == s[i-1][j]-sigma){
                     backtrack[i][j] = "down";
