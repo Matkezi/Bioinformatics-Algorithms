@@ -81,7 +81,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         int maxValue = 0;
         maxColumnindex = w.length;
         for (int i = 1; i < s.length; i++) {
-            if (s[i][w.length] > maxValue) {
+            if (s[i][w.length] >=
+                    maxValue) {
                 maxValue = s[i][w.length];
                 maxRowindex = i;
             }
@@ -92,10 +93,10 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-//        //initialiaze first row
-//        for (int j = 0;j<w.length;j++){
-//            s[0][j+1] = s[0][j]-1;
-//        }
+        //initialiaze first row
+        for (int j = 0;j<w.length;j++){
+            s[0][j+1] = s[0][j]-1;
+        }
 
         //initialiaze first collumn
         for (int i = 0;i<v.length;i++){
@@ -155,8 +156,8 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
 
         formBacktrack();
         findAlignment(maxRowindex, maxColumnindex);
-        //findScore();
-        score = s[maxRowindex][maxColumnindex];
+        findScore();
+        //score = s[maxRowindex][maxColumnindex];
 
         Collections.reverse(vOut);
         Collections.reverse(wOut);
