@@ -70,8 +70,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                 break;
 
             default:
-                vOut.add(v[i-1]);
-                wOut.add(w[j-1]);
+
                 return;
 
         }
@@ -81,7 +80,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         int maxValue = 0;
         maxColumnindex = w.length;
         for (int i = 1; i < s.length; i++) {
-            if (s[i][w.length] >= maxValue) {
+            if (s[i][w.length] > maxValue) {
                 maxValue = s[i][w.length];
                 maxRowindex = i;
             }
@@ -100,7 +99,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         for (int i =1;i<v.length+1;i++){
             for (int j = 2;j<w.length+1;j++){
 
-                boolean fromTop = false, fromLeft = false, fromDiagonal = false;
+                boolean fromTop = false, fromLeft = false;
 
                 List<Integer> values = new ArrayList<>();
                 values.add(s[i-1][j]-1);
@@ -125,14 +124,13 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
                         fromLeft = true;
                         break;
                     }
-                    default: fromDiagonal = true;
                 }
 
                 s[i][j] = max;
 
                 if (fromTop) backtrack[i][j] = "down";
                 else if (fromLeft) backtrack[i][j] = "right";
-                else if (fromDiagonal) backtrack[i][j] = "diagonal";
+                else backtrack[i][j] = "diagonal";
 
             }
         }
