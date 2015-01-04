@@ -31,13 +31,9 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
             String v = vOut.get(i);
             String w = wOut.get(i);
 
-            if (v.equals("-") || w.equals("-")) score -= sigma;
-            else {
-                List<String> key = new ArrayList<>();
-                key.add(v);
-                key.add(w);
-                score += table.get(key);
-            }
+            if (v.equals(w)) score++;
+            else score--;
+
         }
     }
 
@@ -82,7 +78,7 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         int maxValue = 0;
         maxColumnindex = w.length;
         for (int i = 1; i < s.length; i++) {
-            if (s[i][w.length] > maxValue) {
+            if (s[i][w.length] >= maxValue) {
                 maxValue = s[i][w.length];
                 maxRowindex = i;
             }
@@ -136,7 +132,6 @@ public class FittingAlignmentProblem extends GlobalAlignmentProblem {
         v = lines.get(0).split("");
         w = lines.get(1).split("");
 
-        loadTable("PAM250_1.txt");
         formBacktrack();
         findAlignment(maxRowindex, maxColumnindex);
         findScore();
