@@ -117,6 +117,7 @@ public class MiddleEdge extends GlobalAlignmentProblem {
         Collections.reverse(backtrack);
         String whereFrom = backtrack.get(row);
 
+
         if (whereFrom.equals("diagonal")) System.out.printf("(%d, %d) (%d, %d)",row,column,row+1,column+1);
         else System.out.printf("(%d, %d) (%d, %d)",row,column,row,column+1);
 
