@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        GlobalAlignmentProblemAffineGap gap = new GlobalAlignmentProblemAffineGap();
-        gap.execute();
+        MiddleEdge me = new MiddleEdge();
+        me.execute();
     }
 }
