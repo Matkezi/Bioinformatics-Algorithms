@@ -41,7 +41,7 @@ public class GlobalAlignmentProblemAffineGap extends LoadAndExecute {
 
 
     protected void findScore(){
-        score = s[v.length][w.length];
+        score = middle[v.length][w.length];
     }
 
     protected void findAlignment(int i, int j){
@@ -56,21 +56,35 @@ public class GlobalAlignmentProblemAffineGap extends LoadAndExecute {
         backtrack = new String[v.length+1][w.length+1];
         s = new int[v.length+1][w.length+1];
 
-        //initialize upper
-        for (int i = 0;i<v.length+1;i++) {
-            for (int j = 0; j < w.length; j++) {
-                upper[i][j+1] = upper[i][j]-epsilon;
+//        //initialize upper
+//        for (int i = 0;i<v.length+1;i++) {
+//            for (int j = 0; j < w.length; j++) {
+//                upper[i][j+1] = upper[i][j]-epsilon;
+//            }
+//        }
+//
+//        //initialize lower
+//        for (int j = 0;j<w.length+1;j++){
+//            for (int i = 0;i<v.length;i++){
+//                lower[i+1][j] = lower[i][j]-epsilon;
+//            }
+//        }
+
+        for (int i =1;i<v.length+1;i++) {
+            for (int j = 1; j < w.length + 1; j++) {
+
+                //form a key for diagonal
+                List<String> key = new ArrayList<>();
+                key.add(v[i-1]);
+                key.add(w[j-1]);
+
+                lower[i][j] = Integer.max(lower[i-1][j]-epsilon,middle[i-1][j]-sigma);
+                upper[i][j] = Integer.max(upper[i][j-1]-epsilon,middle[i][j-1]-sigma);
+                int temp = Integer.max(lower[i][j],upper[i][j]);
+                middle[i][j] = Integer.max(temp,middle[i-1][j-1]+table.get(key));
+
             }
         }
-
-        //initialize lower
-        for (int j = 0;j<w.length+1;j++){
-            for (int i = 0;i<v.length;i++){
-                lower[i+1][j] = lower[i][j]-epsilon;
-            }
-        }
-
-        System.out.println();
     }
 
 
