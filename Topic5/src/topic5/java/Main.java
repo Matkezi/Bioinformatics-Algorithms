@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        OverlapAlingmentProblem olp = new OverlapAlingmentProblem();
-        olp.execute();
+        GlobalAlignmentProblemAffineGap gap = new GlobalAlignmentProblemAffineGap();
+        gap.execute();
     }
 }
