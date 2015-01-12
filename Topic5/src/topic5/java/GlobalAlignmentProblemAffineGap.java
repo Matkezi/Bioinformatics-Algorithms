@@ -23,52 +23,25 @@ Sample Output:
 PRT---EINS
 PRTWPSEIN-
  */
-public class GlobalAlignmentProblemAffineGap extends LoadAndExecute {
-    String[][] backtrack;
-    int[][] s;
-    String[] v;
-    String[] w;
+public class GlobalAlignmentProblemAffineGap extends GlobalAlignmentProblem {
 
     int sigma = 11;
     int epsilon = 1;
-    HashMap<List,Integer> table = new HashMap<>();
-
-    List<String> vOut = new ArrayList<>();
-    List<String> wOut = new ArrayList<>();
-    int score = 0;
-
     int[][] lower, upper, middle;
 
-
-    protected void findScore(){
+    @Override
+    protected void findScore() {
         score = middle[v.length][w.length];
     }
 
-    protected void findAlignment(int i, int j){
-
-    }
-
+    @Override
     protected void formBacktrack(){
         lower = new int[v.length+1][w.length+1];
         upper = new int[v.length+1][w.length+1];
         middle = new int[v.length+1][w.length+1];
 
         backtrack = new String[v.length+1][w.length+1];
-        s = new int[v.length+1][w.length+1];
 
-//        //initialize upper
-//        for (int i = 0;i<v.length+1;i++) {
-//            for (int j = 0; j < w.length; j++) {
-//                upper[i][j+1] = upper[i][j]-epsilon;
-//            }
-//        }
-//
-//        //initialize lower
-//        for (int j = 0;j<w.length+1;j++){
-//            for (int i = 0;i<v.length;i++){
-//                lower[i+1][j] = lower[i][j]-epsilon;
-//            }
-//        }
 
         for (int i =1;i<v.length+1;i++) {
             for (int j = 1; j < w.length + 1; j++) {
@@ -83,40 +56,30 @@ public class GlobalAlignmentProblemAffineGap extends LoadAndExecute {
                 int temp = Integer.max(lower[i][j],upper[i][j]);
                 middle[i][j] = Integer.max(temp,middle[i-1][j-1]+table.get(key));
 
-            }
-        }
-    }
+                List<Integer> values = new ArrayList<>();
+                values.add(lower[i][j]);
+                values.add(upper[i][j]);
+                values.add(middle[i-1][j-1]+table.get(key));
+
+                int index = 0;
+                for (int k = 0;k<values.size();k++){
+                    if (values.get(k) == middle[i][j]) index = k;
+                }
+
+                switch (index){
+                    case 0: {
+                        backtrack[i][j] = "down";
+                        break;
+                    }
+                    case 1: {
+                        backtrack[i][j] = "right";
+                        break;
+                    }
+                    default:
+                        backtrack[i][j] = "diagonal";
+                }
 
 
-    /**
-     * Forms HasMap bloSum62, key is list of 2 alphabet letters and value is i"weight"
-     */
-    protected void loadTable(String filename){
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic5\\resources");
-        File file = new File(dir,filename);
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = Files.readAllLines(file.toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        List<String> alphabet = new LinkedList<>(Arrays.asList(lines.get(0).split("\\s+")));
-        alphabet.remove(0);
-
-        for (int i = 1;i<lines.size();i++){
-            String[] currentLine = lines.get(i).split("\\s+");
-            String firstLetter = currentLine[0];
-            for (int j = 0;j<alphabet.size();j++){
-                String secondLetter = alphabet.get(j);
-
-                List<String> key = new ArrayList<>();
-                key.add(firstLetter);
-                key.add(secondLetter);
-
-                Integer value = Integer.parseInt(currentLine[j+1]);
-
-                table.put(key,value);
             }
         }
     }
