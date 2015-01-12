@@ -32,6 +32,8 @@ public class MiddleEdge extends GlobalAlignmentProblem {
 
     List<String> backtrack = new ArrayList<>();
 
+    int row, column;
+
     protected List<Integer> fillMiddleColumn(String[] v, String[] w){
 
         List<Integer> finalColumn = new ArrayList<>();
@@ -78,13 +80,11 @@ public class MiddleEdge extends GlobalAlignmentProblem {
         return finalColumn;
     }
 
-
-    public void execute() {
-        List<String> lines = loadFromFiles("MiddleEdge.txt");
-        v = lines.get(0).split("");
-        w = lines.get(1).split("");
-
-        loadTable("bloSum62.txt");
+    public String getMiddleEdge(String[] v, String[] w){
+        //clear old files
+        fromSource.clear();
+        toSink.clear();
+        backtrack.clear();
 
         String[] currentW = new String[w.length/2];
         String[] currentWReversed = new String[w.length-currentW.length];
@@ -110,17 +110,26 @@ public class MiddleEdge extends GlobalAlignmentProblem {
             lenghts.add(fromSource.get(i)+toSink.get(toSink.size()-1-i));
         }
 
-        int row = lenghts.indexOf(Collections.max(lenghts));
-        int column = w.length/2;
+        row = lenghts.indexOf(Collections.max(lenghts));
+        column = w.length/2;
 
-        //check if diagonal, right or down
+        //check if diagonal, right or down ????
         Collections.reverse(backtrack);
-        String whereFrom = backtrack.get(row);
+        return backtrack.get(row);
 
+    }
+
+    public void execute() {
+        List<String> lines = loadFromFiles("MiddleEdge.txt");
+        v = lines.get(0).split("");
+        w = lines.get(1).split("");
+
+        loadTable("bloSum62.txt");
+
+        String whereFrom = getMiddleEdge(v,w);
 
         if (whereFrom.equals("diagonal")) System.out.printf("(%d, %d) (%d, %d)",row,column,row+1,column+1);
         else System.out.printf("(%d, %d) (%d, %d)",row,column,row,column+1);
-
 
     }
 }
