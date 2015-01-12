@@ -74,10 +74,24 @@ public class MiddleEdge extends GlobalAlignmentProblem {
         loadTable("bloSum62.txt");
 
         String[] currentW = new String[w.length/2];
+        String[] currentWReversed = new String[w.length-currentW.length];
 
         System.arraycopy(w,0,currentW,0,currentW.length);
 
+
         fromSource = fillMiddleColumn(v,currentW);
+
+        //reverse for toSink
+        String[] vReversed = new String[v.length];
+        for (int i = v.length-1,j=0;i>=0;i--,j++){
+            vReversed[i] = v[j];
+        }
+
+        for (int i =w.length-1,j=0;i>=currentW.length;i--,j++ ){
+            currentWReversed[j] = w[i];
+        }
+
+        toSink = fillMiddleColumn(vReversed,currentWReversed);
 
         System.out.println();
     }
