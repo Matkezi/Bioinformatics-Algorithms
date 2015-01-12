@@ -1,6 +1,7 @@
 package topic5.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,8 +25,6 @@ public class MiddleEdge extends GlobalAlignmentProblem {
 
     //indel penalty
     int sigma = 5;
-
-    enum MidType{FROMSOURCE,TOSINK}
 
     List<Integer> lenghts = new ArrayList<>();
     List<Integer> fromSource = new ArrayList<>();
@@ -93,6 +92,13 @@ public class MiddleEdge extends GlobalAlignmentProblem {
 
         toSink = fillMiddleColumn(vReversed,currentWReversed);
 
-        System.out.println();
+        for (int i = 0;i<fromSource.size();i++){
+            lenghts.add(fromSource.get(i)+toSink.get(toSink.size()-1-i));
+        }
+
+        int row = lenghts.indexOf(Collections.max(lenghts));
+        int column = w.length/2;
+
+        System.out.printf("(%d, %d) (%d, %d)",row,column,row+1,column+1);
     }
 }
