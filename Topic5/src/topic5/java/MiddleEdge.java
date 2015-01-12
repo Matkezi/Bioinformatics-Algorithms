@@ -30,6 +30,8 @@ public class MiddleEdge extends GlobalAlignmentProblem {
     List<Integer> fromSource = new ArrayList<>();
     List<Integer> toSink = new ArrayList<>();
 
+    List<String> backtrack = new ArrayList<>();
+
     protected List<Integer> fillMiddleColumn(String[] v, String[] w){
 
         List<Integer> finalColumn = new ArrayList<>();
@@ -57,6 +59,18 @@ public class MiddleEdge extends GlobalAlignmentProblem {
                 //compare diagonal and indel
                 int diagonal = s[i-1][j-1] + table.get(key);
                 s[i][j] = Integer.max(indel,diagonal);
+
+                //make backtrack for last column
+                if (j == w.length){
+                    if (s[i][j] == s[i-1][j]-sigma){
+                        backtrack.add("down");
+                    } if (s[i][j] == s[i][j-1]-sigma){
+                        backtrack.add("right");
+                    } if (s[i][j] == s[i-1][j-1]+table.get(key)){
+                        backtrack.add("diagonal");
+                    }
+                }
+
             }
         }
 
@@ -89,6 +103,7 @@ public class MiddleEdge extends GlobalAlignmentProblem {
             currentWReversed[j] = w[i];
         }
 
+        backtrack.clear();
         toSink = fillMiddleColumn(vReversed,currentWReversed);
 
         for (int i = 0;i<fromSource.size();i++){
@@ -98,6 +113,13 @@ public class MiddleEdge extends GlobalAlignmentProblem {
         int row = lenghts.indexOf(Collections.max(lenghts));
         int column = w.length/2;
 
-        System.out.printf("(%d, %d) (%d, %d)",row,column,row+1,column+1);
+        //check if diagonal, right or down
+        Collections.reverse(backtrack);
+        String whereFrom = backtrack.get(row);
+
+        if (whereFrom.equals("diagonal")) System.out.printf("(%d, %d) (%d, %d)",row,column,row+1,column+1);
+        else System.out.printf("(%d, %d) (%d, %d)",row,column,row,column+1);
+
+
     }
 }
