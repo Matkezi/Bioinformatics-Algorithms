@@ -77,7 +77,6 @@ public class MiddleEdge extends GlobalAlignmentProblem {
 
         System.arraycopy(w,0,currentW,0,currentW.length);
 
-
         fromSource = fillMiddleColumn(v,currentW);
 
         //reverse for toSink
