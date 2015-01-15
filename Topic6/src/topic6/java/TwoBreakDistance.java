@@ -52,11 +52,12 @@ public class TwoBreakDistance extends LoadAndExecute {
         List<List<Integer>> edges = new ArrayList<>();
 
         for (List<Integer> chromosome : genome){
-            List<Integer> nodes = chromosomeToCycle(chromosome);
+            Integer[] nodes = chromosomeToCycle(chromosome);
             for (int j = 0;j<chromosome.size();j++){
                 List<Integer> edge = new ArrayList<>();
-                edge.add(nodes.get(j));
-                edge.add(nodes.get(j));
+                edge.add(nodes[2*(j+1)-1]);
+                edge.add(nodes[2*(j+1)]);
+                edges.add(edge);
             }
         }
 
