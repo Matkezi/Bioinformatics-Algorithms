@@ -72,16 +72,35 @@ public class TwoBreakDistance extends LoadAndExecute {
      * @return bigger lists of nodes
      */
     private List<List<Integer>> findCycle(List<List<Integer>> genomegraph){
-        return null;
+        List<List<Integer>> foundCycles = new ArrayList<>();
+
+
+        int i = 0, startCycle = 0;
+        while(i<genomegraph.size()){
+            List<Integer> node = genomegraph.get(i);
+            if (node.get(0) > node.get(1)){
+                List<Integer> cycle = new ArrayList<>();
+                for (int j = startCycle;j<i+1;j++,startCycle++){
+                    cycle.add(genomegraph.get(j).get(0));
+
+                    //if last put it in the beginning
+                    if(j == i) cycle.add(0,genomegraph.get(j).get(1));
+                    else cycle.add(genomegraph.get(j).get(1));
+                }
+
+                foundCycles.add(cycle);
+            }
+            i++;
+        }
+
+        return foundCycles;
     }
 
     private List<List<Integer>> graphToGenome(List<List<Integer>> genomegraph){
         List<List<Integer>> genome = new ArrayList<>();
+        List<List<Integer>> foundCycles = findCycle(genomegraph);
 
-
-        List<List<Integer>> foundNodes = findCycle(genomegraph);
-
-        for (List<Integer> nodes : foundNodes){
+        for (List<Integer> nodes : foundCycles){
             List<Integer> chromosome = cycleToChromosome(nodes);
             genome.add(chromosome);
         }
