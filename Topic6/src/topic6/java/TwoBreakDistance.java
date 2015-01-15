@@ -38,12 +38,11 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         for (int i = 1;i<nodesA.length;i++) nodesA[i] = nodes.get(i-1);
 
-
-         for (int j = 1;j<nodesA.length/2 + 1;j++){
+        for (int j = 1;j<nodesA.length/2 + 1;j++){
              if (nodesA[2*j-1] < nodesA[2*j]) chromosome.add(nodesA[2*j]/2);
              else chromosome.add(-1*nodesA[2*j-1]/2);
-         }
-         return chromosome;
+        }
+        return chromosome;
     }
 
     private List<List<Integer>> coloredEdges(){
@@ -51,8 +50,6 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         for (List<Integer> chromosome : genome){
             Integer[] nodes = chromosomeToCycle(chromosome);
-
-
             for (int i = 2;i<nodes.length-1;i+=2){
                 List<Integer> edge = new ArrayList<>();
                 edge.add(nodes[i]);
@@ -69,8 +66,27 @@ public class TwoBreakDistance extends LoadAndExecute {
         return edges;
     }
 
-    private List<List<Integer>> graphToGenome(List<List<Integer>> genomegraph){
+    /**
+     * Finds cycles from connected nodes.
+     * @param genomegraph containing small lists of individual nodes
+     * @return bigger lists of nodes
+     */
+    private List<List<Integer>> findCycle(List<List<Integer>> genomegraph){
         return null;
+    }
+
+    private List<List<Integer>> graphToGenome(List<List<Integer>> genomegraph){
+        List<List<Integer>> genome = new ArrayList<>();
+
+
+        List<List<Integer>> foundNodes = findCycle(genomegraph);
+
+        for (List<Integer> nodes : foundNodes){
+            List<Integer> chromosome = cycleToChromosome(nodes);
+            genome.add(chromosome);
+        }
+
+        return genome;
     }
 
 
