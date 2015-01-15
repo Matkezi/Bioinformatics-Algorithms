@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class TwoBreakDistance extends LoadAndExecute {
 
+
     private Integer[] chromosomeToCycle(List<Integer> chromosome){
         Integer[] nodes = new Integer[1+chromosome.size()*2];
 
@@ -106,6 +107,12 @@ public class TwoBreakDistance extends LoadAndExecute {
         return genome;
     }
 
+    private int blocksPQ=0, cyclesPQ=0;
+
+    private void findCycles(List<List<List<Integer>>> genomes){
+
+    }
+
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
@@ -127,6 +134,8 @@ public class TwoBreakDistance extends LoadAndExecute {
             }
             genomes.add(coloredEdges(genome));
         }
+
+        findCycles(genomes);
 
         System.out.println(genomes);
 
