@@ -8,6 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         TwoBreakDistance tbd = new TwoBreakDistance();
-        tbd.execute("");
+        tbd.execute("TwoBreakDistance.txt");
     }
 }
