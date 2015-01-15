@@ -110,7 +110,7 @@ public class TwoBreakDistance extends LoadAndExecute {
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
 
-        List<List<Integer>> genomes = new ArrayList<>();
+        List<List<List<Integer>>> genomes = new ArrayList<>();
 
         for (String lineR : linesRaw) {
             String[] line = lineR.split("\\)\\(");
@@ -125,7 +125,7 @@ public class TwoBreakDistance extends LoadAndExecute {
                 for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
                 genome.add(p);
             }
-            genomes.addAll(coloredEdges(genome));
+            genomes.add(coloredEdges(genome));
         }
 
         System.out.println(genomes);
