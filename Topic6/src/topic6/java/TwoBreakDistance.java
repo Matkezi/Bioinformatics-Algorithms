@@ -1,5 +1,6 @@
 package topic6.java;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class TwoBreakDistance extends LoadAndExecute {
 
-    List<Integer> p = new ArrayList<>();
+    private List<List<Integer>> genome = new ArrayList<>();
 
     private List<Integer> chromosomeToCycle(List<Integer> chromosome){
         Integer[] nodes = new Integer[1+chromosome.size()*2];
@@ -45,17 +46,38 @@ public class TwoBreakDistance extends LoadAndExecute {
          return chromosome;
     }
 
+    private List<List<Integer>> coloredEdges(){
+        List<List<Integer>> edges = new ArrayList<>();
+
+        for (List<Integer> chromosome : genome){
+            List<Integer> nodes = chromosomeToCycle(chromosome);
+            for (int j = 0;j<chromosome.size();j++){
+                List<Integer> edge = new ArrayList<>();
+                edge.add(nodes.get(j));
+                edge.add(nodes.get(j));
+            }
+        }
+
+        return edges;
+    }
+
     @Override
     public void execute(String fileName) {
-        List<String> lines = loadFromFiles(fileName);
+        List<String> linesRaw = loadFromFiles(fileName);
+
+        String[] lines = linesRaw.get(0).split("\\)\\(");
 
         //fill list p
-        String inputLine = lines.get(0);
-        inputLine = inputLine.replaceAll("\\(","");
-        inputLine = inputLine.replaceAll("\\)","");
-        String[] inputLineArray = inputLine.split(" ");
-        for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+        for (String inputLine : lines) {
+            List<Integer> p = new ArrayList<>();
+            inputLine = inputLine.replaceAll("\\(", "");
+            inputLine = inputLine.replaceAll("\\)", "");
+            String[] inputLineArray = inputLine.split(" ");
+            for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+            genome.add(p);
+        }
 
-        System.out.println(cycleToChromosome(p));
+        System.out.println(coloredEdges());
+
     }
 }
