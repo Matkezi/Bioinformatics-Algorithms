@@ -1,5 +1,7 @@
 package topic6.java;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +42,26 @@ public class GreedySorting extends LoadAndExecute {
 
     private List<Integer> p = new ArrayList<>();
 
+    protected List<String> addPlusToPositive(List<Integer> p){
+        List<String> retList = new ArrayList<>();
+        for (Integer num : p){
+            if (num > 0) retList.add("+"+num.toString());
+            else retList.add(num.toString());
+        }
+        return retList;
+    }
+
+    private void writePtoFile(){
+        try {
+            PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\out\\GreedySortingOut.txt", "UTF-8");
+            List<String> out = addPlusToPositive(p);
+            writer.println("("+out+")");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private void reverseP(int k){
 
@@ -65,7 +87,7 @@ public class GreedySorting extends LoadAndExecute {
         finalList.addAll(p.subList(k+reverseSignList.size(),p.size()));
         p.clear();
         p = finalList;
-        System.out.println(p);
+        writePtoFile();
     }
 
     private void sort(){
@@ -77,7 +99,7 @@ public class GreedySorting extends LoadAndExecute {
                 int tmp = Math.abs(p.get(k));
                 p.remove(k);
                 p.add(k,tmp);
-                System.out.println(p);
+                writePtoFile();
             }
         }
     }
@@ -96,9 +118,5 @@ public class GreedySorting extends LoadAndExecute {
 
        sort();
 
-    }
-
-    public List<Integer> getP() {
-        return p;
     }
 }
