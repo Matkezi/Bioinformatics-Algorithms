@@ -43,7 +43,16 @@ public class GreedySorting extends LoadAndExecute {
 
     private void reverseP(int k){
 
-        List<Integer> tempList = p.subList(k,p.indexOf(k+1)+1);
+        int secondIndex = 0;
+
+        for (int i = 0;i<p.size();i++){
+            if (Math.abs(p.get(i)) == k+1 ) {
+                secondIndex = i;
+                break;
+            }
+        }
+
+        List<Integer> tempList = p.subList(k,secondIndex+1);
         Collections.reverse(tempList);
 
         List<Integer> reverseSignList = new ArrayList<>();
@@ -53,8 +62,10 @@ public class GreedySorting extends LoadAndExecute {
 
         finalList.addAll(p.subList(0,k));
         finalList.addAll(k,reverseSignList);
-        finalList.addAll(p.subList(k,p.size()));
-        System.out.println(finalList);
+        finalList.addAll(p.subList(k+reverseSignList.size(),p.size()));
+        p.clear();
+        p = finalList;
+        System.out.println(p);
     }
 
     private void sort(){
@@ -63,7 +74,10 @@ public class GreedySorting extends LoadAndExecute {
             if (Math.abs(p.get(k)) != k+1) reverseP(k);
 
             if (p.get(k) < 0){
-
+                int tmp = Math.abs(p.get(k));
+                p.remove(k);
+                p.add(k,tmp);
+                System.out.println(p);
             }
         }
     }
