@@ -13,7 +13,7 @@ public class TwoBreakDistance extends LoadAndExecute {
 
     private List<List<Integer>> genome = new ArrayList<>();
 
-    private List<Integer> chromosomeToCycle(List<Integer> chromosome){
+    private Integer[] chromosomeToCycle(List<Integer> chromosome){
         Integer[] nodes = new Integer[1+chromosome.size()*2];
 
         for (int j = 0;j<chromosome.size();j++){
@@ -27,9 +27,11 @@ public class TwoBreakDistance extends LoadAndExecute {
             }
         }
 
-        List<Integer> nodesL = new ArrayList<>(Arrays.asList(nodes));
-        nodesL.remove(0);
-        return nodesL ;
+        return nodes;
+
+//        List<Integer> nodesL = new ArrayList<>(Arrays.asList(nodes));
+//        nodesL.remove(0);
+//        return nodesL ;
     }
 
     private List<Integer> cycleToChromosome(List<Integer> nodes){
