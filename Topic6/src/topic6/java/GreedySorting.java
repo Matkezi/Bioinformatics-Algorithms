@@ -62,7 +62,13 @@ public class GreedySorting extends LoadAndExecute {
 
     private void writePtoFile(){
         List<String> out = addPlusToPositive(p);
-        writer.println("("+out+")");
+        writer.print("(");
+        for (int i = 0;i<out.size();i++){
+            if (i ==  out.size()-1) writer.print(out.get(i));
+            else writer.print(out.get(i)+" ");
+
+        }
+        writer.println(")");
     }
 
     private void reverseP(int k){
