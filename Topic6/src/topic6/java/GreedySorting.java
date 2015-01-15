@@ -41,6 +41,7 @@ GREEDYSORTING(P)
 public class GreedySorting extends LoadAndExecute {
 
     private List<Integer> p = new ArrayList<>();
+    PrintWriter writer;
 
     protected List<String> addPlusToPositive(List<Integer> p){
         List<String> retList = new ArrayList<>();
@@ -51,16 +52,17 @@ public class GreedySorting extends LoadAndExecute {
         return retList;
     }
 
-    private void writePtoFile(){
+    private void openWriter(){
         try {
-            PrintWriter writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\out\\GreedySortingOut.txt", "UTF-8");
-            List<String> out = addPlusToPositive(p);
-            writer.println("("+out+")");
-            writer.close();
+            writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\out\\GreedySortingOut.txt", "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    private void writePtoFile(){
+        List<String> out = addPlusToPositive(p);
+        writer.println("("+out+")");
     }
 
     private void reverseP(int k){
@@ -108,6 +110,7 @@ public class GreedySorting extends LoadAndExecute {
     @Override
     public void execute(String fileName) {
         List<String> lines = loadFromFiles(fileName);
+        openWriter();
 
         //fill list p
         String inputLine = lines.get(0);
@@ -116,7 +119,8 @@ public class GreedySorting extends LoadAndExecute {
         String[] inputLineArray = inputLine.split(" ");
         for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
 
-       sort();
+        sort();
+        writer.flush();
 
     }
 }
