@@ -9,8 +9,6 @@ import java.util.List;
  */
 public class TwoBreakDistance extends LoadAndExecute {
 
-    private List<List<Integer>> genome = new ArrayList<>();
-
     private Integer[] chromosomeToCycle(List<Integer> chromosome){
         Integer[] nodes = new Integer[1+chromosome.size()*2];
 
@@ -45,7 +43,7 @@ public class TwoBreakDistance extends LoadAndExecute {
         return chromosome;
     }
 
-    private List<List<Integer>> coloredEdges(){
+    private List<List<Integer>> coloredEdges(List<List<Integer>> genome){
         List<List<Integer>> edges = new ArrayList<>();
 
         for (List<Integer> chromosome : genome){
@@ -112,33 +110,41 @@ public class TwoBreakDistance extends LoadAndExecute {
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
 
-//        String[] lines = linesRaw.get(0).split("\\)\\(");
-//
-//        //fill list p
-//        for (String inputLine : lines) {
-//            List<Integer> p = new ArrayList<>();
-//            inputLine = inputLine.replaceAll("\\(", "");
-//            inputLine = inputLine.replaceAll("\\)", "");
-//            String[] inputLineArray = inputLine.split(" ");
-//            for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
-//            genome.add(p);
-//        }
+        List<List<Integer>> genomes = new ArrayList<>();
 
-        String[] line = linesRaw.get(0).split(", \\(");
-        List<List<Integer>> genomeGraph = new ArrayList<>();
+        for (String lineR : linesRaw) {
+            String[] line = lineR.split("\\)\\(");
+            List<List<Integer>> genome = new ArrayList<>();
 
-        for (String comp : line){
-            List<Integer> edge = new ArrayList<>();
-            comp = comp.replaceAll("\\(", "");
-            comp = comp.replaceAll("\\)", "");
-            comp = comp.replaceAll(" ","");
-            String[] components = comp.trim().split(",");
-            edge.add(Integer.parseInt(components[0]));
-            edge.add(Integer.parseInt(components[1]));
-            genomeGraph.add(edge);
+            //fill list p
+            for (String comp : line) {
+                List<Integer> p = new ArrayList<>();
+                comp = comp.replaceAll("\\(", "");
+                comp = comp.replaceAll("\\)", "");
+                String[] inputLineArray = comp.split(" ");
+                for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+                genome.add(p);
+            }
+            genomes.addAll(coloredEdges(genome));
         }
 
-        System.out.println(graphToGenome(genomeGraph));
+        System.out.println(genomes);
+
+//        String[] line = linesRaw.get(0).split(", \\(");
+//        List<List<Integer>> genomeGraph = new ArrayList<>();
+//
+//        for (String comp : line){
+//            List<Integer> edge = new ArrayList<>();
+//            comp = comp.replaceAll("\\(", "");
+//            comp = comp.replaceAll("\\)", "");
+//            comp = comp.replaceAll(" ","");
+//            String[] components = comp.trim().split(",");
+//            edge.add(Integer.parseInt(components[0]));
+//            edge.add(Integer.parseInt(components[1]));
+//            genomeGraph.add(edge);
+//        }
+//
+//        System.out.println(graphToGenome(genomeGraph));
 
     }
 }
