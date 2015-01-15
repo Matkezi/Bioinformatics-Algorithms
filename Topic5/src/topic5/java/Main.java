@@ -9,7 +9,14 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String[] args) throws IOException {
-        MiddleEdge me = new MiddleEdge();
-        me.execute();
+//        DpChange dp = new DpChange();
+//        dp.loadFromFiles();
+//        System.out.println(dp.getMinNumCoins());
+
+        LongestPathDAG lpd = new LongestPathDAG();
+        lpd.executeLongestPathDAG();
+
+//        LCSBacktrack lcb = new LCSBacktrack();
+//        lcb.loadFromFiles();
     }
 }

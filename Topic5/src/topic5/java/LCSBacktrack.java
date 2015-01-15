@@ -8,6 +8,30 @@ import java.util.List;
 /**
  * @author Matko
  * @version 1.0
+ *
+
+CODE CHALLENGE: Use OUTPUTLCS (reproduced below) to solve the Longest Common Subsequence Problem.
+Input: Two strings s and t.
+Output: A longest common subsequence of s and t. (Note: more than one solution may exist,
+in which case you may output any one.)
+
+OUTPUTLCS(backtrack, v, i, j)
+if i = 0 or j = 0
+return
+if backtracki, j = "↓"
+OUTPUTLCS(backtrack, v, i - 1, j)
+else if backtracki, j = "→"
+OUTPUTLCS(backtrack, v, i, j - 1)
+else
+OUTPUTLCS(backtrack, v, i - 1, j - 1)
+output vi
+
+Sample Input:
+AACCTTGG
+ACACTGTGA
+
+Sample Output:
+AACTGG
  */
 public class LCSBacktrack {
 

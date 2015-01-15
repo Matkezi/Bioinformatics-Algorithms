@@ -18,8 +18,27 @@ Sample Output:
 8
 PLEASANTLY
 -MEA--N-LY
+
+ Pseudocode:
+LINEARSPACEALIGNMENT(top, bottom, left, right)
+    if left = right
+        return alignment formed by bottom − top vertical edges
+    if top = bottom
+        return alignment formed by right − left horizontal edges
+    middle ← ⌊ (left + right)/2⌋
+    midNode ← MiddleNode(top, bottom, left, right)
+    midEdge ← MiddleEdge(top, bottom, left, right)
+    LINEARSPACEALIGNMENT(top, midNode, left, middle)
+    output midEdge
+    if midEdge = "→" or midEdge = "↘"
+        middle ← middle + 1
+    if midEdge = "↓" or midEdge ="↘"
+        midNode ← midNode + 1
+    LINEARSPACEALIGNMENT(midNode, bottom, middle, right)
  */
 public class LinearSpaceAlingment extends GlobalAlignmentProblem {
+
+
 
     @Override
     public void execute() {
