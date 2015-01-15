@@ -1,8 +1,6 @@
 package topic6.java;
 
-import javax.naming.InsufficientResourcesException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -70,6 +68,11 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         return edges;
     }
+
+    private List<List<Integer>> graphToGenome(List<List<Integer>> genomegraph){
+
+    }
+
 
     @Override
     public void execute(String fileName) {
