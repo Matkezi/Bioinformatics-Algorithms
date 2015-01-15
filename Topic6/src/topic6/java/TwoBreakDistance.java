@@ -70,7 +70,7 @@ public class TwoBreakDistance extends LoadAndExecute {
     }
 
     private List<List<Integer>> graphToGenome(List<List<Integer>> genomegraph){
-
+        return null;
     }
 
 
@@ -78,19 +78,33 @@ public class TwoBreakDistance extends LoadAndExecute {
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
 
-        String[] lines = linesRaw.get(0).split("\\)\\(");
+//        String[] lines = linesRaw.get(0).split("\\)\\(");
+//
+//        //fill list p
+//        for (String inputLine : lines) {
+//            List<Integer> p = new ArrayList<>();
+//            inputLine = inputLine.replaceAll("\\(", "");
+//            inputLine = inputLine.replaceAll("\\)", "");
+//            String[] inputLineArray = inputLine.split(" ");
+//            for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+//            genome.add(p);
+//        }
 
-        //fill list p
-        for (String inputLine : lines) {
-            List<Integer> p = new ArrayList<>();
-            inputLine = inputLine.replaceAll("\\(", "");
-            inputLine = inputLine.replaceAll("\\)", "");
-            String[] inputLineArray = inputLine.split(" ");
-            for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
-            genome.add(p);
+        String[] line = linesRaw.get(0).split(", \\(");
+        List<List<Integer>> genomeGraph = new ArrayList<>();
+
+        for (String comp : line){
+            List<Integer> edge = new ArrayList<>();
+            comp = comp.replaceAll("\\(", "");
+            comp = comp.replaceAll("\\)", "");
+            comp = comp.replaceAll(" ","");
+            String[] components = comp.trim().split(",");
+            edge.add(Integer.parseInt(components[0]));
+            edge.add(Integer.parseInt(components[1]));
+            genomeGraph.add(edge);
         }
 
-        System.out.println(coloredEdges());
+        System.out.println(graphToGenome(genomeGraph));
 
     }
 }
