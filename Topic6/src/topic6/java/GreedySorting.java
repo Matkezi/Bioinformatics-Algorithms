@@ -37,6 +37,20 @@ GREEDYSORTING(P)
             apply the k-sorting reversal to P
             approxReversalDistance ← approxReversalDistance + 1
     return approxReversalDistance
+
+ ----------------------------------------------------------------------------------------
+
+Number of Breakpoints Problem: Find the number of breakpoints in a permutation.
+Input: A permutation.
+Output: The number of breakpoints in this permutation.
+
+CODE CHALLENGE: Solve the Number of Breakpoints Problem.
+
+Sample Input:
+(+3 +4 +5 -12 -8 -7 -6 +1 +2 +10 +9 -11 +13 +14)
+
+Sample Output:
+8
  */
 public class GreedySorting extends LoadAndExecute {
 
@@ -52,9 +66,10 @@ public class GreedySorting extends LoadAndExecute {
         return retList;
     }
 
-    private void openWriter(){
+    private void openWriter(String outFileName){
+        String out = "C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\out\\"+outFileName;
         try {
-            writer = new PrintWriter("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\out\\GreedySortingOut.txt", "UTF-8");
+            writer = new PrintWriter(out, "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -116,7 +131,7 @@ public class GreedySorting extends LoadAndExecute {
     @Override
     public void execute(String fileName) {
         List<String> lines = loadFromFiles(fileName);
-        openWriter();
+        openWriter(fileName);
 
         //fill list p
         String inputLine = lines.get(0);
@@ -125,7 +140,13 @@ public class GreedySorting extends LoadAndExecute {
         String[] inputLineArray = inputLine.split(" ");
         for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
 
-        sort();
+
+        if (fileName.equals("Breakpoints.txt")){
+
+        } else{ //it is greedy sort
+            sort();
+
+        }
         writer.flush();
 
     }
