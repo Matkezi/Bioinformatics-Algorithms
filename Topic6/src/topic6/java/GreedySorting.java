@@ -55,7 +55,11 @@ Sample Output:
 public class GreedySorting extends LoadAndExecute {
 
     private List<Integer> p = new ArrayList<>();
-    PrintWriter writer;
+    private PrintWriter writer;
+    private int numberOfBreakpoints = 0;
+    private int numberOfAdjacencies = 0;
+
+    private int numberOfSteps = 0;
 
     protected List<String> addPlusToPositive(List<Integer> p){
         List<String> retList = new ArrayList<>();
@@ -76,6 +80,7 @@ public class GreedySorting extends LoadAndExecute {
     }
 
     private void writePtoFile(){
+        numberOfSteps++;
         List<String> out = addPlusToPositive(p);
         writer.print("(");
         for (int i = 0;i<out.size();i++){
@@ -127,6 +132,12 @@ public class GreedySorting extends LoadAndExecute {
         }
     }
 
+    private void findAdjancencies(){
+        for (int i = 1;i<p.size();i++){
+            if ( p.get(i) == p.get(i-1)+1 ) numberOfAdjacencies++;
+        }
+    }
+
 
     @Override
     public void execute(String fileName) {
@@ -142,12 +153,23 @@ public class GreedySorting extends LoadAndExecute {
 
 
         if (fileName.equals("Breakpoints.txt")){
-
+            p.add(0,0);
+            p.add(p.get(p.size()-1)+1);
+            findAdjancencies();
+            numberOfBreakpoints = p.size()-1 - numberOfAdjacencies;
         } else{ //it is greedy sort
             sort();
 
         }
         writer.flush();
 
+    }
+
+    public int getNumberOfBreakpoints() {
+        return numberOfBreakpoints;
+    }
+
+    public int getNumberOfSteps() {
+        return numberOfSteps;
     }
 }

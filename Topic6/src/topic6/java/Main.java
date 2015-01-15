@@ -7,7 +7,7 @@ package topic6.java;
 public class Main {
 
     public static void main(String[] args) {
-        GreedySorting gs = new GreedySorting();
-        gs.execute("GreedySorting.txt");
+        TwoBreakDistance tbd = new TwoBreakDistance();
+        tbd.execute("");
     }
 }
