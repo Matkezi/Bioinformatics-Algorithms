@@ -31,6 +31,20 @@ public class TwoBreakDistance extends LoadAndExecute {
         return nodesL ;
     }
 
+    private List<Integer> cycleToChromosome(List<Integer> nodes){
+        List<Integer> chromosome = new ArrayList<>();
+        Integer[] nodesA = new Integer[nodes.size()+1];
+
+        for (int i = 1;i<nodesA.length;i++) nodesA[i] = nodes.get(i-1);
+
+
+         for (int j = 1;j<nodesA.length/2 + 1;j++){
+             if (nodesA[2*j-1] < nodesA[2*j]) chromosome.add(nodesA[2*j]/2);
+             else chromosome.add(-1*nodesA[2*j-1]/2);
+         }
+         return chromosome;
+    }
+
     @Override
     public void execute(String fileName) {
         List<String> lines = loadFromFiles(fileName);
@@ -42,6 +56,6 @@ public class TwoBreakDistance extends LoadAndExecute {
         String[] inputLineArray = inputLine.split(" ");
         for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
 
-        System.out.println(chromosomeToCycle(p));
+        System.out.println(cycleToChromosome(p));
     }
 }
