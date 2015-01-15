@@ -123,32 +123,19 @@ public class TwoBreakDistance extends LoadAndExecute {
             cycle.add(redNode.get(1));
             for (int i = 0;i<blue.size();i++){
                 List<Integer> blueNode = blue.get(i);
-                if (blueNode.contains(redNode.get(0)) || blueNode.contains(redNode.get(1))) {
 
-                    //care it adds duplicates
-                    cycle.add(blueNode.get(0));
-                    cycle.add(blueNode.get(1));
-
-                    //delete???
-                    //this blue
-
-                    blue.remove(i);
-                    i--;
+                for (int k = 0;k<cycle.size();k++){
+                    int num = cycle.get(k);
+                    if (blueNode.contains(num)){
+                        if (blueNode.get(0) != num)  cycle.add(blueNode.get(0));
+                        else cycle.add(blueNode.get(1));
+                        blue.remove(i);
+                        i--;
+                    }
                 }
 
-                //delete any red that have some of these nodes
-
             }
-//            for (int k = j;k<red.size();k++){
-//                List<Integer> redNode1 = red.get(k);
-//                for (Integer num : cycle) {
-//                    if (redNode1.contains(num)){
-//                        red.remove(k);
-//                        k--;
-//                        break;
-//                    }
-//                }
-//            }
+
             red.remove(0);
             cycles.add(cycle);
 
