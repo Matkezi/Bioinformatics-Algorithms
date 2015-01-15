@@ -1,6 +1,7 @@
 package topic6.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,11 +40,31 @@ public class GreedySorting extends LoadAndExecute {
 
     private List<Integer> p = new ArrayList<>();
 
+
+    private void reverseP(int k){
+
+        List<Integer> tempList = p.subList(k,p.indexOf(k+1)+1);
+        Collections.reverse(tempList);
+
+        List<Integer> reverseSignList = new ArrayList<>();
+        for (Integer num : tempList) reverseSignList.add(num * -1);
+
+        List<Integer> finalList = new ArrayList<>();
+
+        finalList.addAll(p.subList(0,k));
+        finalList.addAll(k,reverseSignList);
+        finalList.addAll(p.subList(k,p.size()));
+        System.out.println(finalList);
+    }
+
     private void sort(){
-        int approxReversalDistance = 0;
 
         for (int k = 0;k<p.size();k++){
+            if (Math.abs(p.get(k)) != k+1) reverseP(k);
 
+            if (p.get(k) < 0){
+
+            }
         }
     }
 
