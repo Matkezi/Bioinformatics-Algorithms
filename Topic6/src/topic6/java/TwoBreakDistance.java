@@ -108,7 +108,6 @@ public class TwoBreakDistance extends LoadAndExecute {
         return genome;
     }
 
-
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
