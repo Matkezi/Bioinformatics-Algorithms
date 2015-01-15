@@ -15,7 +15,7 @@ public abstract class LoadAndExecute {
     public abstract void execute(String fileName);
 
     protected List<String> loadFromFiles(String filename){
-        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic5\\src\\topic6\\resources");
+        File dir = new File("C:\\Users\\Matko\\IntelliJProjects\\Bioinformatics-Algorithms\\Topic6\\src\\topic6\\resources");
         File file = new File(dir, filename);
         List<String> lines = new ArrayList<>();
         try {

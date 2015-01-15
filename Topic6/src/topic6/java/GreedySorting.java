@@ -1,5 +1,6 @@
 package topic6.java;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,9 +37,33 @@ GREEDYSORTING(P)
  */
 public class GreedySorting extends LoadAndExecute {
 
+    private List<Integer> p = new ArrayList<>();
+
+    private void sort(){
+        int approxReversalDistance = 0;
+
+        for (int k = 0;k<p.size();k++){
+
+        }
+    }
+
+
     @Override
     public void execute(String fileName) {
         List<String> lines = loadFromFiles(fileName);
 
+        //fill list p
+        String inputLine = lines.get(0);
+        inputLine = inputLine.replaceAll("\\(","");
+        inputLine = inputLine.replaceAll("\\)","");
+        String[] inputLineArray = inputLine.split(" ");
+        for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+
+       sort();
+
+    }
+
+    public List<Integer> getP() {
+        return p;
     }
 }
