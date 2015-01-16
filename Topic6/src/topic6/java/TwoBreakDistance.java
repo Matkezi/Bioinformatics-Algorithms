@@ -132,42 +132,31 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         List<List<Integer>> cycles = new ArrayList<>();
 
-        while (!red.isEmpty()){
+        while (!nodes.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
 
-            List<Integer> redNode = red.get(0);
-            red.remove(0);
-
+            List<Integer> redNode = nodes.get(0);
             nodes.remove(0);
+
             int red1 = redNode.get(0);
             int red2 = redNode.get(1);
 
             cycle.add(red1);
             cycle.add(red2);
 
-            for (int i = 0;i<nodes.size();i++){
-                for (int j = 0;j<cycle.size();j++){
-                    if (nodes.get(i).contains(cycle.get(j))){
-                        if (nodes.get(i).get(0) != cycle.get(j)) cycle.add(nodes.get(i).get(0));
-                        else cycle.add(nodes.get(i).get(1));
-                        nodes.remove(i);
-                        i=-1;
-
-                        //remove from red
-                        for (int k = 0;k<red.size();k++){
-                            if (red.get(k).contains(cycle.get(j))) {
-                                red.remove(k);
-                                break;
-                            }
-                        }
+            for (int i = 0;i<cycle.size();i++){
+                Integer node = cycle.get(i);
+                for (int j = 0;j<nodes.size();j++){
+                    if (nodes.get(j).contains(node)) {
+                        if (!cycle.contains(nodes.get(j).get(0))) cycle.add(nodes.get(j).get(0));
+                        if (!cycle.contains(nodes.get(j).get(1))) cycle.add(nodes.get(j).get(1));
+                        nodes.remove(j);
                         break;
                     }
                 }
             }
-            cycle.remove(cycle.size()-1);
-            //blocksPQ += cycle.size()/2;
-            cycles.add(cycle);
 
+            cycles.add(cycle);
         }
 
         cyclesPQ = cycles.size();
