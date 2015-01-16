@@ -121,12 +121,24 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         while (!red.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
+            List<Integer> toRemove = new ArrayList<>();
+
             List<Integer> redNode = red.get(0);
+            red.remove(0);
+            nodes.remove(0)
             int red1 = redNode.get(0);
             int red2 = redNode.get(1);
 
             cycle.add(red1);
             cycle.add(red2);
+
+            for (int i = 0;i<nodes.size();i++){
+                if (nodes.get(i).contains(red1) || nodes.get(i).contains(red2)){
+                    cycle.add(nodes.get(i).get(0));
+                    cycle.add(nodes.get(i).get(1));
+                    toRemove.add(i);
+                }
+            }
         }
 
     }
