@@ -165,6 +165,14 @@ public class TwoBreakDistance extends GreedySorting {
 
     }
 
+    private List<List<Integer>> twoBreakOnGenomeGraph(List<List<Integer>> genomegraph, int i1, int i2, int j1, int j2){
+        List<List<Integer>> arrangmen = new ArrayList<>();
+
+
+
+        return arrangmen;
+    }
+
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
@@ -214,7 +222,7 @@ public class TwoBreakDistance extends GreedySorting {
 
         //System.out.println(graphToGenome(genomeGraph));
 
-        List<List<Integer>> list = graphToGenome(genomeGraph);
+        List<List<Integer>> list = twoBreakOnGenomeGraph(genomeGraph,1,6,3,8);
 
         for (List<Integer> comp : list){
             List<String> listS = addPlusToPositive(comp);
