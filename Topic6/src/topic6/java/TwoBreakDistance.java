@@ -166,37 +166,53 @@ public class TwoBreakDistance extends GreedySorting {
     }
 
     private List<List<Integer>> twoBreakOnGenomeGraph(List<List<Integer>> genomegraph, int i1, int i2, int j1, int j2){
-        List<List<Integer>> arrangmen = new ArrayList<>();
+        List<List<Integer>> arrangment = new ArrayList<>();
 
+        for (int i = 0;i<genomegraph.size();i++){
+            List<Integer> node = genomegraph.get(i);
+            if (node.contains(i1) || node.contains(i2)){
+                List<Integer> toAdd = new ArrayList<>();
+                toAdd.add(i1);
+                toAdd.add(j1);
+                arrangment.add(toAdd);
+            } else if (node.contains(j1) || node.contains(j2)){
+                List<Integer> toAdd = new ArrayList<>();
+                toAdd.add(i2);
+                toAdd.add(j2);
+                arrangment.add(toAdd);
 
+            } else {
+                arrangment.add(node);
+            }
+        }
 
-        return arrangmen;
+        return arrangment;
     }
 
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
-//
-//        List<List<List<Integer>>> genomes = new ArrayList<>();
-//
-//        for (String lineR : linesRaw) {
-//            String[] line = lineR.split("\\)\\(");
-//            List<List<Integer>> genome = new ArrayList<>();
-//
-//            //fill list p
-//            for (String comp : line) {
-//                List<Integer> p = new ArrayList<>();
-//                comp = comp.replaceAll("\\(", "");
-//                comp = comp.replaceAll("\\)", "");
-//                String[] inputLineArray = comp.split(" ");
-//                for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
-//                genome.add(p);
-//            }
-//            genomes.add(coloredEdges(genome));
-//        }
-//
-//
-//        find2BreakDistance(genomes);
+
+        List<List<List<Integer>>> genomes = new ArrayList<>();
+
+        for (String lineR : linesRaw) {
+            String[] line = lineR.split("\\)\\(");
+            List<List<Integer>> genome = new ArrayList<>();
+
+            //fill list p
+            for (String comp : line) {
+                List<Integer> p = new ArrayList<>();
+                comp = comp.replaceAll("\\(", "");
+                comp = comp.replaceAll("\\)", "");
+                String[] inputLineArray = comp.split(" ");
+                for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+                genome.add(p);
+            }
+            genomes.add(coloredEdges(genome));
+        }
+
+
+        find2BreakDistance(genomes);
 
 
 
@@ -206,32 +222,44 @@ public class TwoBreakDistance extends GreedySorting {
 //            System.out.print("("+node.get(0)+", "+node.get(1)+"), ");
 //        }
 
-        String[] line = linesRaw.get(0).split(", \\(");
-        List<List<Integer>> genomeGraph = new ArrayList<>();
+//        String[] line = linesRaw.get(0).split(", \\(");
+//        List<List<Integer>> genomeGraph = new ArrayList<>();
+//
+//        for (String comp : line){
+//            List<Integer> edge = new ArrayList<>();
+//            comp = comp.replaceAll("\\(", "");
+//            comp = comp.replaceAll("\\)", "");
+//            comp = comp.replaceAll(" ","");
+//            String[] components = comp.trim().split(",");
+//            edge.add(Integer.parseInt(components[0]));
+//            edge.add(Integer.parseInt(components[1]));
+//            genomeGraph.add(edge);
+//        }
+//
+//        System.out.println(graphToGenome(genomeGraph));
 
-        for (String comp : line){
-            List<Integer> edge = new ArrayList<>();
-            comp = comp.replaceAll("\\(", "");
-            comp = comp.replaceAll("\\)", "");
-            comp = comp.replaceAll(" ","");
-            String[] components = comp.trim().split(",");
-            edge.add(Integer.parseInt(components[0]));
-            edge.add(Integer.parseInt(components[1]));
-            genomeGraph.add(edge);
+//        List<List<Integer>> list = twoBreakOnGenomeGraph(genomeGraph,69,71,91,93);
+//
+//
+//        for (List<Integer> comp : list){
+//            List<String> listS = addPlusToPositive(comp);
+//            System.out.print("(");
+//            for (String s : listS){
+//                System.out.print(s);
+//            }
+//            System.out.print("), ");
+//        }
+//
+    }
+
+    protected List<String> addPlusToPositive(List<Integer> p){
+        List<String> retList = new ArrayList<>();
+        for (int i = 0;i<p.size();i++){
+            Integer num = p.get(i);
+            if (i == p.size()-1) retList.add(num.toString());
+            else retList.add(num.toString()+", ");
+
         }
-
-        //System.out.println(graphToGenome(genomeGraph));
-
-        List<List<Integer>> list = twoBreakOnGenomeGraph(genomeGraph,1,6,3,8);
-
-        for (List<Integer> comp : list){
-            List<String> listS = addPlusToPositive(comp);
-            System.out.print("(");
-            for (String s : listS){
-                System.out.print(s+" ");
-            }
-            System.out.print(")");
-        }
-
+        return retList;
     }
 }
