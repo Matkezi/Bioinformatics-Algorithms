@@ -139,7 +139,7 @@ public class TwoBreakDistance extends LoadAndExecute {
                         cycle.add(nodes.get(i).get(0));
                         cycle.add(nodes.get(i).get(1));
                         nodes.remove(i);
-                        i=0;
+                        i=-1;
                         for (int k = 0;k<red.size();k++){
                             if (red.get(k).contains(cycle.get(j))) red.remove(k);
                         }
