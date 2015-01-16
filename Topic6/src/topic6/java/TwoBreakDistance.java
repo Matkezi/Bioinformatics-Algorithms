@@ -18,7 +18,7 @@ Sample Input:
 Sample Output:
 3
  */
-public class TwoBreakDistance extends LoadAndExecute {
+public class TwoBreakDistance extends GreedySorting {
 
 
     private Integer[] chromosomeToCycle(List<Integer> chromosome){
@@ -155,7 +155,6 @@ public class TwoBreakDistance extends LoadAndExecute {
                     }
                 }
             }
-
             cycles.add(cycle);
         }
 
@@ -191,6 +190,8 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         findCycles(genomes);
 
+
+
 //        System.out.println(genomes);
 //        List<List<Integer>> genome = genomes.get(0);
 //        for (List<Integer> node : genome){
@@ -211,7 +212,18 @@ public class TwoBreakDistance extends LoadAndExecute {
 //            genomeGraph.add(edge);
 //        }
 //
-//        System.out.println(graphToGenome(genomeGraph));
+//        //System.out.println(graphToGenome(genomeGraph));
+//
+//        List<List<Integer>> list = graphToGenome(genomeGraph);
+//
+//        for (List<Integer> comp : list){
+//            List<String> listS = addPlusToPositive(comp);
+//            System.out.print("(");
+//            for (String s : listS){
+//                System.out.print(s+" ");
+//            }
+//            System.out.print(")");
+//        }
 
     }
 }
