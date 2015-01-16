@@ -124,6 +124,8 @@ public class TwoBreakDistance extends LoadAndExecute {
         List<List<Integer>> red = genomes.get(0);
         List<List<Integer>> blue = genomes.get(1);
 
+        blocksPQ = red.size();
+
         List<List<Integer>> nodes = new ArrayList<>();
         nodes.addAll(red);
         nodes.addAll(blue);
@@ -163,12 +165,14 @@ public class TwoBreakDistance extends LoadAndExecute {
                 }
             }
             cycle.remove(cycle.size()-1);
-            blocksPQ += cycle.size()/2;
+            //blocksPQ += cycle.size()/2;
             cycles.add(cycle);
 
         }
 
         cyclesPQ = cycles.size();
+        System.out.println("blocks "+blocksPQ);
+        System.out.println("cycles "+cyclesPQ);
         System.out.println(blocksPQ-cyclesPQ);
 
     }
@@ -195,9 +199,14 @@ public class TwoBreakDistance extends LoadAndExecute {
             genomes.add(coloredEdges(genome));
         }
 
+
         findCycles(genomes);
 
-        //System.out.println(genomes);
+//        System.out.println(genomes);
+//        List<List<Integer>> genome = genomes.get(0);
+//        for (List<Integer> node : genome){
+//            System.out.print("("+node.get(0)+", "+node.get(1)+"), ");
+//        }
 
 //        String[] line = linesRaw.get(0).split(", \\(");
 //        List<List<Integer>> genomeGraph = new ArrayList<>();
