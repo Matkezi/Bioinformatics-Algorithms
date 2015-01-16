@@ -76,6 +76,27 @@ public class TwoBreakDistance extends GreedySorting {
         return edges;
     }
 
+    private List<List<Integer>> blackEdges(List<List<Integer>> genome){
+        List<List<Integer>> edges = new ArrayList<>();
+
+        for (List<Integer> chromosome : genome){
+            Integer[] nodes = chromosomeToCycle(chromosome);
+            for (int i = 2;i<nodes.length-1;i+=2){
+                List<Integer> edge = new ArrayList<>();
+                edge.add(nodes[i]);
+                edge.add(nodes[i+1]);
+                edges.add(edge);
+            }
+
+            List<Integer> edge = new ArrayList<>();
+            edge.add(nodes[nodes.length-1]);
+            edge.add(nodes[1]);
+            edges.add(edge);
+        }
+
+        return edges;
+    }
+
     /**
      * Finds cycles from connected nodes.
      * @param genomegraph containing small lists of individual nodes
@@ -189,6 +210,10 @@ public class TwoBreakDistance extends GreedySorting {
         return arrangment;
     }
 
+    private List<List<Integer>> twoBreakOnGenome(List<List<Integer>> genome){
+        return null;
+    }
+
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
@@ -211,10 +236,7 @@ public class TwoBreakDistance extends GreedySorting {
             genomes.add(coloredEdges(genome));
         }
 
-
-        find2BreakDistance(genomes);
-
-
+        //find2BreakDistance(genomes);
 
 //        System.out.println(genomes);
 //        List<List<Integer>> genome = genomes.get(0);
