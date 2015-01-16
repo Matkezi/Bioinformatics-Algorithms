@@ -6,6 +6,17 @@ import java.util.List;
 /**
  * @author Matko
  * @version 1.0
+ *
+ * CODE CHALLENGE: Solve the 2-Break Distance Problem.
+Input: Genomes P and Q.
+Output: The 2-break distance d(P, Q).
+
+Sample Input:
+(+1 +2 +3 +4 +5 +6)
+(+1 -3 -6 -5)(+2 -4)
+
+Sample Output:
+3
  */
 public class TwoBreakDistance extends LoadAndExecute {
 
@@ -152,9 +163,13 @@ public class TwoBreakDistance extends LoadAndExecute {
                 }
             }
             cycle.remove(cycle.size()-1);
+            blocksPQ += cycle.size()/2;
             cycles.add(cycle);
 
         }
+
+        cyclesPQ = cycles.size();
+        System.out.println(blocksPQ-cyclesPQ);
 
     }
 
@@ -182,7 +197,7 @@ public class TwoBreakDistance extends LoadAndExecute {
 
         findCycles(genomes);
 
-        System.out.println(genomes);
+        //System.out.println(genomes);
 
 //        String[] line = linesRaw.get(0).split(", \\(");
 //        List<List<Integer>> genomeGraph = new ArrayList<>();
