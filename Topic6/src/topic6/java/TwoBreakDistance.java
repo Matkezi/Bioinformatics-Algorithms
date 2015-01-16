@@ -211,6 +211,8 @@ public class TwoBreakDistance extends GreedySorting {
     }
 
     private List<List<Integer>> twoBreakOnGenome(List<List<Integer>> genome){
+        List<List<Integer>> genomeGraph = coloredEdges(genome);
+        genomeGraph.addAll(blackEdges(genome));
         return null;
     }
 
@@ -233,8 +235,11 @@ public class TwoBreakDistance extends GreedySorting {
                 for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
                 genome.add(p);
             }
+            twoBreakOnGenome(genome);
             genomes.add(coloredEdges(genome));
         }
+
+
 
         //find2BreakDistance(genomes);
 
