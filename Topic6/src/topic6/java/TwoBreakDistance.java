@@ -120,7 +120,7 @@ public class TwoBreakDistance extends GreedySorting {
 
     private int blocksPQ=0, cyclesPQ=0;
 
-    private void findCycles(List<List<List<Integer>>> genomes){
+    private void find2BreakDistance(List<List<List<Integer>>> genomes){
         List<List<Integer>> red = genomes.get(0);
         List<List<Integer>> blue = genomes.get(1);
 
@@ -168,27 +168,27 @@ public class TwoBreakDistance extends GreedySorting {
     @Override
     public void execute(String fileName) {
         List<String> linesRaw = loadFromFiles(fileName);
-
-        List<List<List<Integer>>> genomes = new ArrayList<>();
-
-        for (String lineR : linesRaw) {
-            String[] line = lineR.split("\\)\\(");
-            List<List<Integer>> genome = new ArrayList<>();
-
-            //fill list p
-            for (String comp : line) {
-                List<Integer> p = new ArrayList<>();
-                comp = comp.replaceAll("\\(", "");
-                comp = comp.replaceAll("\\)", "");
-                String[] inputLineArray = comp.split(" ");
-                for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
-                genome.add(p);
-            }
-            genomes.add(coloredEdges(genome));
-        }
-
-
-        findCycles(genomes);
+//
+//        List<List<List<Integer>>> genomes = new ArrayList<>();
+//
+//        for (String lineR : linesRaw) {
+//            String[] line = lineR.split("\\)\\(");
+//            List<List<Integer>> genome = new ArrayList<>();
+//
+//            //fill list p
+//            for (String comp : line) {
+//                List<Integer> p = new ArrayList<>();
+//                comp = comp.replaceAll("\\(", "");
+//                comp = comp.replaceAll("\\)", "");
+//                String[] inputLineArray = comp.split(" ");
+//                for (String lineComp : inputLineArray) p.add(Integer.parseInt(lineComp));
+//                genome.add(p);
+//            }
+//            genomes.add(coloredEdges(genome));
+//        }
+//
+//
+//        find2BreakDistance(genomes);
 
 
 
@@ -198,32 +198,32 @@ public class TwoBreakDistance extends GreedySorting {
 //            System.out.print("("+node.get(0)+", "+node.get(1)+"), ");
 //        }
 
-//        String[] line = linesRaw.get(0).split(", \\(");
-//        List<List<Integer>> genomeGraph = new ArrayList<>();
-//
-//        for (String comp : line){
-//            List<Integer> edge = new ArrayList<>();
-//            comp = comp.replaceAll("\\(", "");
-//            comp = comp.replaceAll("\\)", "");
-//            comp = comp.replaceAll(" ","");
-//            String[] components = comp.trim().split(",");
-//            edge.add(Integer.parseInt(components[0]));
-//            edge.add(Integer.parseInt(components[1]));
-//            genomeGraph.add(edge);
-//        }
-//
-//        //System.out.println(graphToGenome(genomeGraph));
-//
-//        List<List<Integer>> list = graphToGenome(genomeGraph);
-//
-//        for (List<Integer> comp : list){
-//            List<String> listS = addPlusToPositive(comp);
-//            System.out.print("(");
-//            for (String s : listS){
-//                System.out.print(s+" ");
-//            }
-//            System.out.print(")");
-//        }
+        String[] line = linesRaw.get(0).split(", \\(");
+        List<List<Integer>> genomeGraph = new ArrayList<>();
+
+        for (String comp : line){
+            List<Integer> edge = new ArrayList<>();
+            comp = comp.replaceAll("\\(", "");
+            comp = comp.replaceAll("\\)", "");
+            comp = comp.replaceAll(" ","");
+            String[] components = comp.trim().split(",");
+            edge.add(Integer.parseInt(components[0]));
+            edge.add(Integer.parseInt(components[1]));
+            genomeGraph.add(edge);
+        }
+
+        //System.out.println(graphToGenome(genomeGraph));
+
+        List<List<Integer>> list = graphToGenome(genomeGraph);
+
+        for (List<Integer> comp : list){
+            List<String> listS = addPlusToPositive(comp);
+            System.out.print("(");
+            for (String s : listS){
+                System.out.print(s+" ");
+            }
+            System.out.print(")");
+        }
 
     }
 }
