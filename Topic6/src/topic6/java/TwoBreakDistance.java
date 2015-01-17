@@ -84,8 +84,16 @@ public class TwoBreakDistance extends GreedySorting {
             Integer[] nodes = chromosomeToCycle(chromosome);
             for (int i = 1;i<nodes.length-1;i+=2){
                 List<Integer> edge = new ArrayList<>();
-                edge.add(nodes[i]);
-                edge.add(nodes[i+1]);
+                int node1 = nodes[i];
+                int node2 = nodes[i+1];
+                if (node1 < node2) {
+                    edge.add(node1);
+                    edge.add(node2);
+                } else {
+                    edge.add(node2);
+                    edge.add(node1);
+                }
+
                 edges.add(edge);
             }
         }
