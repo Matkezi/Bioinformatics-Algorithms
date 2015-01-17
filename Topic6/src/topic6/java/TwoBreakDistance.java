@@ -112,8 +112,11 @@ public class TwoBreakDistance extends GreedySorting {
     private List<List<Integer>> findCycle(List<List<Integer>> genomeGraph){
         List<List<Integer>> foundCycles = new ArrayList<>();
 
-        List<List<Integer>> blackEdges = genomeGraph.subList(genomeGraph.size()/2,genomeGraph.size());
-        List<List<Integer>> coloredEdges = genomeGraph.subList(0,genomeGraph.size()/2);
+        List<List<Integer>> blackEdges = new ArrayList<>();
+        List<List<Integer>> coloredEdges = new ArrayList<>();
+
+        blackEdges.addAll(genomeGraph.subList(genomeGraph.size()/2,genomeGraph.size()));
+        coloredEdges.addAll(genomeGraph.subList(0,genomeGraph.size()/2));
 
         while (!blackEdges.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
@@ -130,14 +133,17 @@ public class TwoBreakDistance extends GreedySorting {
                         break;
                     }
 
+                    //add it to cycle
+                    if (coloredNode.get(0) != cycle.get(cycle.size()-1)) cycle.add(coloredNode.get(0));
+                    else cycle.add(coloredNode.get(1));
+
                     coloredEdges.remove(i);
                     //remove from black, and set new search of colored ones
                     for (int k = 0;k<blackEdges.size();k++){
                         if (blackEdges.get(k).contains(cycle.get(cycle.size()-1))){
-                            cycle.add(blackEdges.get(k).get(0));
-                            cycle.add(blackEdges.get(k).get(1));
+                            if (blackEdges.get(k).get(0) != cycle.get(cycle.size()-1)) cycle.add(blackEdges.get(k).get(0));
+                            else cycle.add(coloredNode.get(1));
                             blackEdges.remove(k);
-
                             i=0;
                             break;
                         }
