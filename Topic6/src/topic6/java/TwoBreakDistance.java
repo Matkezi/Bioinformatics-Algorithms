@@ -132,6 +132,7 @@ public class TwoBreakDistance extends GreedySorting {
                             cycle.add(blackEdges.get(k).get(0));
                             cycle.add(blackEdges.get(k).get(1));
                             blackEdges.remove(k);
+                            i=0;
                             break;
                         }
                     }
