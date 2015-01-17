@@ -55,6 +55,9 @@ public class TwoBreakDistance extends GreedySorting {
         return chromosome;
     }
 
+    List<List<Integer>> blackEdges;
+    List<List<Integer>> coloredEdges;
+
     private List<List<Integer>> coloredEdges(List<List<Integer>> genome){
         List<List<Integer>> edges = new ArrayList<>();
 
@@ -73,6 +76,7 @@ public class TwoBreakDistance extends GreedySorting {
             edges.add(edge);
         }
 
+        coloredEdges = edges;
         return edges;
     }
 
@@ -101,35 +105,19 @@ public class TwoBreakDistance extends GreedySorting {
             }
         }
 
+        blackEdges = edges;
         return edges;
     }
 
     /**
      * Finds cycles from connected nodes.
-     * @param genomegraph containing small lists of individual nodes
+     * @param genomeGraph containing small lists of individual nodes
      * @return bigger lists of nodes
      */
-    private List<List<Integer>> findCycle(List<List<Integer>> genomegraph){
+    private List<List<Integer>> findCycle(List<List<Integer>> genomeGraph){
         List<List<Integer>> foundCycles = new ArrayList<>();
 
 
-        int i = 0, startCycle = 0;
-        while(i<genomegraph.size()){
-            List<Integer> node = genomegraph.get(i);
-            if (node.get(0) > node.get(1)){
-                List<Integer> cycle = new ArrayList<>();
-                for (int j = startCycle;j<i+1;j++,startCycle++){
-                    cycle.add(genomegraph.get(j).get(0));
-
-                    //if last put it in the beginning
-                    if(j == i) cycle.add(0,genomegraph.get(j).get(1));
-                    else cycle.add(genomegraph.get(j).get(1));
-                }
-
-                foundCycles.add(cycle);
-            }
-            i++;
-        }
 
         return foundCycles;
     }
