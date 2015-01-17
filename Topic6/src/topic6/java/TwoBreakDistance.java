@@ -120,18 +120,25 @@ public class TwoBreakDistance extends GreedySorting {
         while (!blackEdges.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
             List<Integer> blackNode = blackEdges.get(0);
+            blackEdges.remove(0);
             cycle.add(blackNode.get(0));
             cycle.add(blackNode.get(1));
 
             for (int i = 0;i<coloredEdges.size();i++){
                 List<Integer> coloredNode = coloredEdges.get(i);
                 if (coloredNode.contains(cycle.get(cycle.size()-1))){
-                    cycle.add(coloredNode.get(0));
-                    cycle.add(coloredNode.get(1));
-                    break;
+                    for (int k = 0;k<blackEdges.size();k++){
+                        if (blackEdges.get(k).contains(cycle.get(cycle.size()-1))){
+                            cycle.add(blackEdges.get(k).get(0));
+                            cycle.add(blackEdges.get(k).get(1));
+                            blackEdges.remove(k);
+                            break;
+                        }
+                    }
                 }
-
             }
+
+
         }
 
 
