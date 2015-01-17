@@ -127,18 +127,26 @@ public class TwoBreakDistance extends GreedySorting {
             for (int i = 0;i<coloredEdges.size();i++){
                 List<Integer> coloredNode = coloredEdges.get(i);
                 if (coloredNode.contains(cycle.get(cycle.size()-1))){
+                    //check if already in a cycle, if so go to new cycle
+                    if (cycle.contains(coloredNode.get(0)) && cycle.contains(coloredNode.get(1))){
+                        break;
+                    }
+
+                    coloredEdges.remove(i);
+                    //remove from black, and set new search of colored ones
                     for (int k = 0;k<blackEdges.size();k++){
                         if (blackEdges.get(k).contains(cycle.get(cycle.size()-1))){
                             cycle.add(blackEdges.get(k).get(0));
                             cycle.add(blackEdges.get(k).get(1));
                             blackEdges.remove(k);
+
                             i=0;
                             break;
                         }
                     }
                 }
             }
-
+            foundCycles.add(cycle);
 
         }
 
@@ -231,7 +239,7 @@ public class TwoBreakDistance extends GreedySorting {
 
     private List<List<Integer>> twoBreakOnGenome(List<List<Integer>> genome){
         List<List<Integer>> genomeGraph = coloredEdges(genome);
-        genomeGraph.addAll(blackEdges(genome));
+        blackEdges(genome);
         genomeGraph = twoBreakOnGenomeGraph(genomeGraph,1,6,3,8);
         return graphToGenome(genomeGraph);
     }
