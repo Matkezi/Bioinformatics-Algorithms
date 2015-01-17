@@ -86,13 +86,16 @@ public class TwoBreakDistance extends GreedySorting {
                 List<Integer> edge = new ArrayList<>();
                 int node1 = nodes[i];
                 int node2 = nodes[i+1];
-                if (node1 < node2) {
-                    edge.add(node1);
-                    edge.add(node2);
-                } else {
-                    edge.add(node2);
-                    edge.add(node1);
-                }
+//                if (node1 < node2) {
+//                    edge.add(node1);
+//                    edge.add(node2);
+//                } else {
+//                    edge.add(node2);
+//                    edge.add(node1);
+//                }
+
+                edge.add(node1);
+                edge.add(node2);
 
                 edges.add(edge);
             }
@@ -215,7 +218,7 @@ public class TwoBreakDistance extends GreedySorting {
 
     private List<List<Integer>> twoBreakOnGenome(List<List<Integer>> genome){
         List<List<Integer>> genomeGraph = coloredEdges(genome);
-        //genomeGraph.addAll(blackEdges(genome));
+        genomeGraph.addAll(blackEdges(genome));
         genomeGraph = twoBreakOnGenomeGraph(genomeGraph,1,6,3,8);
         return graphToGenome(genomeGraph);
     }
