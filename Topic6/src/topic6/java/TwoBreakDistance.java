@@ -112,6 +112,7 @@ public class TwoBreakDistance extends GreedySorting {
     private List<List<Integer>> findCycle(List<List<Integer>> genomegraph){
         List<List<Integer>> foundCycles = new ArrayList<>();
 
+
         int i = 0, startCycle = 0;
         while(i<genomegraph.size()){
             List<Integer> node = genomegraph.get(i);
