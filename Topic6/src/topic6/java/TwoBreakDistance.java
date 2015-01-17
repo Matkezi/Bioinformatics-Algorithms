@@ -115,8 +115,8 @@ public class TwoBreakDistance extends GreedySorting {
         List<List<Integer>> blackEdges = new ArrayList<>();
         List<List<Integer>> coloredEdges = new ArrayList<>();
 
-        blackEdges.addAll(genomeGraph.subList(genomeGraph.size()/2,genomeGraph.size()));
-        coloredEdges.addAll(genomeGraph.subList(0,genomeGraph.size()/2));
+        blackEdges.addAll(genomeGraph.subList(genomeGraph.size() / 2, genomeGraph.size()));
+        coloredEdges.addAll(genomeGraph.subList(0, genomeGraph.size() / 2));
 
         while (!blackEdges.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
@@ -141,8 +141,10 @@ public class TwoBreakDistance extends GreedySorting {
                     //remove from black, and set new search of colored ones
                     for (int k = 0;k<blackEdges.size();k++){
                         if (blackEdges.get(k).contains(cycle.get(cycle.size()-1))){
+                            System.out.println(blackEdges.get(k).get(0));
+                            System.out.println(cycle.get(cycle.size()-1));
                             if (blackEdges.get(k).get(0) != cycle.get(cycle.size()-1)) cycle.add(blackEdges.get(k).get(0));
-                            else cycle.add(coloredNode.get(1));
+                            else cycle.add(blackEdges.get(k).get(1));
                             blackEdges.remove(k);
                             i=0;
                             break;
