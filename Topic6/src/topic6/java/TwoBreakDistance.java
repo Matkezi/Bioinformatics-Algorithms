@@ -55,9 +55,6 @@ public class TwoBreakDistance extends GreedySorting {
         return chromosome;
     }
 
-    List<List<Integer>> blackEdges;
-    List<List<Integer>> coloredEdges;
-
     private List<List<Integer>> coloredEdges(List<List<Integer>> genome){
         List<List<Integer>> edges = new ArrayList<>();
 
@@ -76,7 +73,6 @@ public class TwoBreakDistance extends GreedySorting {
             edges.add(edge);
         }
 
-        coloredEdges = edges;
         return edges;
     }
 
@@ -105,7 +101,6 @@ public class TwoBreakDistance extends GreedySorting {
             }
         }
 
-        blackEdges = edges;
         return edges;
     }
 
@@ -116,6 +111,9 @@ public class TwoBreakDistance extends GreedySorting {
      */
     private List<List<Integer>> findCycle(List<List<Integer>> genomeGraph){
         List<List<Integer>> foundCycles = new ArrayList<>();
+
+        List<List<Integer>> blackEdges = genomeGraph.subList(genomeGraph.size()/2,genomeGraph.size());
+        List<List<Integer>> coloredEdges = genomeGraph.subList(0,genomeGraph.size()/2);
 
         while (!blackEdges.isEmpty()){
             List<Integer> cycle = new ArrayList<>();
@@ -239,7 +237,7 @@ public class TwoBreakDistance extends GreedySorting {
 
     private List<List<Integer>> twoBreakOnGenome(List<List<Integer>> genome){
         List<List<Integer>> genomeGraph = coloredEdges(genome);
-        blackEdges(genome);
+        genomeGraph.addAll(blackEdges(genome));
         genomeGraph = twoBreakOnGenomeGraph(genomeGraph,1,6,3,8);
         return graphToGenome(genomeGraph);
     }
